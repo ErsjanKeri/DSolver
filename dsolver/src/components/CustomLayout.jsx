@@ -7,6 +7,10 @@ import {
     UploadOutlined,
     UserOutlined,
     FireOutlined,
+    NodeIndexOutlined,
+    NumberOutlined,
+    InsertRowRightOutlined,
+    PartitionOutlined,
     VideoCameraOutlined,
   } from '@ant-design/icons';
   import { Layout, Menu, theme } from 'antd';
@@ -56,12 +60,28 @@ import {
                     
                     
                 </Menu.Item>
-                <Menu.Item key={"homepage2"} icon={<FireOutlined />}>
+                <Menu.Item key={"homepage2"} icon={<NodeIndexOutlined />}>
                     <Link to="/havelhakimi">
-                        Havelhakimi
+                        Havel Hakimi
                     </Link>
-                    
-                    
+                </Menu.Item>
+
+                <Menu.Item key={"homepage3"} icon={<NumberOutlined />}>
+                    <Link to="/">
+                        Kombinatorik
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key={"homepage4"} icon={<InsertRowRightOutlined />}>
+                    <Link to="/">
+                        EEA 
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
+                    <Link to="/">
+                        DPPL
+                    </Link>
                 </Menu.Item>
             </Menu>
 
@@ -101,7 +121,7 @@ import {
               textAlign: 'center',
             }}
           >
-            Ant Design ©2023 Created by Ant UED
+            DSolver ©2023 Created by best excellent TUM Students
           </Footer>
         </Layout>
       </Layout>

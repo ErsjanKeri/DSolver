@@ -14,24 +14,21 @@ const App = () => {
 
   return (
     <>
-           
-        
             <Router>
                 <Routes>
                     <Route path="" element={
-                      <CustomLayout>
+                       <CustomLayout>
                           <Mainpage/>
-                      </CustomLayout>
+                        </CustomLayout>
                        
                     }/>
                     <Route path="havelhakimi" element={
-                      <CustomLayout>
+                        <CustomLayout>
                           <HavelHakimi/>
-                      </CustomLayout>
+                        </CustomLayout>
                     }/>
                 </Routes>
             </Router>
-            
       </>
   )
 }
