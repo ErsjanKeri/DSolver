@@ -63,6 +63,14 @@ import {
                     
                     
                 </Menu.Item>
+
+                <Menu.Item key={"homepage3"} icon={<FireOutlined />}>
+                    <Link to="/kombinatorik">
+                       Kombinatorik
+                    </Link>
+                    
+                    
+                </Menu.Item>
             </Menu>
 
 
