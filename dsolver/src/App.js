@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import { Modal, Layout, Breadcrumb } from 'antd';
+import { Routes, Navigate, Route } from "react-router-dom";
 
-function App() {
+import {  CustomLayout, Mainpage, HavelHakimi  } from "./components"
+
+import { HashRouter as Router } from "react-router-dom"
+
+import './main.less';
+
+
+const App = () => {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+           
+        
+            <Router>
+                <Routes>
+                    <Route path="" element={
+                      <CustomLayout>
+                          <Mainpage/>
+                      </CustomLayout>
+                       
+                    }/>
+                    <Route path="havelhakimi" element={
+                      <CustomLayout>
+                          <HavelHakimi/>
+                      </CustomLayout>
+                    }/>
+                </Routes>
+            </Router>
+            
+      </>
+  )
 }
 
-export default App;
+export default App
