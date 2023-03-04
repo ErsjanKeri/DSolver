@@ -92,6 +92,7 @@ import {
           className="site-layout"
           style={{
             marginLeft: 200,
+            minHeight: "100vh"
           }}
         >
           <Header
@@ -102,13 +103,15 @@ import {
           />
           <Content
             style={{
-              margin: '24px 16px 0',
+              //margin: '100px 24px 24px 24px',
+              height: "100%",
               overflow: 'initial',
             }}
           >
             <div
               style={{
                 padding: 24,
+                marginTop: 50,
                 textAlign: 'center',
                 background: colorBgContainer,
               }}
