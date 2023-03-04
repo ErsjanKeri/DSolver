@@ -73,7 +73,7 @@ import {
                 </Menu.Item>
 
                 <Menu.Item key={"homepage4"} icon={<InsertRowRightOutlined />}>
-                    <Link to="/">
+                    <Link to="/eea">
                         EEA 
                     </Link>
                 </Menu.Item>
