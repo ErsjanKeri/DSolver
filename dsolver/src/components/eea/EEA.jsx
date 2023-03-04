@@ -31,10 +31,15 @@ function EEA() {
     }
   ] 
 
+
+
   // initate hooks
   const [aInput, setAInput] = useState("")
   const [bInput , setBInput] = useState("")
   const [dataSource, setDataSource] = useState([])
+
+
+  const [solved, setSolved] = useState(false)
 
   // Function thats calles on solve button press
   // checks if there are valid numbers
@@ -103,26 +108,26 @@ function EEA() {
     
     // update dataSource
     setDataSource(data)
+    setSolved(true)
   }
 
 
   return (
     <div className='container'>
         <h1>Erweiterter Euklidischer Algorithmus</h1>
-        <form className='input_group'>
+        <form className='input_group mb-2'>
           <div className='input_number'>
             <InputNumber value={aInput} onChange={(value) => {setAInput(value)}} placeholder='a'/>
             <InputNumber value={bInput} onChange={(value) => {setBInput(value)}} placeholder='b'/>
           </div>
           <Button className="submit-btn" type="primary" onClick={solve}>Solve!</Button>
         </form>
-        <hr/>
-        <div id="stepButtons">
-          <Button type="primary">Back</Button>
-          <Button type="primary">Run</Button>
-          <Button type="primary">Next</Button>
-        </div>
-        <Table id='eea_table' dataSource={dataSource} columns={collums} pagination={false} bordered={true} size={"large"}/>
+    
+    
+        {solved ? (
+            <Table id='eea_table' dataSource={dataSource} columns={collums} pagination={false} bordered={true} size={"large"}/>
+        ) : (<></>)}
+       
     </div>
   )
 }

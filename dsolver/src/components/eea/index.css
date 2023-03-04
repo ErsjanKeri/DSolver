@@ -45,3 +45,8 @@ hr {
     margin: 0.15rem;
     width: 8vw;
 }
+
+
+th, td {
+    text-align: center!important;
+  }
