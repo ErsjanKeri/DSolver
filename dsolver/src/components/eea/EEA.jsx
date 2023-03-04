@@ -20,7 +20,7 @@ function EEA() {
       key: "intDivision"
     },
     {
-      title: "alpha",
+      title: "α",
       dataIndex: "alpha",
       key: "alpha"
     },
@@ -122,7 +122,7 @@ function EEA() {
           <Button type="primary">Run</Button>
           <Button type="primary">Next</Button>
         </div>
-        <Table id='eea_table' dataSource={dataSource} columns={collums} pagination={false} bordered={true}/>
+        <Table id='eea_table' dataSource={dataSource} columns={collums} pagination={false} bordered={true} size={"large"}/>
     </div>
   )
 }
