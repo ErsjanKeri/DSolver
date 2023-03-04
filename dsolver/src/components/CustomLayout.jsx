@@ -121,7 +121,7 @@ import {
               textAlign: 'center',
             }}
           >
-            DSolver ©2023 Created by best excellent TUM Students
+            DSolver ©2023 Created with excellenz by not-so-excellent Tum students
           </Footer>
         </Layout>
       </Layout>
