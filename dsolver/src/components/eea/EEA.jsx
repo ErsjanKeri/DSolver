@@ -25,7 +25,7 @@ function EEA() {
       key: "alpha"
     },
     {
-      title: "beta",
+      title: "β",
       dataIndex: "beta",
       key: "beta"
     }
