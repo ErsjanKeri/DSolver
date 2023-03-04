@@ -1,0 +1,47 @@
+.container > *{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 17vw;
+}
+
+.input_number {
+    display: flex;
+    flex-direction: row;
+}
+
+.input_number > *{
+    width: inherit;
+    margin: 0.3rem;
+}
+
+
+.submit-btn {
+    margin-top: 0.2rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+
+hr {
+    margin-top: 2rem;
+}
+
+
+#stepButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#stepButtons > * {
+    margin: 0.15rem;
+    width: 8vw;
+}
