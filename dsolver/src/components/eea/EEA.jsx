@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {Button, InputNumber, Table} from "antd"
-import "./index.css"
+import "./index.less"
+
+
+
 function EEA() {
   // initate table contents
   const collums = [
@@ -122,10 +125,26 @@ function EEA() {
           </div>
           <Button className="submit-btn" type="primary" onClick={solve}>Solve!</Button>
         </form>
-    
-    
         {solved ? (
-            <Table id='eea_table' dataSource={dataSource} columns={collums} pagination={false} bordered={true} size={"large"}/>
+            <Table id='eea_table' 
+              dataSource={dataSource} 
+              columns={collums} 
+              pagination={false} 
+              bordered={true} 
+              footer={() => {
+                let alpha = dataSource[0].alpha
+                let beta = dataSource[0].beta
+                let a = dataSource[0].a
+                let b = dataSource[0].b
+
+                return `ggT 
+                = α * a +  ß * b 
+                = ${alpha} * ${a} 
+                + ${beta} * ${a} 
+                = ${alpha * a + beta * b}`
+            }}
+              tableLayout={"fixed"} 
+              size={"large"}/>
         ) : (<></>)}
        
     </div>
