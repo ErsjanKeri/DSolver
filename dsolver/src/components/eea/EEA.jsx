@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {Button, InputNumber, Table} from "antd"
 import "./index.less"
 
@@ -41,14 +41,15 @@ function EEA() {
   const [bInput , setBInput] = useState("")
   const [dataSource, setDataSource] = useState([])
 
-
   const [solved, setSolved] = useState(false)
+  const [states, setStates] = useState([])
+  const [counter, setCounter] = useState(0)
 
   // Function thats calles on solve button press
   // checks if there are valid numbers
   // i think this check in useless since it's now working witht number-input-fields
   function solve(){
-    if(aInput !== 0 || bInput !== 0){
+    if(aInput !== "" || bInput !== ""){
       filleEaaTable();
     }
     else{
@@ -58,59 +59,70 @@ function EEA() {
 
 
   /*
-    function that "prefills" the tabel with correct numbers
+    function that creates every state of the table
   */
   function filleEaaTable() {
-    let data = []
     let a = aInput
     let b = bInput
-    // add inital state to the dataSource
-    data.push({
+    let states = [[{
       a: a,
       b: b,
       intDivision: Math.floor(b/a),
-      alpha: 0,
-      beta: 0
-    })
+      alpha: "",
+      beta: ""
+    }]];
 
     
     // fill left half of the table until end condition is met
     while(b%a !== 0){
-      let new_b = a
       let new_a = b%a
+      let new_b = a
 
       a = new_a;
       b = new_b;
       
-      data.push({
-      a: a,
-      b: b,
-      intDivision: b%a == 0 ? "-" : Math.floor(b/a),
-      alpha: 0,
-      beta: 0
+      // get last state and update it with the new row
+      // let newState = states[states.length - 1].slice(0)
+      let newState = structuredClone(states[states.length - 1])
+
+      newState.push({
+        a: a,
+        b: b,
+        intDivision: b%a === 0 ? "-" : Math.floor(b/a),
+        alpha: "",
+        beta: ""
       })
+      states.push(newState)
 
     }
 
     // solve right part
 
-    // update last 
-    data[data.length - 1].alpha = 1
-    data[data.length - 1].beta = 0
+    // creat new state with last row filled in 
+    let newState =  structuredClone(states[states.length - 1])
     
+    newState[newState.length - 1].alpha = 1
+    newState[newState.length - 1].beta = 0
+    states.push(newState)    
+    
+    let depth = newState.length
     // walk up rows
-    for(let i = data.length - 1; i >= 1; i--){
-      let alpha = data[i].alpha
-      let beta = data[i].beta
-      let intDiv = data[i-1].intDivision
-      
-      // set next values
-      data[i - 1].alpha = beta - (intDiv * alpha)
-      data[i - 1].beta = alpha
+    for(let i = depth - 1; i >= 1; i--){
+      // get most recent state
+      newState = structuredClone(states[states.length - 1])
+      // calculate 
+      let alpha = newState[i].alpha
+      let beta = newState[i].beta
+      let intDiv = newState[i-1].intDivision
+
+      newState[i - 1].alpha = beta - (intDiv * alpha)
+      newState[i - 1].beta = alpha
+
+      states.push(newState)
     }
-    
     // update dataSource
-    setDataSource(data)
+    setStates(states)
+    setDataSource(states[counter])
     setSolved(true)
   }
 
@@ -123,28 +135,41 @@ function EEA() {
             <InputNumber value={aInput} onChange={(value) => {setAInput(value)}} placeholder='a'/>
             <InputNumber value={bInput} onChange={(value) => {setBInput(value)}} placeholder='b'/>
           </div>
-          <Button className="submit-btn" type="primary" onClick={solve}>Solve!</Button>
+          <Button className="submit-btn" type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Solve!</Button>
         </form>
+        
         {solved ? (
+          <div> 
+            <div id="control_buttons">
+              <Button id="back" onClick={() => {
+                if(counter > 0){
+                  setDataSource(states[counter - 1])
+                  setCounter(counter - 1)
+                }
+              }}>Back</Button>
+
+              <Button id="next" type="primary" onClick={() => {
+                if(counter < states.length - 1){
+                  setDataSource(states[counter + 1])
+                  setCounter(counter + 1)
+                }
+              }}>Next</Button>
+
+              <Button id="reveal" type="primary" onClick={() => {
+                setDataSource(states[states.length - 1])
+                setCounter(states.length - 1)
+              }}>Reveal</Button>
+
+            </div>
+
             <Table id='eea_table' 
               dataSource={dataSource} 
               columns={collums} 
               pagination={false} 
               bordered={true} 
-              footer={() => {
-                let alpha = dataSource[0].alpha
-                let beta = dataSource[0].beta
-                let a = dataSource[0].a
-                let b = dataSource[0].b
-
-                return `ggT 
-                = α * a +  ß * b 
-                = ${alpha} * ${a} 
-                + ${beta} * ${a} 
-                = ${alpha * a + beta * b}`
-            }}
               tableLayout={"fixed"} 
               size={"large"}/>
+          </div> 
         ) : (<></>)}
        
     </div>
@@ -152,4 +177,19 @@ function EEA() {
 }
 
 
+/*
+footer={() => {
+                const lastState = dataSource[dataSource.length - 1]
+                let alpha = lastState.alpha
+                let beta = lastState.beta
+                let a = lastState.a
+                let b = lastState.b
+
+                return `ggT 
+                = α * a +  ß * b 
+                = ${alpha} * ${a} 
+                + ${beta} * ${a} 
+                = ${alpha * a + beta * b}`
+            }}
+*/
 export default EEA

@@ -1,7 +1,7 @@
 @import (less) "../../main.less";
 
-button {
-    background-color: @primary-color !important;
+.ant-btn{
+    background-color: @primary-color;
 }
 
 .container > *{
@@ -62,5 +62,20 @@ button {
     
 }
 
+#control_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    * {
+        margin: 0.3rem;
+        text-align: center;
+    }
+    #back{
+        background-color: transparent;
+    }
+    #reveal {
+        background-color: #B7B7B7;
+    } 
+}
 
 
