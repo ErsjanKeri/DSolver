@@ -1,0 +1,12 @@
+#graph {
+    height: 275px;
+    width: 100%;
+  }
+
+  .view-wrapper .graph-controls .slider-button {
+    width: 30px;
+    height: 30px;
+    padding: 4px 5px;
+
+}
+

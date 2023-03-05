@@ -83,13 +83,6 @@ import {
                         DPPL
                     </Link>
                 </Menu.Item>
-
-                <Menu.Item key={"homepage6"} icon={<PartitionOutlined />}>
-                    <Link to="/relation">
-                        Relation
-                    </Link>
-                </Menu.Item>
-                
             </Menu>
 
 
