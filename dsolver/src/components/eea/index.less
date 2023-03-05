@@ -1,0 +1,81 @@
+@import (less) "../../main.less";
+
+.ant-btn{
+    background-color: @primary-color;
+}
+
+.container > *{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: clamp(20vw, 30vw, 80vw);
+}
+
+.input_number {
+    * {
+        width: 100%;
+        margin: 0.3rem;
+    }
+    display: flex;
+    flex-direction: row;
+}
+
+
+.submit-btn {
+    margin-top: 0.2rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+
+// table design
+#eea_table {
+    border-color: #f8f8f8;
+    font-size: large;
+    * {
+        text-align: center;
+    }
+
+
+    th {
+        background-color: @primary-color;
+        color: white; 
+        
+    }
+    thead {
+        .ant-table-cell {
+            border-color: #005293;
+        }
+    }
+
+    tbody {
+        .ant-table-cell {
+            background-color: #f6f6f6;
+        }
+    }
+    
+}
+
+#control_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    * {
+        margin: 0.3rem;
+        text-align: center;
+    }
+    #back{
+        background-color: transparent;
+    }
+    #reveal {
+        background-color: #B7B7B7;
+    } 
+}
+
+
