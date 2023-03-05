@@ -78,13 +78,30 @@ function DPLL() {
     
   }
 
+  //to parse user input in 2d Array
+  function parseClauses(input) {
+    var clausesArr = []
+    try {
+      var raw1 = input.split('}')
+      raw1.forEach(element => {
+
+        var clause = element.replace('{', '').replaceAll(' ', '')
+        clausesArr.push(clause.split(',').filter(n => n.length != 0))
+      })
+    } catch (exception) {
+      return []
+    }
+    clausesArr.pop()
+    return clausesArr
+  }
+
   var literal = "!a"
   let klauseln = [["a", "b", "c", "d"], ["!a", "c", "d"], ["b", "c", "d"], ["!a", "c"]]
 
   let testAlph = ["a", "b", "!b", "!a"]
-  console.log(testAlph.sort().toString())
   let hey = new Set(testAlph)
-  console.log(testAlph.filter(n => n.includes('!')))
 
+  let testString = "{a, b, c}, {!a, b, c}"
+  console.log(parseClauses(testString))
 
-  console.log(dpll_reduce(klauseln, literal))
+  //console.log(dpll_reduce(klauseln, literal))

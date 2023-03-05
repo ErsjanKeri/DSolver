@@ -79,8 +79,8 @@ import {
                 </Menu.Item>
 
                 <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
-                    <Link to="/">
-                        DPPL
+                    <Link to="dpll">
+                        DPLL
                     </Link>
                 </Menu.Item>
             </Menu>
