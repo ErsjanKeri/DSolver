@@ -10,6 +10,7 @@ import {
     NodeIndexOutlined,
     NumberOutlined,
     InsertRowRightOutlined,
+    GatewayOutlined ,
     PartitionOutlined,
     VideoCameraOutlined,
   } from '@ant-design/icons';
@@ -58,7 +59,6 @@ import {
                         Homepage
                     </Link>
                     
-                    
                 </Menu.Item>
                 <Menu.Item key={"homepage2"} icon={<NodeIndexOutlined />}>
                     <Link to="/havelhakimi">
@@ -72,17 +72,24 @@ import {
                     </Link>
                 </Menu.Item>
 
+                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
+                    <Link to="/">
+                        DPPL
+                    </Link>
+                </Menu.Item>
+
                 <Menu.Item key={"homepage4"} icon={<InsertRowRightOutlined />}>
                     <Link to="/eea">
                         EEA 
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
-                    <Link to="/">
-                        DPPL
+                <Menu.Item key={"homepage6"} icon={<GatewayOutlined />}>
+                    <Link to="/relation">
+                        Relation
                     </Link>
                 </Menu.Item>
+                
             </Menu>
 
 
