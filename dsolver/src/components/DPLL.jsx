@@ -4,16 +4,19 @@ import { FunctionOutlined } from '@ant-design/icons'
 
 function DPLL() {
   //Push the user input inside of the list as the root of the tree
-    let listOfSteps = []
+    console.log('main func')
 
     const [userInput, setInput] = useState('')
     const inputRef = useRef(null)
 
     const handleClick = () => {
+      console.log('I dunno')
       setInput(inputRef.current.value)
-      clauses = parseClauses(userInput)
+      var clauses = parseClauses(userInput)
+      console.log(clauses)
       if (Array.isArray(clauses) && clauses.length > 0) {
         dpll_apply(clauses)
+        console.log('I have the power')
       }
     }
     
@@ -53,7 +56,7 @@ function DPLL() {
 
               <Col xl={2} lg={3} md={4} sm={5} xs={6}>
                   <Button style={{width: "100%"}}
-                          onClick={() => handleClick}
+                          onClick={() => handleClick()}
                           >
                             Apply
                   </Button>
