@@ -38,8 +38,7 @@ const App = () => {
                           <RelationalesProdukt/>
                         </CustomLayout>
                     }/>
-                  
-
+                
                     <Route path="dpll" element={
                         <CustomLayout>
                           <DPLL/>
