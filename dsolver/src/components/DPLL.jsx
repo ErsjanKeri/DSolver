@@ -4,16 +4,19 @@ import { FunctionOutlined } from '@ant-design/icons'
 
 function DPLL() {
   //Push the user input inside of the list as the root of the tree
-    console.log('main func')
 
     const [userInput, setInput] = useState('')
-    const inputRef = useRef(null)
+
+    const handleChange = (event) => {
+      setInput(event.target.value)
+    }
 
     const handleClick = () => {
-      console.log('I dunno')
-      setInput(inputRef.current.value)
+      
       var clauses = parseClauses(userInput)
+      console.log(userInput)
       console.log(clauses)
+
       if (Array.isArray(clauses) && clauses.length > 0) {
         dpll_apply(clauses)
         console.log('I have the power')
@@ -45,22 +48,24 @@ function DPLL() {
 
         <div class="user_input">
           <Row gutter={[12,12]} className="form-input">
-              <Col xl={22} lg={21} md={20} sm={19} xs={18}>
-                <Input
-                  ref={inputRef}
-                  name='clauses'
+              <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+                <Input.Group compact>
+                  <Input style={{ width: 'calc(100% - 200px)',}}
                   placeholder={`example: {a, !b, c}, {a, b}, {d}, {!a, !d}`}
-                  //onChange={(e) => { fetchInput(e) }}
-                  />
-              </Col>
+                  onChange = {handleChange}>
 
-              <Col xl={2} lg={3} md={4} sm={5} xs={6}>
-                  <Button style={{width: "100%"}}
+                  </Input>
+                    
+                  <Button type='primary'
                           onClick={() => handleClick()}
                           >
                             Apply
                   </Button>
+                  
+                </Input.Group>
               </Col>
+
+
           </Row>            
         </div>
 
@@ -156,10 +161,12 @@ function DPLL() {
   function determineLiteraryFirst(literals) {
     if (!Array.isArray(literals) || literals.length === 0) return ''
 
-    var positives = literals.filter(n => !n.includes('!')).sort
-    var negatives = literals.filter(n => n.includes('!')).sort
+    var positives = literals.filter(n => !n.includes('!')).sort()
+    var negatives = literals.filter(n => n.includes('!')).sort()
 
     //check if either of the literal arrays are empty
+    console.log(positives)
+    console.log(negatives)
     if (positives.length === 0 || negatives.length === 0 ) {
       return positives.length === 0 ? negatives[0] : positives[0]
     }
