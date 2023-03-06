@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Modal, Layout, Breadcrumb } from 'antd';
 import { Routes, Navigate, Route } from "react-router-dom";
 
-import {  CustomLayout, Mainpage, HavelHakimi, DPLL } from "./components"
+import {  CustomLayout, Mainpage, HavelHakimi, EEA, RelationalesProdukt, DPLL } from "./components"
 
 import { HashRouter as Router } from "react-router-dom"
 
@@ -27,6 +27,19 @@ const App = () => {
                           <HavelHakimi/>
                         </CustomLayout>
                     }/>
+                    <Route path="eea" element={
+                        <CustomLayout>
+                          <EEA/>
+                        </CustomLayout>
+                    }/>
+
+                    <Route path="relation" element={
+                        <CustomLayout>
+                          <RelationalesProdukt/>
+                        </CustomLayout>
+                    }/>
+                  
+
                     <Route path="dpll" element={
                         <CustomLayout>
                           <DPLL/>

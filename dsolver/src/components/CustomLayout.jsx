@@ -10,6 +10,7 @@ import {
     NodeIndexOutlined,
     NumberOutlined,
     InsertRowRightOutlined,
+    GatewayOutlined ,
     PartitionOutlined,
     VideoCameraOutlined,
   } from '@ant-design/icons';
@@ -58,7 +59,6 @@ import {
                         Homepage
                     </Link>
                     
-                    
                 </Menu.Item>
                 <Menu.Item key={"homepage2"} icon={<NodeIndexOutlined />}>
                     <Link to="/havelhakimi">
@@ -72,17 +72,24 @@ import {
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage4"} icon={<InsertRowRightOutlined />}>
+                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
                     <Link to="/">
+                        DPLL
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key={"homepage4"} icon={<InsertRowRightOutlined />}>
+                    <Link to="/eea">
                         EEA 
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
-                    <Link to="dpll">
-                        DPLL
+                <Menu.Item key={"homepage6"} icon={<GatewayOutlined />}>
+                    <Link to="/relation">
+                        Relation
                     </Link>
                 </Menu.Item>
+                
             </Menu>
 
 
@@ -92,6 +99,7 @@ import {
           className="site-layout"
           style={{
             marginLeft: 200,
+            minHeight: "100vh"
           }}
         >
           <Header
@@ -102,14 +110,15 @@ import {
           />
           <Content
             style={{
-              margin: '24px 16px 0',
+              //margin: '100px 24px 24px 24px',
+              height: "100%",
               overflow: 'initial',
             }}
           >
             <div
               style={{
                 padding: 24,
-                textAlign: 'center',
+                marginTop: 50,
                 background: colorBgContainer,
               }}
             >
