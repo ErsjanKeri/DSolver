@@ -29,6 +29,7 @@ const GraphConfig = {
       // the target node's wait time could be displayed in the edge (in the arrow)
       shape: <span id="emptyEdge" />,
     }
+    
   }
 };
 

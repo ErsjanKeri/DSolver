@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import {Button, InputNumber, Table} from "antd"
+import {Button, InputNumber, Table, Row, Col, Typography, Space } from "antd"
 import "./index.less"
 
+
+const { Title, Text } = Typography
 
 
 function EEA() {
@@ -128,51 +130,72 @@ function EEA() {
 
 
   return (
-    <div className='container'>
-        <h1>Erweiterter Euklidischer Algorithmus</h1>
-        <form className='input_group mb-2'>
-          <div className='input_number'>
-            <InputNumber value={aInput} onChange={(value) => {setAInput(value)}} placeholder='a'/>
-            <InputNumber value={bInput} onChange={(value) => {setBInput(value)}} placeholder='b'/>
-          </div>
-          <Button className="submit-btn" type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Solve!</Button>
-        </form>
+      <>
+
+        <Row justify={"center"} className="mb-2">
+
+            <Col xs={24} >
+                <Title style={{"textAlign":"center"}} level={4}>Erweiterter Euklidischer Algorithmus</Title>
+                <Row justify={"center"}>
+                  <Col xs={8}>
+                    <form className='input_group mb-2' >
+                    <div className='input_number'>
+                      <InputNumber value={aInput} onChange={(value) => {setAInput(value)}} placeholder='a'/>
+                      <InputNumber value={bInput} onChange={(value) => {setBInput(value)}} placeholder='b'/>
+                    </div>
+                    <Button className="submit-btn" type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Solve!</Button>
+                  </form>
+                  </Col>
+                </Row>
+            
+            </Col>
+        </Row>
+       
         
         {solved ? (
-          <div> 
-            <div id="control_buttons">
-              <Button id="back" onClick={() => {
-                if(counter > 0){
-                  setDataSource(states[counter - 1])
-                  setCounter(counter - 1)
-                }
-              }}>Back</Button>
+          <Row gutter={[0, 8]} justify={"center"} className="mb-4">
+            <Col xs={14}>
+                  <Row justify={"end"}>
+                        <Col xs={16} span={15} style={{display: 'flex', justifyContent: 'flex-end'}}>
+                            <Space wrap>
+                                <Button id="reveal"  onClick={() => {
+                                    setDataSource(states[states.length - 1])
+                                    setCounter(states.length - 1)
+                                  }}>Reveal</Button>  
 
-              <Button id="next" type="primary" onClick={() => {
-                if(counter < states.length - 1){
-                  setDataSource(states[counter + 1])
-                  setCounter(counter + 1)
-                }
-              }}>Next</Button>
-
-              <Button id="reveal" type="primary" onClick={() => {
-                setDataSource(states[states.length - 1])
-                setCounter(states.length - 1)
-              }}>Reveal</Button>
-
-            </div>
-
-            <Table id='eea_table' 
-              dataSource={dataSource} 
-              columns={collums} 
-              pagination={false} 
-              bordered={true} 
-              tableLayout={"fixed"} 
-              size={"large"}/>
-          </div> 
+                                
+                                  <Button id="back" danger onClick={() => {
+                                            if(counter > 0){
+                                              setDataSource(states[counter - 1])
+                                              setCounter(counter - 1)
+                                            }
+                                          }}>Back</Button>
+                                <Button id="next" type="primary" onClick={() => {
+                                            if(counter < states.length - 1){
+                                              setDataSource(states[counter + 1])
+                                              setCounter(counter + 1)
+                                            }
+                                          }}>Next</Button>
+                          </Space>
+                      </Col>
+                  </Row>
+              </Col>
+            <Col xs={14}>
+            
+                <Table id='eea_table' 
+                  dataSource={dataSource} 
+                  columns={collums} 
+                  pagination={false} 
+                  tableLayout={"fixed"} 
+                  size={"small"}/>
+              </Col>
+          </Row>
+     
+            
+     
         ) : (<></>)}
        
-    </div>
+    </>
   )
 }
 

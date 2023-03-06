@@ -37,10 +37,10 @@ const defaultNodes = [
 ]
 
 const defaultEdges = [
-    { source: "1", target: "2", type: "empty" },
-    { source: "2", target: "4", type: "empty" },
-    { source: "1", target: "3", type: "empty" },
-    { source: "3", target: "4", type: "empty" }
+    { source: "1", target: "2", type: "emptyEdge" },
+    { source: "2", target: "4", type: "reflexiveEdge" },
+    { source: "1", target: "3", type: "reflexiveEdge" },
+    { source: "3", target: "4", type: "emptyEdge" }
   ]
 
 
@@ -137,7 +137,7 @@ export default function RelationalesProdukt() {
             </Col>
         </Row>
     
-        <Row className="mb-3">
+        <Row className="mb-3" gutter={[16, 0]}>
                     <Col xl={20} lg={20} md={20} sm={20} xs={20}>
                         <Input 
                             name='node'
@@ -148,8 +148,8 @@ export default function RelationalesProdukt() {
                             />
                     </Col>
                     <Col xl={4} lg={4} md={4} sm={4} xs={4}>
-                        <Button onClick={() => {
-
+                        <Button disabled={expression===""} style={{"width":"100%"}} onClick={() => {
+                            
                             evaluate(expression)
                             setCalculated(true)
                       

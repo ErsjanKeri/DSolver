@@ -1,20 +1,12 @@
 @import (less) "../../main.less";
 
-.ant-btn{
-    background-color: @primary-color;
-}
-
-.container > *{
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
 .input_group {
     display: flex;
     flex-direction: column;
     justify-items: center;
-    width: clamp(20vw, 30vw, 80vw);
+    width: 100%;
 }
 
 .input_number {
@@ -36,7 +28,7 @@
 
 // table design
 #eea_table {
-    border-color: #f8f8f8;
+    
     font-size: large;
     * {
         text-align: center;
@@ -44,13 +36,13 @@
 
 
     th {
-        background-color: @primary-color;
-        color: white; 
+        // background-color: @primary-color;
+        //color: white; 
         
     }
     thead {
         .ant-table-cell {
-            border-color: #005293;
+           border-color: black;
         }
     }
 
@@ -60,22 +52,6 @@
         }
     }
     
-}
-
-#control_buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    * {
-        margin: 0.3rem;
-        text-align: center;
-    }
-    #back{
-        background-color: transparent;
-    }
-    #reveal {
-        background-color: #B7B7B7;
-    } 
 }
 
 

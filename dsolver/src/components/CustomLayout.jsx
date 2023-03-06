@@ -74,7 +74,7 @@ import {
 
                 <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
                     <Link to="/">
-                        DPPL
+                        DPLL
                     </Link>
                 </Menu.Item>
 
@@ -119,7 +119,6 @@ import {
               style={{
                 padding: 24,
                 marginTop: 50,
-                textAlign: 'center',
                 background: colorBgContainer,
               }}
             >
