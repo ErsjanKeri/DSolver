@@ -130,7 +130,7 @@ import {
               textAlign: 'center',
             }}
           >
-            DSolver ©2023 Created with excellenz by not-so-excellent Tum students
+            DSolver ©2023 Created with excellenz by not-so-excellent <a style={{color: "black"}} href="https://www.tum.de/">TUM</a>  students
           </Footer>
         </Layout>
       </Layout>
