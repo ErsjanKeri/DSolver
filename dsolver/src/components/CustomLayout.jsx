@@ -7,6 +7,7 @@ import {
     UploadOutlined,
     UserOutlined,
     FireOutlined,
+    ForkOutlined,
     NodeIndexOutlined,
     NumberOutlined,
     InsertRowRightOutlined,
@@ -72,7 +73,7 @@ import {
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
+                <Menu.Item key={"homepage5"} icon={<ForkOutlined />}>
                     <Link to="/">
                         DPLL
                     </Link>

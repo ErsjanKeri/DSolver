@@ -113,12 +113,12 @@ export default function RelationalesProdukt() {
                       result = step(result, graphR);
                       break;
                     case "+":
-                      console.log("REFLEXIVE")
                       result = reflexive(result);
                       break;
                     case "*":
                       result = star(result);
                       break;
+                      
                     default:
                       throw new Error("Invalid input string");
                   }
@@ -126,6 +126,8 @@ export default function RelationalesProdukt() {
               } else if (token === "*") {
                 // Apply the star operation to the previous graph
                 result = star(result);
+              } else if (token === "-") {
+                result = reverse(result);  
               }
             }
           
@@ -278,3 +280,17 @@ function star(g1) {
 
 
 
+function reverse(g1) {
+
+    const edges = []
+
+    for (let i = 0; i < g1.edges.length; i++) {
+      edges.push({
+        source : g1.edges[i].target,
+        target : g1.edges[i].source,
+        type: "emptyEdge"
+      })
+    }
+
+    return {nodes : g1.nodes, edges, selected: {}}
+}
