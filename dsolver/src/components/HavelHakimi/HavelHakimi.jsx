@@ -182,7 +182,7 @@ function HavelHakimi() {
             farbbar = "Jede planare und einfache Graph ist 4 Farbbar";  // vier farbe satz 
         } else {
             const anzahl = Math.floor(0.5 + Math.sqrt(2*E + 0.25)); // die formel 
-            farbbar = "Graph ist " + anzahl + " Farbbar"
+            farbbar = "Graph ist " + anzahl + " Färbbar"
         }
 
         let nichtBaum = hatKreis || (!hasLeafs(gradArr)) || !(E === V -1); // useful if true 
@@ -190,9 +190,9 @@ function HavelHakimi() {
         const eig = []
 
         if (zusammenhangend) {
-            eig.push("Diese Graph ist immer zusammenhangend")
+            eig.push("Diese Graph ist immer zusammenhängend")
         } else {
-          eig.push("Graph kann auch nicht zusammenhangend sein")
+          eig.push("Graph kann auch nicht zusammenhängend sein")
         }
 
         if (hatKreis) {
@@ -211,7 +211,7 @@ function HavelHakimi() {
         eig.push(kuratowski.reason)
 
         if (nichtBaum) {
-            eig.push("Es gibt kein baum mit diesen Gradfolge")
+            eig.push("Es gibt keinen Baum mit diesen Gradfolge")
         } 
 
         eig.push(farbbar)
@@ -260,7 +260,7 @@ function HavelHakimi() {
             console.log(greaterThanFour)
             
             if (greaterThanFour.length >= 5) {
-                return {planar: false, reason : "Nicht Planar, K5 Minor"}; 
+                return {planar: false, reason : "Nicht immer planar, K5 kann Minor sein"}; 
             } 
 
 
@@ -270,7 +270,7 @@ function HavelHakimi() {
                   return num >= 3;
                 });
                 if (greaterThanThree.length >= 6) {
-                    return {planar: false, reason : "Nicht Planar, K3,3 Minor"}; 
+                    return {planar: false, reason : "Nicht immer planar, K3,3 kann Minor sein"}; 
                 } 
             }
         }
