@@ -2,6 +2,7 @@ import {
     AppstoreOutlined,
     BarChartOutlined,
     CloudOutlined,
+    RedoOutlined,
     ShopOutlined,
     TeamOutlined,
     UploadOutlined,
@@ -88,6 +89,12 @@ import {
                 <Menu.Item key={"homepage6"} icon={<GatewayOutlined />}>
                     <Link to="/relation">
                         Relation
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key={"homepage7"} icon={<RedoOutlined />}>
+                    <Link to="/groups">
+                        Groups
                     </Link>
                 </Menu.Item>
                 

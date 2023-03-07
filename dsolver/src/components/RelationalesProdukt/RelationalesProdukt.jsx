@@ -38,8 +38,8 @@ const defaultNodes = [
 
 const defaultEdges = [
     { source: "1", target: "2", type: "emptyEdge" },
-    { source: "2", target: "4", type: "reflexiveEdge" },
-    { source: "1", target: "3", type: "reflexiveEdge" },
+    { source: "2", target: "4", type: "emptyEdge" },
+    { source: "1", target: "3", type: "emptyEdge" },
     { source: "3", target: "4", type: "emptyEdge" }
   ]
 
