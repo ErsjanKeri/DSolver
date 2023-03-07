@@ -139,7 +139,7 @@ const Graphs = forwardRef((props, ref) => {
                     {props.result ? (
                         <>
                         <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-                            <Title style={{"marginBottom": 0, "paddingBottom" : 0, "textAlign" : "left"}} level={3}>Result</Title>
+                            <Title style={{"marginBottom": 0, "paddingBottom" : 0, "textAlign" : "left"}} level={3}>{props.name}</Title>
                         </Col>
                         </>
                     ) : (

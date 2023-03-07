@@ -57,7 +57,11 @@ export default function RelationalesProdukt() {
     const [calculated, setCalculated] = useState(false)
 
 
+
     const [expression, setExpression] = useState("")
+
+    const [resName, setResName] = useState("")
+
 
     const [symmetrisch, setSymmetrisch] = useState(false)
 
@@ -81,7 +85,7 @@ export default function RelationalesProdukt() {
         }
 
         setResult(evaluateSubexpression(tokens))
-
+        setResName(exp)
 
         function evaluateSubexpression(tokens) {
             let result = g; // Initialize to the empty graph
@@ -178,7 +182,7 @@ export default function RelationalesProdukt() {
         {calculated && (
             <Row>
                 <Col sm={24}>
-                    <Graphs name={"Result"} result={true} graph={result} setGraph={setResult}/>
+                    <Graphs name={resName} result={true} graph={result} setGraph={setResult}/>
                 </Col>
             </Row>
         )}
