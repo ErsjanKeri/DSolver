@@ -319,7 +319,7 @@ function HavelHakimi() {
                 {represantable && (<>
                   <Col xs={24} className="mb-3">
                       <Title level={5}>Eigenschaften: </Title>
-                      <ul>
+                      <ul className='eigenschaften'>
                           {eigenschaften.map(e => {
                             return (
                               <li>{e}</li>
