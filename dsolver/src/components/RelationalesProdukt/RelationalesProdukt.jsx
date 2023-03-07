@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { GraphView } from "react-digraph";
-import { Col, Row, Input, Button } from "antd"
+import { Col, Row, Input, Button, Switch, Space } from "antd"
 
 import './styles.css' 
 import { Graphs }  from "./Graphs";
@@ -47,6 +47,8 @@ const defaultEdges = [
 
 
 export default function RelationalesProdukt() {
+    const childRefR = useRef(null);
+    const childRefS = useRef(null);
 
     const [graphR, setGraphR] = useState({nodes: defaultNodes, edges: defaultEdges, selected: {}})
     const [graphS, setGraphS] = useState({nodes: defaultNodes, edges: defaultEdges, selected: {}})
@@ -57,6 +59,9 @@ export default function RelationalesProdukt() {
 
     const [expression, setExpression] = useState("")
 
+    const [symmetrisch, setSymmetrisch] = useState(false)
+
+    
 
     function evaluate(exp) {
         const tokens = exp.split("");
@@ -124,16 +129,25 @@ export default function RelationalesProdukt() {
         }
     }
     
-
+    
 
     return (
         <>
         <Row gutter={[16, 16]}>
+            <Col xs={24}>
+              <Space wrap>
+                  <Button onClick={() => { 
+                      childRefR.current.makeReflexive();
+                      childRefS.current.makeReflexive();
+                   }}>Make Reflexive</Button>
+                  <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Not Symmetrisch" defaultChecked={symmetrisch} />
+              </Space>
+            </Col>
             <Col sm={12} className="mb-2">
-                <Graphs name={"R"} result={false} graph={graphR} setGraph={setGraphR}/>
+                <Graphs ref={childRefR} name={"R"} symmetrisch={symmetrisch} result={false} graph={graphR} setGraph={setGraphR}/>
             </Col>
             <Col sm={12}>
-                <Graphs name={"S"} result={false} graph={graphS} setGraph={setGraphS}/>
+                <Graphs ref={childRefS} name={"S"} symmetrisch={symmetrisch} result={false} graph={graphS} setGraph={setGraphS}/>
             </Col>
         </Row>
     

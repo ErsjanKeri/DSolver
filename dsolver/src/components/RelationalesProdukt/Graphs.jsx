@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 import { GraphView } from "react-digraph";
 import { Col, Row, Input, Button, Typography } from "antd"
 
@@ -36,8 +36,11 @@ const GraphConfig = {
 
 const { Title, Text } = Typography
 
-export function Graphs(props) {
+const Graphs = forwardRef((props, ref) => {
 
+    useImperativeHandle(ref, () => ({
+        makeReflexive,
+    }));
    
     const [nodeId, setNodeId] = useState("")
 
@@ -77,22 +80,26 @@ export function Graphs(props) {
     const onCreateEdge = (sourceViewNode, targetViewNode) => {
         const type = EMPTY_EDGE_TYPE;
 
-        const viewEdge = {
+        const viewEdge = [{
             source: sourceViewNode.title,
             target: targetViewNode.title,
             type
-        };
+        }];
         
-        // Only add the edge when the source node is not the same as the target
-        if (viewEdge.source !== viewEdge.target) {
-            props.setGraph({
-                ...props.graph,
-                edges: [...props.graph.edges, viewEdge]
+        if (props.symmetrisch) {
+            viewEdge.push({
+                source: targetViewNode.title,
+                target: sourceViewNode.title,
+                type
             })
         }
-        
-    };
+        // Only add the edge when the source node is not the same as the target
+        props.setGraph({
+            ...props.graph,
+            edges: [...props.graph.edges, ...viewEdge]
+        })
 
+    };
   
     const onDeleteEdge = (edge) => {
         props.setGraph({
@@ -102,9 +109,27 @@ export function Graphs(props) {
     };
 
 
+    function makeReflexive() {
+       
+        if (selected?.nodes !== null && selected?.nodes !== undefined) {
+            props.setGraph({
+                ...props.graph,
+                edges : [...props.graph.edges, {
+                  source: selected.nodes.values().next().value.title,
+                  target: selected.nodes.values().next().value.title,
+                  type : "emptyEdge",
+              }]
+            })
+        }
+    }
+    
+
+
     const NodeTypes = GraphConfig.NodeTypes;
     const NodeSubtypes = GraphConfig.NodeSubtypes;
     const EdgeTypes = GraphConfig.EdgeTypes;
+
+
 
     return (
         <>
@@ -153,7 +178,6 @@ export function Graphs(props) {
                         <GraphView
                         //ref="GraphView"
                         allowMultiselect={false}
-                        onSelect={setSelected}
                         nodeKey={"title"}
                         nodes={props.graph.nodes}
                         edges={props.graph.edges}
@@ -200,5 +224,6 @@ export function Graphs(props) {
     )
   
 }
+)
 
-
+export { Graphs };
