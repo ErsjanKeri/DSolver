@@ -132,7 +132,7 @@ function EEA() {
   return (
       <>
 
-        <Row justify={"center"} className="mb-2">
+        <Row justify={"center"} className="mb-3">
 
             <Col xs={24} >
                 <Title style={{"textAlign":"center"}} level={4}>Erweiterter Euklidischer Algorithmus</Title>
