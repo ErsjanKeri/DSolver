@@ -69,7 +69,7 @@ import {
                 </Menu.Item>
 
                 <Menu.Item key={"homepage3"} icon={<NumberOutlined />}>
-                    <Link to="/">
+                    <Link to="/kombinatorik">
                         Kombinatorik
                     </Link>
                 </Menu.Item>

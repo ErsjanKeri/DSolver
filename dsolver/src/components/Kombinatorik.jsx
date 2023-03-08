@@ -22,19 +22,9 @@ function Kombinatorik() {
   const [nInput , setNInput] = useState("")
   
 
-  
-
-  useEffect(() => {
-
-  }, [])
-
-  
-  
- 
 
   function calculate(){
     
-    console.log('abc')
     if(nInput === "" || kInput === "" || kind ===""){
         console.log("keine nummern eingegeben")
       }
@@ -103,64 +93,53 @@ function Kombinatorik() {
     <> 
     
 
-<Row justify={"center"} className="mb-2">
+    <Row justify={"center"} className="mb-3">
 
-    <Col xs={24} >
-        <Title style={{"textAlign":"center"}} level={4}>Kombinatorik Calculator</Title>
+        <Col xs={24} >
+            <Title style={{"textAlign":"center"}} level={4}>Kombinatorik Calculator</Title>
+            
+            <Row justify={"center"}>
+              <Col xs={8}>
+                  <Row gutter={[8,8]}>
+                    <Col xs={24}>
+                        <Select
+                            style={{"width" : "100%"}}
+                            onChange={(e) => { setKind(e) }}
+                            options={[
+                                { value: 's1', label: 'Stirling Zahlen 1. Art' },
+                                { value: 's2', label: 'Stirling Zahlen 2. Art' },
+                                { value: 'p', label: 'P n,k' },
+                            ]}
+                            placeholder={"Auswählen..."}
+                        />
+                    </Col>
+                    <Col xs={24}>
+                        <Row gutter={[8,0]}>
+                          <Col xs={8}>
+                              <InputNumber style={{"width" : "100%"}} value={nInput} onChange={(value) => {setNInput(value)}} placeholder='n'/>
+
+                          </Col>
+                          <Col xs={8}>
+                              <InputNumber style={{"width" : "100%"}} value={kInput} onChange={(value) => {setKInput(value)}} placeholder='k'/>
+                            
+                          </Col>
+                          <Col xs={8}>
+                              <Button  style={{"width" : "100%"}} type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "" ||kind === "")}>Calculate</Button>
+                            
+                          </Col>
+                        </Row>
+                    </Col>
+                  </Row>
+              </Col>
+            </Row>
         
-        <Row justify={"center"}>
-          <Col xs={7}>
-            <form className='input_group mb-2' >
-              
-            <Select
-                        onChange={(e) => { setKind(e) }}
-                        options={[
-                            { value: 's1', label: 'Stirling Zahlen 1. Art' },
-                            { value: 's2', label: 'Stirling Zahlen 2. Art' },
-                            { value: 'p', label: 'P n,k' },
-                        ]}
-
-                        placeholder={"Auswählen..."}
-                    />
-              
-              
-            
-            
-          </form>
-          </Col>
+        </Col>
+    </Row> 
+    {calculated && (
+        <Row gutter={[0, 8]} justify={"center"} >
+            <Title style={{"textAlign":"center"}} level ={3}>{calcKind}<sub>{calcN},{calcK}</sub> = {result}</Title>
         </Row>
-        <Row justify={"center"}>
-          <Col xs={12}>
-            <form className='input_group mb-2' >
-            
-            
-            <div className='input_number'>
-           
-              
-              <InputNumber value={nInput} onChange={(value) => {setNInput(value)}} placeholder='n'/>
-              <InputNumber value={kInput} onChange={(value) => {setKInput(value)}} placeholder='k'/>
-              <Button className="submit-btn" type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "" ||kind === "")}>Calculate</Button>
-            
-            </div>
-            
-            
-          </form>
-          </Col>
-        </Row>
-    
-    </Col>
-</Row> 
-{calculated ? (
-          <Row gutter={[0, 8]} justify={"center"} className="mb-4">
-           
-                  <Title style={{"textAlign":"center"}} level ={3}>{calcKind}<sub>{calcN},{calcK}</sub> = {result}</Title>
-             
-           
-          </Row>
-     
-            
-     
-         ) : (<></>)}
+      )}
 </>
   )
 

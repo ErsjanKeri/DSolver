@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 import { GraphView } from "react-digraph";
-import { Col, Row, Input, Button, Switch, Space } from "antd"
+import { Col, Row, Input, Button, Switch, Space, Typography } from "antd"
 
 import './styles.css' 
 import { Graphs }  from "./Graphs";
 
+const { Title }  = Typography
 
 const EMPTY_EDGE_TYPE = "emptyEdge";
 
@@ -65,7 +66,10 @@ export default function RelationalesProdukt() {
 
     const [symmetrisch, setSymmetrisch] = useState(false)
 
-    
+    // for result 
+    const [eigenschaften, setEigenschaften] = useState([])
+
+
 
     function evaluate(exp) {
         const tokens = exp.split("");
@@ -84,7 +88,10 @@ export default function RelationalesProdukt() {
             throw new Error("Invalid input string");
         }
 
-        setResult(evaluateSubexpression(tokens))
+        const res = evaluateSubexpression(tokens);
+        calculateMatrix(res);
+        
+        setResult(res)
         setResName(exp)
 
         function evaluateSubexpression(tokens) {
@@ -134,6 +141,96 @@ export default function RelationalesProdukt() {
             return result;
         }
     }
+
+    function calculateMatrix(g) {
+        const mat = Array.from({length: g.nodes.length}, () => new Array(g.nodes.length).fill(false));
+        console.log(mat)
+
+        const nodeIndex = {};
+        g.nodes.forEach((node, i) => nodeIndex[node.title] = i);
+
+        // Update the matrix based on the edges
+        for (let j = 0; j < g.edges.length; j++) {
+            const sourceI = nodeIndex[g.edges[j].source];
+            const targetI = nodeIndex[g.edges[j].target];
+            mat[sourceI][targetI] = true;
+        }
+
+
+        // finding the eigenschaften 
+        // reflexivitat 
+        let reflexive = true;
+        let irreflexive = true; 
+        let symmetrisch = true; 
+        let antisymmetrisch = true; 
+        let transitive = true; 
+
+        // check reflexive and irreflexive
+        for (let i = 0; i < mat.length; i++) {
+            if (!mat[i][i]) {
+              reflexive = false;
+            }
+            if (mat[i][i]) {
+              irreflexive = false;
+            }
+            if (!reflexive && !irreflexive) {
+              break; 
+            }
+        }
+
+        // check symmetrisch antisymmetrisch
+        for (let i = 0; i < mat.length; i++) {
+            for (let j = 0; j < mat.length; j++) {
+                if (!(mat[i][j] === mat[j][i])) {
+                  symmetrisch = false;
+                }
+                if (mat[i][j] && mat[j][i]) {
+                  antisymmetrisch = false;
+                }
+
+                if (mat[i][j]) {
+                  for (let k = 0; k < mat.length; k++) {
+                    if (mat[j][k] && !mat[i][k]) {
+                      console.log("i " + i + " j " + j + " k " + k)
+                      transitive = false;
+                    }
+                  }
+                }
+            }
+        }
+
+
+        const eig = []
+
+        if (reflexive) {
+          eig.push("Relation ist reflexiv")
+        }
+        if (irreflexive) {
+          eig.push("Relation ist irreflexiv")
+        }
+        if (symmetrisch) {
+          eig.push("Relation ist symmetrisch")
+        }
+        if (antisymmetrisch) {
+          eig.push("Relation ist antisymmetrisch")
+        }
+        if (antisymmetrisch && irreflexive) {
+          eig.push("Relation ist asymmetrisch")
+        }
+        if (transitive) {
+          eig.push("Relation ist transitiv")
+        }
+
+
+        if (reflexive && symmetrisch && transitive) {
+          eig.push("Aquivalenzrelation")
+        }
+        if (reflexive && antisymmetrisch && transitive) {
+          eig.push("Partielle Ordnung")
+        }
+
+        setEigenschaften(eig)
+      }
     
     
 
@@ -186,6 +283,19 @@ export default function RelationalesProdukt() {
                 <Col sm={24}>
                     <Graphs name={resName} result={true} graph={result} setGraph={setResult}/>
                 </Col>
+                {eigenschaften.length > 0 && (<>
+                  <Col xs={24} className="mt-3">
+                      <Title level={5}>Eigenschaften von {resName}: </Title>
+                      <ul className='eigenschaften'>
+                          {eigenschaften.map(e => {
+                            return (
+                              <li>{e}</li>
+                            )
+                          })}
+                          
+                      </ul>
+                  </Col>
+                </>)}
             </Row>
         )}
         
