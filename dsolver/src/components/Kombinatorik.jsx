@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import  { Button,  Row, Col, Input, Select, Upload, InputNumber, Typography, Dropdown, Space, Menu } from "antd"
+import  { Button,  Row, Col, Input, Select, Upload, InputNumber, Typography, Dropdown, Space, Menu, message } from "antd"
 
 
 
@@ -9,6 +9,7 @@ const { Title, Text } = Typography;
 
 
 function Kombinatorik() {
+  
     const [kind, setKind] = useState("")
     const [calculated, setCalculated] =useState(false);
     const [result, setResult] = useState(0);
@@ -18,78 +19,79 @@ function Kombinatorik() {
     const [calcKind, setCalcKind] = useState("")
 
     
-  const [kInput, setKInput] = useState("")
-  const [nInput , setNInput] = useState("")
-  
-
-
-  function calculate(){
+    const [kInput, setKInput] = useState("")
+    const [nInput , setNInput] = useState("")
     
-    if(nInput === "" || kInput === "" || kind ===""){
-        console.log("keine nummern eingegeben")
-      }
-      else{
     
-        if(kind === 's1'){
-            setResult(calcs1(nInput, kInput));
-            setCalcKind('s');
 
-        }
-        else if(kind === 's2' ){
-          setResult(calcs2(nInput, kInput));
-          setCalcKind('S');
 
+    function calculate(){
+      
+      if(nInput === "" || kInput === "" || kind ===""){
+          console.log("keine nummern eingegeben")
         }
-        else if(kind === 'p'){
-          setResult(calcp(nInput, kInput));
-          setCalcKind('P');
+        else{
+      
+          if(kind === 's1'){
+              setResult(calcs1(nInput, kInput));
+              setCalcKind('s');
 
+          }
+          else if(kind === 's2' ){
+            setResult(calcs2(nInput, kInput));
+            setCalcKind('S');
+
+          }
+          else if(kind === 'p'){
+            setResult(calcp(nInput, kInput));
+            setCalcKind('P');
+
+          }
+          
+          setCalcK(kInput)
+          setCalcN(nInput)
+          setCalculated(true);
+          
         }
-        
-        setCalcK(kInput)
-        setCalcN(nInput)
-        setCalculated(true);
-        
-      }
-  }
-  function calcs1(n, k){
-    if(n===k){
-        return 1;
     }
-    if(n===0|k===0){
+    function calcs1(n, k){
+      if(n===k){
+          return 1;
+      }
+      if(n===0|k===0){
+          return 0;
+      }
+      return calcs1(n-1, k-1) + calcs1(n-1,k)*(n-1)
+
+    }
+
+    function calcs2(n, k){
+      if(n===k){
+        return 1;
+      }
+      if(n===0|k===0){
         return 0;
     }
-    return calcs1(n-1, k-1) + calcs1(n-1,k)*(n-1)
-
-  }
-
-  function calcs2(n, k){
-    if(n===k){
-      return 1;
+  return calcs2(n-1, k-1)+ calcs2(n-1, k)*k;
     }
-    if(n===0|k===0){
-      return 0;
-  }
- return calcs2(n-1, k-1)+ calcs2(n-1, k)*k;
-  }
 
-  function calcp(n, k){
-    if(n===k){
-      return 1;
+    function calcp(n, k){
+      if(n===k){
+        return 1;
+      }
+      if(k>n){
+        return 0;
+      }
+      if(k===0){
+        return 0;
+      }
+      return calcp(n-1,k-1)+calcp(n-k, k);
     }
-    if(k>n){
-      return 0;
-    }
-    if(k===0){
-      return 0;
-    }
-    return calcp(n-1,k-1)+calcp(n-k, k);
-  }
 
 
 
-  
-  return (
+    
+    return (
     <> 
     
 

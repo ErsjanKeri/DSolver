@@ -13,8 +13,6 @@ const { Title, Text } = Typography;
 
 
 
-
-
 function HavelHakimi() {
     const [userInput, setUserInput] = useState("")
     const [rawFolge, setRawFolge] = useState([])
@@ -31,7 +29,8 @@ function HavelHakimi() {
 
     function calculateHakimi() {
 
-      const gradArr = userInput.match(/\d+/g).map(Number);
+      const gradArr = (userInput.match(/\d+/g).map(Number)).sort();
+      
       const doable = rekursivHak(gradArr.slice())
 
       findEigenschaften(gradArr.slice())
