@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Modal, Layout, Breadcrumb } from 'antd';
 import { Routes, Navigate, Route } from "react-router-dom";
 
-import {  CustomLayout, Mainpage, HavelHakimi, EEA, RelationalesProdukt, DPLL } from "./components"
+import {  CustomLayout, Mainpage, HavelHakimi, EEA, RelationalesProdukt, Groups, DPLL } from "./components"
 
 import { HashRouter as Router } from "react-router-dom"
 
@@ -38,12 +38,8 @@ const App = () => {
                           <RelationalesProdukt/>
                         </CustomLayout>
                     }/>
-                
-                    <Route path="dpll" element={
-                        <CustomLayout>
-                          <DPLL/>
-                        </CustomLayout>
-                    }/>
+                  
+
                 </Routes>
             </Router>
       </>
