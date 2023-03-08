@@ -186,7 +186,7 @@ function DPLL() {
     }
 
     //clear opposite literals in the rest
-    var reverseLiteral = literal.includes('!') ? literal.replace('!', '') : literal = "!" + literal
+    var reverseLiteral = literal.includes('!') ? literal.replace('!', '') : "!" + literal
     
     klauseln.forEach(element => {
       var index = element.indexOf(reverseLiteral)
