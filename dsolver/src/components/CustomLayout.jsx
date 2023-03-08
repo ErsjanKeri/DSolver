@@ -2,11 +2,13 @@ import {
     AppstoreOutlined,
     BarChartOutlined,
     CloudOutlined,
+    RedoOutlined,
     ShopOutlined,
     TeamOutlined,
     UploadOutlined,
     UserOutlined,
     FireOutlined,
+    ForkOutlined,
     NodeIndexOutlined,
     NumberOutlined,
     InsertRowRightOutlined,
@@ -72,7 +74,7 @@ import {
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
+                <Menu.Item key={"homepage5"} icon={<ForkOutlined />}>
                     <Link to="/">
                         DPLL
                     </Link>
@@ -87,6 +89,12 @@ import {
                 <Menu.Item key={"homepage6"} icon={<GatewayOutlined />}>
                     <Link to="/relation">
                         Relation
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key={"homepage7"} icon={<RedoOutlined />}>
+                    <Link to="/groups">
+                        Groups
                     </Link>
                 </Menu.Item>
                 
@@ -130,7 +138,7 @@ import {
               textAlign: 'center',
             }}
           >
-            DSolver ©2023 Created with excellenz by not-so-excellent Tum students
+            DSolver ©2023 Created with excellenz by not-so-excellent <a style={{color: "black"}} href="https://www.tum.de/">TUM</a>  students
           </Footer>
         </Layout>
       </Layout>

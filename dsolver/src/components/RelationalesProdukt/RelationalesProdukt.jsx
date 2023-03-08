@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { GraphView } from "react-digraph";
-import { Col, Row, Input, Button } from "antd"
+import { Col, Row, Input, Button, Switch, Space } from "antd"
 
 import './styles.css' 
 import { Graphs }  from "./Graphs";
@@ -38,8 +38,8 @@ const defaultNodes = [
 
 const defaultEdges = [
     { source: "1", target: "2", type: "emptyEdge" },
-    { source: "2", target: "4", type: "reflexiveEdge" },
-    { source: "1", target: "3", type: "reflexiveEdge" },
+    { source: "2", target: "4", type: "emptyEdge" },
+    { source: "1", target: "3", type: "emptyEdge" },
     { source: "3", target: "4", type: "emptyEdge" }
   ]
 
@@ -47,6 +47,8 @@ const defaultEdges = [
 
 
 export default function RelationalesProdukt() {
+    const childRefR = useRef(null);
+    const childRefS = useRef(null);
 
     const [graphR, setGraphR] = useState({nodes: defaultNodes, edges: defaultEdges, selected: {}})
     const [graphS, setGraphS] = useState({nodes: defaultNodes, edges: defaultEdges, selected: {}})
@@ -55,8 +57,15 @@ export default function RelationalesProdukt() {
     const [calculated, setCalculated] = useState(false)
 
 
+
     const [expression, setExpression] = useState("")
 
+    const [resName, setResName] = useState("")
+
+
+    const [symmetrisch, setSymmetrisch] = useState(false)
+
+    
 
     function evaluate(exp) {
         const tokens = exp.split("");
@@ -76,7 +85,7 @@ export default function RelationalesProdukt() {
         }
 
         setResult(evaluateSubexpression(tokens))
-
+        setResName(exp)
 
         function evaluateSubexpression(tokens) {
             let result = g; // Initialize to the empty graph
@@ -104,12 +113,12 @@ export default function RelationalesProdukt() {
                       result = step(result, graphR);
                       break;
                     case "+":
-                      console.log("REFLEXIVE")
                       result = reflexive(result);
                       break;
                     case "*":
                       result = star(result);
                       break;
+                      
                     default:
                       throw new Error("Invalid input string");
                   }
@@ -117,6 +126,8 @@ export default function RelationalesProdukt() {
               } else if (token === "*") {
                 // Apply the star operation to the previous graph
                 result = star(result);
+              } else if (token === "-") {
+                result = reverse(result);  
               }
             }
           
@@ -124,16 +135,25 @@ export default function RelationalesProdukt() {
         }
     }
     
-
+    
 
     return (
         <>
         <Row gutter={[16, 16]}>
+            <Col xs={24}>
+              <Space wrap>
+                  <Button onClick={() => { 
+                      childRefR.current.makeReflexive();
+                      childRefS.current.makeReflexive();
+                   }}>Make Reflexive</Button>
+                  <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Not Symmetrisch" defaultChecked={symmetrisch} />
+              </Space>
+            </Col>
             <Col sm={12} className="mb-2">
-                <Graphs name={"R"} result={false} graph={graphR} setGraph={setGraphR}/>
+                <Graphs ref={childRefR} name={"R"} symmetrisch={symmetrisch} result={false} graph={graphR} setGraph={setGraphR}/>
             </Col>
             <Col sm={12}>
-                <Graphs name={"S"} result={false} graph={graphS} setGraph={setGraphS}/>
+                <Graphs ref={childRefS} name={"S"} symmetrisch={symmetrisch} result={false} graph={graphS} setGraph={setGraphS}/>
             </Col>
         </Row>
     
@@ -164,7 +184,7 @@ export default function RelationalesProdukt() {
         {calculated && (
             <Row>
                 <Col sm={24}>
-                    <Graphs name={"Result"} result={true} graph={result} setGraph={setResult}/>
+                    <Graphs name={resName} result={true} graph={result} setGraph={setResult}/>
                 </Col>
             </Row>
         )}
@@ -260,3 +280,17 @@ function star(g1) {
 
 
 
+function reverse(g1) {
+
+    const edges = []
+
+    for (let i = 0; i < g1.edges.length; i++) {
+      edges.push({
+        source : g1.edges[i].target,
+        target : g1.edges[i].source,
+        type: "emptyEdge"
+      })
+    }
+
+    return {nodes : g1.nodes, edges, selected: {}}
+}
