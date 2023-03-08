@@ -7,6 +7,7 @@ import {  CustomLayout, Mainpage, HavelHakimi, EEA, RelationalesProdukt  } from 
 import { HashRouter as Router } from "react-router-dom"
 
 import './main.less';
+import TruthTable from './components/TruthTable/TruthTable';
 
 
 const App = () => {
@@ -36,6 +37,12 @@ const App = () => {
                     <Route path="relation" element={
                         <CustomLayout>
                           <RelationalesProdukt/>
+                        </CustomLayout>
+                    }/>
+
+                    <Route path="truthtable" element={
+                        <CustomLayout>
+                          <TruthTable/>
                         </CustomLayout>
                     }/>
                   

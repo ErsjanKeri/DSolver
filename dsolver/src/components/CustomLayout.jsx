@@ -13,6 +13,7 @@ import {
     GatewayOutlined ,
     PartitionOutlined,
     VideoCameraOutlined,
+    TableOutlined
   } from '@ant-design/icons';
   import { Layout, Menu, theme } from 'antd';
   import React from 'react';
@@ -87,6 +88,12 @@ import {
                 <Menu.Item key={"homepage6"} icon={<GatewayOutlined />}>
                     <Link to="/relation">
                         Relation
+                    </Link>
+                </Menu.Item>
+
+                <Menu.Item key={"homepage7"} icon={<TableOutlined />}>
+                    <Link to="/truthtable">
+                        Warheitstabelle
                     </Link>
                 </Menu.Item>
                 
