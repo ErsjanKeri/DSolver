@@ -15,7 +15,6 @@ function DPLL() {
       
       var clauses = parseClauses(userInput)
       console.log(userInput)
-      console.log(clauses)
 
       if (Array.isArray(clauses) && clauses.length > 0) {
         dpll_apply(clauses)
@@ -29,7 +28,7 @@ function DPLL() {
     }*/
 
     function dpll_apply(clauses) {
-      let root = new TreeNode(clauses)
+      let root = new TreeNode(clauses, "mother")
       var code = dpll_apply_step(clauses, root)
 
       switch (code) {
@@ -102,10 +101,11 @@ function DPLL() {
     if (!Array.isArray(klauseln)) return -1
     if (mother instanceof TreeNode === false) return - 1
 
+    if (mother.info !== "mother") console.log(mother.info)
+
     //success, all of them are satisfied
     if (klauseln.length === 0) return 1
 
-   
     //error -2: not an array inside
     if (!Array.isArray(klauseln[0])) return -2
     //error -3: go back, not satisfiable 
@@ -113,13 +113,17 @@ function DPLL() {
     
     //check for OLR Rule
     let klauselnMitOne = []
+
+    console.log(klauseln)
+
     klauseln.forEach(element => addIfOne(klauselnMitOne, element)) //add klauseln with only one literal
 
     //if there is, determine the one with highest priority 
     if (klauselnMitOne.length !== 0) {
       letter = determineLiteraryFirst(klauselnMitOne)
-      mother.middle = new TreeNode(dpll_reduce(klauseln, letter))
-      return dpll_apply_step(klauseln, mother.middle)
+      letter = letter[0] //letter gets recognised as array of size 1
+      mother.middle = new TreeNode(dpll_reduce(klauseln, letter), "OLR: " + letter)
+      return dpll_apply_step(mother.middle.value, mother.middle)
     }
 
     //check for PLR Rule
@@ -127,24 +131,28 @@ function DPLL() {
     findPure(klauseln, pureLiterals)
     if (pureLiterals.length !== 0) {
       letter = determineLiteraryFirst(pureLiterals)
-      mother.middle = new TreeNode(dpll_reduce(klauseln, letter))
-      return dpll_apply_step(klauseln, mother.middle)
+      mother.middle = new TreeNode(dpll_reduce(klauseln, letter), "PLR: " + letter)
+      return dpll_apply_step(mother.middle.value, mother.middle)
     }
 
 
-    //apply dpll literary
+    //literary steps
+
+    //positive
     var positiveLits = posLitArray(klauseln)
     var negatvieLits = negLitArray(klauseln)
     letter = positiveLits[0]
-    mother.left = new TreeNode(dpll_reduce(klauseln, letter))
+    mother.left = new TreeNode(dpll_reduce(klauseln, letter), "CASE: " + letter)
+   
+    var code = dpll_apply_step(mother.left.value, mother.left)
+    if (code === 1) return 1 //empty clauses set, success
     
-    var code = dpll_apply_step(klauseln, mother.left)
-    if (code === 0) return 0
+    //negative
     //-3 means continue
     if (code === -3) {
       letter = negatvieLits[0]
-      mother.right = new TreeNode(dpll_reduce(klauseln, letter))
-      return dpll_apply_step(klauseln, mother.right)
+      mother.right = new TreeNode(dpll_reduce(klauseln, letter), "CASE: " + letter)
+      return dpll_apply_step(mother.right.value, mother.right)
     }
   }
 
@@ -159,14 +167,12 @@ function DPLL() {
 
   //returns the literal which has literary priority
   function determineLiteraryFirst(literals) {
-    if (!Array.isArray(literals) || literals.length === 0) return ''
+    if (!Array.isArray(literals) || literals.length === 0) return ''
 
     var positives = literals.filter(n => !n.includes('!')).sort()
     var negatives = literals.filter(n => n.includes('!')).sort()
 
     //check if either of the literal arrays are empty
-    console.log(positives)
-    console.log(negatives)
     if (positives.length === 0 || negatives.length === 0 ) {
       return positives.length === 0 ? negatives[0] : positives[0]
     }
@@ -179,9 +185,10 @@ function DPLL() {
   //reduces the set with given literal
   function dpll_reduce(klauseln, literal) {
     //clear the ones that contains this literal
+     
     for (let index = 0; index < klauseln.length; index++) {
-        if (Array.isArray(klauseln[index]) && klauseln[index].includes(literal)) {
-            klauseln.splice(index--, 1)
+        if (klauseln[index].includes(literal)) {
+          klauseln.splice(index--, 1)
         }
     }
 
@@ -247,16 +254,17 @@ function DPLL() {
 
   //returns a sorted array containing only positive literals
   function posLitArray(clauses) {
-     return Array.from(makeASet(clauses)).filter(n => !n.includes('!')).sort
-  }
-  //returns a sorted array containing only negative literals
-  function negLitArray(clauses) {
-    return Array.from(makeASet(clauses)).filter(n => n.includes('!')).sort
-  }
+    return Array.from(makeASet(clauses)).filter(n => !n.includes('!')).sort()
+ }
+ //returns a sorted array containing only negative literals
+ function negLitArray(clauses) {
+   return Array.from(makeASet(clauses)).filter(n => n.includes('!')).sort()
+ }
 
   class TreeNode{
-    constructor(value){
+    constructor(value, info){
         this.value = value
+        this.info = info
         this.left = null
         this.right = null
         this.middle = null
