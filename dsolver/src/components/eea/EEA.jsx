@@ -132,19 +132,28 @@ function EEA() {
   return (
       <>
 
-        <Row justify={"center"} className="mb-2">
+        <Row justify={"center"} className="mb-3">
 
             <Col xs={24} >
                 <Title style={{"textAlign":"center"}} level={4}>Erweiterter Euklidischer Algorithmus</Title>
                 <Row justify={"center"}>
                   <Col xs={8}>
-                    <form className='input_group mb-2' >
-                    <div className='input_number'>
-                      <InputNumber value={aInput} onChange={(value) => {setAInput(value)}} placeholder='a'/>
-                      <InputNumber value={bInput} onChange={(value) => {setBInput(value)}} placeholder='b'/>
-                    </div>
-                    <Button className="submit-btn" type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Solve!</Button>
-                  </form>
+                      <Row gutter={[8, 8]}>
+                          <Col xs={24}>
+                              <Row gutter={[8,0]}>
+                                  <Col xs={12}>
+                                      <InputNumber style={{"width" : "100%"}} value={aInput} onChange={(value) => {setAInput(value)}} placeholder='a'/>
+                                  </Col>
+                                  <Col xs={12}>
+                                      <InputNumber style={{"width" : "100%"}} value={bInput} onChange={(value) => {setBInput(value)}} placeholder='b'/>
+                                  </Col>
+                              </Row>
+                          </Col>
+                          <Col xs={24}>
+                                <Button style={{"width" : "100%"}} type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Calculate</Button>
+                          </Col>
+                      </Row>
+                      
                   </Col>
                 </Row>
             
@@ -152,7 +161,7 @@ function EEA() {
         </Row>
        
         
-        {solved ? (
+        {solved && (
           <Row gutter={[0, 8]} justify={"center"} className="mb-4">
             <Col xs={14}>
                   <Row justify={"end"}>
@@ -193,26 +202,11 @@ function EEA() {
      
             
      
-        ) : (<></>)}
+        )}
        
     </>
   )
 }
 
 
-/*
-footer={() => {
-                const lastState = dataSource[dataSource.length - 1]
-                let alpha = lastState.alpha
-                let beta = lastState.beta
-                let a = lastState.a
-                let b = lastState.b
-
-                return `ggT 
-                = α * a +  ß * b 
-                = ${alpha} * ${a} 
-                + ${beta} * ${a} 
-                = ${alpha * a + beta * b}`
-            }}
-*/
 export default EEA

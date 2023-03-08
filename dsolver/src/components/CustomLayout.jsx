@@ -2,11 +2,13 @@ import {
     AppstoreOutlined,
     BarChartOutlined,
     CloudOutlined,
+    RedoOutlined,
     ShopOutlined,
     TeamOutlined,
     UploadOutlined,
     UserOutlined,
     FireOutlined,
+    ForkOutlined,
     NodeIndexOutlined,
     NumberOutlined,
     InsertRowRightOutlined,
@@ -68,13 +70,13 @@ import {
                 </Menu.Item>
 
                 <Menu.Item key={"homepage3"} icon={<NumberOutlined />}>
-                    <Link to="/">
+                    <Link to="/kombinatorik">
                         Kombinatorik
                     </Link>
                 </Menu.Item>
 
                 <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
-                    <Link to="/">
+                    <Link to="/dpll">
                         DPLL
                     </Link>
                 </Menu.Item>
@@ -91,7 +93,14 @@ import {
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage7"} icon={<TableOutlined />}>
+                <Menu.Item key={"homepage7"} icon={<RedoOutlined />}>
+                    <Link to="/groups">
+                        Groups
+                    </Link>
+                </Menu.Item>
+                
+
+                <Menu.Item key={"homepage8"} icon={<TableOutlined />}>
                     <Link to="/truthtable">
                         Warheitstabelle
                     </Link>
