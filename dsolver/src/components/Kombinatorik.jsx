@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import  { Button, message, Row, Col, Input, Select, Upload } from "antd"
+import  { Button, message, Row, Col, Input, Select, Upload, InputNumber, Typography, Dropdown, Space, Menu } from "antd"
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { Navigate } from "react-router-dom";
 
@@ -8,12 +8,49 @@ import { Navigate } from "react-router-dom";
 
 
 
+
 const { Option } = Select;
+const { Title, Text } = Typography;
 
 
-function Kombinatorik(props) {
 
-    // done
+function Kombinatorik() {
+    const [kind, setKind] = useState("")
+    const [calculated, setCalculated] =useState(false);
+    const [result, setResult] = useState(0);
+
+    
+  const [kInput, setKInput] = useState("")
+  const [nInput , setNInput] = useState("")
+  const kof = [{ 
+    key: '1',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        1st menu item
+      </a>
+    ),
+  },
+  {
+    key: '2',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+        2nd menu item (disabled)
+      </a>
+    ),
+    
+    disabled: true,
+  },
+  {
+    key: '3',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        3rd menu item (disabled)
+      </a>
+    ),
+    disabled: true,
+  },
+ ]
+
   const [paragraphs, setParagraphs] = useState([{title : "", content : ""}])
     // done 
   const [thumbnail, setThumbnail] = useState(null)
@@ -63,149 +100,89 @@ function Kombinatorik(props) {
     
     return isJpgOrPng;
   }
+ 
 
-  const handleChange = info => {
-    if (info.file.status === 'uploading') {
-      setLoading(true)
-      return;
+  function calculate(){
+    setCalculated(true);
+    console.log('abc')
+    if(nInput === "" || kInput === ""){
+        console.log("keine nummern eingegeben")
+      }
+      else{
+    
+        if(kind === 's1'){
+            setResult(calcs1(nInput, kInput));
+
+        }
+
+      
+        
+      }
+  }
+  function calcs1(n, k){
+    if(n===k){
+        return 1;
     }
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, thumbnail =>
-        {
-            setPreview(thumbnail)
-            setLoading(false)
-        },
-      );
+    if(n===0){
+        return 0;
     }
+    return calcs1(n-1, k-1) + calcs1(n-1,k)*(n-1)
+
   }
 
-  const submit = async () => {
-  }
+
 
   
   return (
-    <>  
+    <> 
+    
 
-      {postId !== null ? (
-        <Navigate to={`/posts/detail/${postId}`} push />
-      ) : ("")}
-        <Row gutter={[12,12]} className="form-row">
-        {paragraphs.map((item, i) => {
-            return (
-                <Fragment key={i}>
-                    
-                      <Col xl={22} lg={21} md={20} sm={19} xs={18}>
-                        <Input 
-                            name='title'
-                            placeholder={`Title ${i + 1}`}
-                            onChange={(e) => { handleParagraphChange(i, e) }}
-                            />
-                      </Col>
-                      <Col xl={2} lg={3} md={4} sm={5} xs={6}>
-                          <Button type="danger"
-                                  ghost
-                                  style={{width: "100%"}}
-                                  onClick={() => removeParagraph(i)}
-                                  >
-                                      Remove
-                          </Button>
-                      </Col>
-                      <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-                            <Input.TextArea rows={4}/>
-                      </Col>
-                    
-                </ Fragment>
-            )
-        })}
-        </Row>
-        <Row className="form-row">
-            <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-                <Button type="primary"
-                        style={{width: "100%"}}
-                        onClick={() => addNewParagraph()}
-                        >
-                            Add Paragraph
-                </Button>
-            </Col>
+<Row justify={"center"} className="mb-2">
+
+    <Col xs={24} >
+        <Title style={{"textAlign":"center"}} level={4}>Kombinatorik Calculator</Title>
+        <Row justify={"center"}>
+          <Col xs={12}>
+            <form className='input_group mb-2' >
             
-        </Row>
-        <Row gutter={[12, 12]} className="form-row">
-            <Col xl={12} lg={12} md={24} sm={24} xs={24}>
-                <Select
-                        showSearch
-                        style={{ width: "100%" }}
-                        placeholder="Category"
-                        optionFilterProp="children"
-                        onChange={e => selectCat(e)}
-                        filterOption={(input, option) =>
-                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                        }
-                        filterSort={(optionA, optionB) =>
-                        optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
-                        }
-                    >
-                    
-                      <Option key={1} value={1}>25</Option>
+            <div className='input_number'>
+            <Select
+                        onChange={(e) => { setKind(e) }}
+                        options={[
+                            { value: 's1', label: 'Stirling Zahlen 1. Art' },
+                            { value: 's2', label: 'Stirling Zahlen 2. Art' },
+                            { value: 'p', label: 'P n,k' },
+                        ]}
+
+                        placeholder={"Auswählen..."}
+                    />
               
-                </Select> 
-            </Col>
-            <Col xl={12} lg={12} md={24} sm={24} xs={24}>
-                <Select mode="tags" 
-                        style={{ width: '100%' }} 
-                        onChange={(e) => { selectTag(e) }} 
-                        placeholder={"Tags"}
-                        tokenSeparators={[',']}
-                        >
-                      
-                          <Select.Option key={1} value={1}>
-                            252
-                          </Select.Option>
-                
-                </Select>
-            </Col>
+              <InputNumber value={nInput} onChange={(value) => {setNInput(value)}} placeholder='n'/>
+              <InputNumber value={kInput} onChange={(value) => {setKInput(value)}} placeholder='k'/>
+              <Button className="submit-btn" type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "")}>Calculate</Button>
+            </div>
+            
+          </form>
+          </Col>
         </Row>
-        <Row className='form-row'>
-            <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-                <Upload
-                    name="avatar"
-                    listType="picture-card"
-                    className="avatar-uploader"
-                    showUploadList={false}
-                   
-                    beforeUpload={beforeUpload}
-                    onChange={handleChange}
-                    customRequest={({ file, onSuccess }) => {
-                        setTimeout(() => {
-                          onSuccess("ok");
-                        }, 0);
-                      }}
-                >
-                    {preview ? <img src={preview} alt="avatar" style={{ width: '100%' }} /> : (
-                    <div>
-                        {loading ? <LoadingOutlined /> : <PlusOutlined />}
-                        <div style={{ marginTop: 8 }}>
-                            Upload
-                        </div>
-                    </div>)}
-                </Upload> 
-            </Col>
-        
-        </Row>
-        <Row className='form-row'>
-            <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-                <Button type="btn"
-                            style={{width: "100%", color : "white", background: "#73d13d" }}
-                            onClick={() => submit()}
-                            >
-                            Submit
-                </Button>
-            </Col>
-        </Row>
-        
-        {/* Automatic tokenization */}
-    </>
+    
+    </Col>
+</Row> 
+{calculated ? (
+          <Row gutter={[0, 8]} justify={"center"} className="mb-4">
+            <Col xs={14}>
+                  <Button>{kind}: {result}</Button>
+              </Col>
+           
+          </Row>
+     
+            
+     
+         ) : (<></>)}
+</>
   )
+
+      
 }
 
 export default Kombinatorik

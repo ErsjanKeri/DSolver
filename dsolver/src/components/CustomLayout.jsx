@@ -89,18 +89,7 @@ import {
                         Relation
                     </Link>
                 </Menu.Item>
-<<<<<<< HEAD
-
-                <Menu.Item key={"homepage3"} icon={<FireOutlined />}>
-                    <Link to="/kombinatorik">
-                       Kombinatorik
-                    </Link>
-                    
-                    
-                </Menu.Item>
-=======
                 
->>>>>>> main
             </Menu>
 
 

@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Modal, Layout, Breadcrumb } from 'antd';
 import { Routes, Navigate, Route } from "react-router-dom";
 
-<<<<<<< HEAD
-import {  CustomLayout, Mainpage, HavelHakimi, Kombinatorik  } from "./components"
-=======
-import {  CustomLayout, Mainpage, HavelHakimi, EEA, RelationalesProdukt  } from "./components"
->>>>>>> main
+import {  CustomLayout, Mainpage, HavelHakimi, EEA, RelationalesProdukt, Kombinatorik  } from "./components"
 
 import { HashRouter as Router } from "react-router-dom"
 
@@ -31,13 +27,11 @@ const App = () => {
                           <HavelHakimi/>
                         </CustomLayout>
                     }/>
-<<<<<<< HEAD
                     <Route path="kombinatorik" element={
                       <CustomLayout>
                           <Kombinatorik/>
                       </CustomLayout>
                     }/>
-=======
                     <Route path="eea" element={
                         <CustomLayout>
                           <EEA/>
@@ -51,7 +45,6 @@ const App = () => {
                     }/>
                   
 
->>>>>>> main
                 </Routes>
             </Router>
       </>
