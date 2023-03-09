@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
-import { Button, Input, Table, Row, Col, Space, Typography} from 'antd'
-import "./style.css"
+import { Button, Input, Table, Row, Col, Space, Typography, Popover } from 'antd'
+
+import {
+  QuestionCircleOutlined
+} from '@ant-design/icons';
+
+import "./style.less"
 
 const {Title, Text} = Typography
 
@@ -30,40 +35,6 @@ function TruthTable() {
       render: (text) => <code>{text}</code>,
     }
   ]
-  // const example = [
-  //   {
-  //     symbol: "∧",
-  //     dsolver: "and, &"
-  //   },
-  //   {
-  //     symbol: "∨",
-  //     dsolver: "or, |"
-  //   },
-  //   {
-  //     symbol: "→",
-  //     dsolver: "impl, ->, =>"
-  //   },
-  //   {
-  //     symbol: "¬",
-  //     dsolver: "neg, -"
-  //   },
-  //   {
-  //     symbol: "⊕",
-  //     dsolver: "xor, ^, !="
-  //   },
-  //   {
-  //     symbol: "↔",
-  //     dsolver: "xand, <->, =="
-  //   },
-  //   {
-  //     symbol: "nor",
-  //     dsolver: "nor"
-  //   },
-  //   {
-  //     symbol: "nand",
-  //     dsolver: "nand"
-  //   }
-  // ]
 
   // reduced instruction set
   const example = [
@@ -191,24 +162,7 @@ function TruthTable() {
     return expr_vars.sort()
   }
 
-  // function normalize(exec) {
-  //   return exec
-  //     .replaceAll("and", "&&")
-  //     .replaceAll("&", "&&")
-  //     .replaceAll("or", "||")
-  //     .replaceAll("|", "||")
-  //     .replaceAll("impl", "") // TODO
-  //     .replaceAll("->", "")
-  //     .replaceAll("=>", "") // TODO
-  //     .replaceAll("neg ", "-")
-  //     .replaceAll("neg", "-")
-  //     .replaceAll("xor", "!==")
-  //     .replaceAll("xand", "===")
-  //     .replaceAll("<->", "===")
-  //     .replaceAll("==", "===")
-  //     .replaceAll("nor", "") // TODO wenn beide 0 dann true
-  //     .replaceAll("nand", "") // TODO beide 1
-  // }
+
 
   // funtction that 
   function normalize(exec) {
@@ -266,41 +220,59 @@ function TruthTable() {
 
   return (
     <>
-      <Row justify={"center"} >
-        <Col span={8}></Col>
-        <Col span={8}>
-          <Row justify={"center"}>
-            <Title>Truth Table</Title>  
-          </Row>
-          <Row id="input-field">
-            <Input value={expr} type={"text"} onChange={(event) => {setExpr(event.target.value); check(event.target.value)}} placeholder="Bsp.: (a and b) -> (a xor c)"/>
-            <Button type={"primary"} onClick={solveTruthTable} disabled={expr === "" || !inputValid}>Solve!</Button>
-          </Row>
-          {solved &&
-            <Row justify={"center"}>
-            <Col id="truth-table">
-              <Row>
-                <Table dataSource={dataSource} pagination={false} columns={columns}></Table>
-              </Row>
-            </Col>
-          </Row>
-          }
-        </Col>
-        <Col span={8}>
-          <Row justify={"end"}>
-            <Table title={() => {return "Legende"}} id="legend-table"
-              pagination={false}
-              dataSource={example}
-              columns={legend}>
-              tableLayout={"fixed"}
-            </Table>
-          </Row>
-        </Col>
-      </Row>
-      
 
-        
-      
+      <Row justify={"center"} className="mb-3">
+
+          <Col xs={24} >
+              <Title style={{"textAlign":"center"}} level={4}>
+                  Wahrheitstabelle 
+                  <a>
+                  <Popover  placement="bottom" title={"Guide"} content={<>
+                        <Table id="legend-table"
+                          pagination={false}
+                          dataSource={example}
+                          size="small"
+                          columns={legend}>
+                          tableLayout={"fixed"}
+                        </Table>
+                  </>} trigger="click">
+                     {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
+                  </Popover>  
+                  </a>
+
+              </Title>
+              
+              <Row justify={"center"}>
+                <Col xs={8}>
+                    <Row gutter={[8,8]}>
+                      <Col xs={24}>
+                          <Input  style={{"width" : "100%"}} 
+                                  value={expr} 
+                                  type={"text"} 
+                                  onChange={(event) => {setExpr(event.target.value); check(event.target.value)}} placeholder="(a and b) -> (a xor c)"/>
+                      </Col>
+                      <Col xs={24}>
+                            <Button  style={{"width" : "100%"}}  onClick={solveTruthTable} disabled={expr === "" || !inputValid}>Solve!</Button>
+                      </Col>
+                    </Row>
+                </Col>
+              </Row>
+
+          </Col>
+      </Row> 
+      {solved && (
+      <Row justify={"center"} className="mt-4">
+          <Col xs={Math.min(columns.length*3, 24)}>
+              <Table style={{"textAlign" : "center"}} 
+                     id="truth-table"
+                     size="small"  
+                     pagination={false}
+                     dataSource={dataSource} 
+                     columns={columns}></Table>
+            
+          </Col>
+      </Row>
+      )}
    </>
   )
 }
