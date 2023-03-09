@@ -226,20 +226,6 @@ function TruthTable() {
           <Col xs={24} >
               <Title style={{"textAlign":"center"}} level={4}>
                   Wahrheitstabelle 
-                  <a>
-                  <Popover  placement="bottom" title={"Guide"} content={<>
-                        <Table id="legend-table"
-                          pagination={false}
-                          dataSource={example}
-                          size="small"
-                          columns={legend}>
-                          tableLayout={"fixed"}
-                        </Table>
-                  </>} trigger="click">
-                     {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
-                  </Popover>  
-                  </a>
-
               </Title>
               
               <Row justify={"center"}>
@@ -249,7 +235,23 @@ function TruthTable() {
                           <Input  style={{"width" : "100%"}} 
                                   value={expr} 
                                   type={"text"} 
-                                  onChange={(event) => {setExpr(event.target.value); check(event.target.value)}} placeholder="(a and b) -> (a xor c)"/>
+                                  onChange={(event) => {setExpr(event.target.value); check(event.target.value)}}
+                                  placeholder="(a and b) -> (a xor c)"
+                                  suffix={
+                                    <a>
+                                    <Popover  placement="bottom" title={"Guide"} content={<>
+                                          <Table id="legend-table"
+                                            pagination={false}
+                                            dataSource={example}
+                                            size="small"
+                                            columns={legend}>
+                                            tableLayout={"fixed"}
+                                          </Table>
+                                    </>} trigger="click">
+                                       {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
+                                    </Popover>  
+                                    </a>
+                                    }/>
                       </Col>
                       <Col xs={24}>
                             <Button  style={{"width" : "100%"}}  onClick={solveTruthTable} disabled={expr === "" || !inputValid}>Solve!</Button>
