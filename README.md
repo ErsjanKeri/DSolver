@@ -1,7 +1,7 @@
 # DSolver
 
-The code for the DSolver.
-DSolver is a websites that solves common DS-Alogrithms for the user. 
+The code for the DSolver.   
+DSolver is a websites that solves common Discrete-Structure-Alogrithms for the user. 
 
 ### Disclaimer
 We have created everything to the best of our knowledge and belief, but of course we can not exclude errors. Therefore we can't give any guarantee for any results. Please let us know via the feedback form or Github Issues when you find any errors or bugs. 
