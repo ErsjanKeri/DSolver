@@ -150,7 +150,7 @@ const Graphs = forwardRef((props, ref) => {
                     <Col xl={14} lg={14} md={14} sm={14} xs={14}>
                         <Input 
                             name='node'
-                            placeholder={`Node id`}
+                            placeholder={`Knoten ID`}
                             value={nodeId}
                             
                             onChange={(e) => { setNodeId(e.target.value) }}
@@ -163,7 +163,7 @@ const Graphs = forwardRef((props, ref) => {
                                 style={{width: "100%"}}
                                 onClick={() => onCreateNode(100, 100) }
                                 >
-                                Add Node
+                                Knoten hinzufügen
                         </Button>
                     </Col>
 

@@ -54,9 +54,6 @@ function EEA() {
     if(aInput !== "" || bInput !== ""){
       filleEaaTable();
     }
-    else{
-      console.log("keine nummern eingegegben")
-    }
   }
 
 
@@ -135,7 +132,7 @@ function EEA() {
         <Row justify={"center"} className="mb-3">
 
             <Col xs={24} >
-                <Title style={{"textAlign":"center"}} level={4}>Erweiterter Euklidischer Algorithmus</Title>
+                <Title style={{"textAlign":"center"}} level={4}>Erweiterter euklidischer Algorithmus</Title>
                 <Row justify={"center"}>
                   <Col xs={8}>
                       <Row gutter={[8, 8]}>
@@ -150,7 +147,7 @@ function EEA() {
                               </Row>
                           </Col>
                           <Col xs={24}>
-                                <Button style={{"width" : "100%"}} type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Calculate</Button>
+                                <Button style={{"width" : "100%"}} type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Berechnen</Button>
                           </Col>
                       </Row>
                       
@@ -170,21 +167,21 @@ function EEA() {
                                 <Button id="reveal"  onClick={() => {
                                     setDataSource(states[states.length - 1])
                                     setCounter(states.length - 1)
-                                  }}>Reveal</Button>  
+                                  }}>Lösen</Button>  
 
                                 
-                                  <Button id="back" danger onClick={() => {
+                                  <Button id="back" onClick={() => {
                                             if(counter > 0){
                                               setDataSource(states[counter - 1])
                                               setCounter(counter - 1)
                                             }
-                                          }}>Back</Button>
+                                          }}>Zurück</Button>
                                 <Button id="next" type="primary" onClick={() => {
                                             if(counter < states.length - 1){
                                               setDataSource(states[counter + 1])
                                               setCounter(counter + 1)
                                             }
-                                          }}>Next</Button>
+                                          }}>Weiter</Button>
                           </Space>
                       </Col>
                   </Row>

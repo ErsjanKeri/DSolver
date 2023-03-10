@@ -242,8 +242,8 @@ export default function RelationalesProdukt() {
                   <Button onClick={() => { 
                       childRefR.current.makeReflexive();
                       childRefS.current.makeReflexive();
-                   }}>Make Reflexive</Button>
-                  <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Not Symmetrisch" defaultChecked={symmetrisch} />
+                   }}>Reflexiv machen</Button>
+                  <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
               </Space>
             </Col>
             <Col sm={12} className="mb-2">
@@ -271,7 +271,7 @@ export default function RelationalesProdukt() {
                             setCalculated(true)
                       
 
-                            }}>Calculate</Button>
+                            }}>Berechnen</Button>
                     </Col>
 
            

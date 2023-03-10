@@ -178,7 +178,7 @@ function HavelHakimi() {
         let farbbar;
 
         if (kuratowski.planar) {
-            farbbar = "Jede planare und einfache Graph ist 4 Farbbar";  // vier farbe satz 
+            farbbar = "Jeder planare und einfache Graph ist 4-Färbbar";  // vier farbe satz 
         } else {
             const anzahl = Math.floor(0.5 + Math.sqrt(2*E + 0.25)); // die formel 
             farbbar = "Graph ist " + anzahl + " Färbbar"
@@ -195,22 +195,22 @@ function HavelHakimi() {
         }
 
         if (hatKreis) {
-          eig.push("Graph enthalt ein Kreis")
+          eig.push("Graph enthält einen Kreis")
         }
 
         if (hatEulertour) {
-          eig.push( "Graph enthalt ein Eulertour")
+          eig.push( "Graph enthält eine Eulertour")
         }
 
         if (hatHamiltonkreis) {
-          eig.push("Graph enthalt ein Hamiltonkreis")
+          eig.push("Graph enthält einen Hamiltonkreis")
          
         }
 
         eig.push(kuratowski.reason)
 
         if (nichtBaum) {
-            eig.push("Es gibt keinen Baum mit diesen Gradfolge")
+            eig.push("Es gibt keinen Baum mit dieser Gradfolge")
         } 
 
         eig.push(farbbar)
@@ -259,7 +259,7 @@ function HavelHakimi() {
             console.log(greaterThanFour)
             
             if (greaterThanFour.length >= 5) {
-                return {planar: false, reason : "Nicht immer planar, K5 kann Minor sein"}; 
+                return {planar: false, reason : "Nicht immer planar, K5 kann ein Minor sein"}; 
             } 
 
 
@@ -269,11 +269,11 @@ function HavelHakimi() {
                   return num >= 3;
                 });
                 if (greaterThanThree.length >= 6) {
-                    return {planar: false, reason : "Nicht immer planar, K3,3 kann Minor sein"}; 
+                    return {planar: false, reason : "Nicht immer planar, K3,3 kann ein Minor sein"}; 
                 } 
             }
         }
-        return {planar: true, reason : "Planar, weder K3,3 noch K5 Minor"}; 
+        return {planar: true, reason : "Planar, weder K3,3 noch K5 sind Minor"}; 
 
     }
 
@@ -281,7 +281,7 @@ function HavelHakimi() {
       <>
           <Row gutter={[16, 16]}>
               <Col xs={24}>
-                <Title style={{"textAlign":"center"}} level={4}>Havel Hakimi Algorithm</Title>
+                <Title style={{"textAlign":"center"}} level={4}>Havel-Hakimi Algorithmus</Title>
 
               </Col>
               <Col xs={20}>
@@ -303,7 +303,7 @@ function HavelHakimi() {
                       calculateHakimi()
                     }}
                   >
-                    Calculate</Button>
+                    Berechnen</Button>
               </Col>
           </Row>
 
@@ -312,7 +312,7 @@ function HavelHakimi() {
             
           <Row gutter={[16,16]} className="mt-4">
                 <Col xs={24}>
-                    <Title style={{"textAlign" : "center"}} level={4}>{represantable ? ("Doable :)") : ("Not Doable :(")}</Title>
+                    <Title style={{"textAlign" : "center"}} level={4}>{represantable ? ("Realisierbar") : ("Nicht Realisierbar")}</Title>
                 </Col>
 
                 {represantable && (<>
@@ -332,14 +332,14 @@ function HavelHakimi() {
 
                 {(result !== []) && (
                       <>
-                        <Col xs={24}><Title level={5}>Havel Hakimi</Title></Col>
+                        <Col xs={24}><Title level={5}>Havel-Hakimi</Title></Col>
                         {result.map((r, i) => {
                             return (
                               <Col xs={24}>
                                 <Row className='mb-1'>
                                   
                                   <Col xs={24}>
-                                      <Title style={{"marginBottom" : "5px", "paddingBottom" : "0"}} level={5}>Step-{i+1}: ({r.join(", ")})</Title>
+                                      <Title style={{"marginBottom" : "5px", "paddingBottom" : "0"}} level={5}>Schritt-{i+1}: ({r.join(", ")})</Title>
                                   </Col>
                                   
                                     {represantable && (<>
