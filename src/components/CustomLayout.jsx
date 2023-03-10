@@ -19,10 +19,15 @@ import {
   } from '@ant-design/icons';
   import { Layout, Menu, theme } from 'antd';
   import React from 'react';
+  import { Helmet } from "react-helmet";
 
   import { Link } from 'react-router-dom';
 
+  import icon from "../images/favicon.ico"
+  import appleIcon from "../images/appleicon.png"
+  import cutout from "../images/cutout.png"
 
+  
   
   const { Header, Content, Footer, Sider } = Layout;
 
@@ -35,6 +40,14 @@ import {
 
     return (
       <Layout hasSider>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Solver</title>
+            <meta name="description" content={"Application for solving DS exercises"}></meta>
+            <link rel="icon" id="favicon" href={icon} />
+            <link rel="apple-touch-icon" href={appleIcon} />
+        </Helmet>
+
         <Sider
           style={{
             overflow: 'auto',
@@ -49,9 +62,11 @@ import {
             style={{
               height: 32,
               margin: 16,
-              background: 'rgba(255, 255, 255, 0.2)',
+              textAlign: "center",
             }}
-          />
+          >
+            <img src={cutout} alt="" style={{"height" : "32px","maxWidth" : "100%"}} />
+          </div>
           
           <Menu theme="dark" 
                 mode="inline" 

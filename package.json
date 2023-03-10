@@ -1,5 +1,5 @@
 {
-  "homepage" : "http://ErsjanKeri.github.io/DSolver",
+  "homepage": "http://ErsjanKeri.github.io/DSolver",
   "name": "dsolver",
   "version": "0.1.0",
   "private": true,
@@ -14,6 +14,7 @@
     "react": "17.0.2",
     "react-digraph": "^8.1.0",
     "react-dom": "17.0.2",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "reactflow": "^11.5.6",
@@ -21,8 +22,8 @@
   },
   "scripts": {
     "start": "craco start",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
