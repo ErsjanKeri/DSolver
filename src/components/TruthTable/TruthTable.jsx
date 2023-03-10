@@ -256,7 +256,7 @@ function TruthTable() {
                                   value={expr} 
                                   type={"text"} 
                                   onChange={(event) => {setExpr(event.target.value); check(event.target.value)}}
-                                  placeholder="(a and b) -> (a xor c)"
+                                  placeholder="(a and b) impl (a xor c)"
                                   suffix={
                                     <a>
                                     <Popover  placement="bottom" title={"Guide"} content={<>
