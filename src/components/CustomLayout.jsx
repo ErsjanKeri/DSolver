@@ -65,7 +65,7 @@ import {
               textAlign: "center",
             }}
           >
-            <img src={cutout} alt="" style={{"height" : "32px","maxWidth" : "100%"}} />
+            <img src={cutout} alt="" style={{"height" : "40px","maxWidth" : "100%"}} />
           </div>
           
           <Menu theme="dark" 
@@ -74,13 +74,13 @@ import {
                 > 
                 <Menu.Item key={"homepage"} icon={<FireOutlined />}>
                     <Link to="/">
-                        Homepage
+                        Übersicht
                     </Link>
                     
                 </Menu.Item>
                 <Menu.Item key={"homepage2"} icon={<NodeIndexOutlined />}>
                     <Link to="/havelhakimi">
-                        Havel Hakimi
+                        Havel-Hakimi
                     </Link>
                 </Menu.Item>
 
@@ -104,13 +104,13 @@ import {
 
                 <Menu.Item key={"homepage6"} icon={<GatewayOutlined />}>
                     <Link to="/relation">
-                        Relation
+                        Relationales Produkt
                     </Link>
                 </Menu.Item>
 
                 <Menu.Item key={"homepage7"} icon={<RedoOutlined />}>
                     <Link to="/groups">
-                        Groups
+                        Algebra Gruppen
                     </Link>
                 </Menu.Item>
                 
