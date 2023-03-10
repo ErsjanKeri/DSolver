@@ -94,6 +94,20 @@ function Mainpage() {
                 </Card>
             </Link>
         </Col>
+
+        <Col className="gutter-row" span={8}>
+            <Link to="/groups">
+                <Card
+                  hoverable
+                  style={{
+                    width: "100%",
+                  }}
+                  cover={<img alt="example" src={require('../images/groups.png')} />}
+                >
+                  <Meta style={{"textAlign" : "center"}} title="Algebra Gruppen"/>
+                </Card>
+            </Link>
+        </Col>
       
     </Row>
     

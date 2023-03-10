@@ -69,7 +69,7 @@ function Groups() {
                                 </Row>
                             </Col>
                             <Col xs={24}>
-                                <Button disabled={menge === "" || operation === "" || n === 0 || !(n.split("").every(n => integer.includes(n)))} style={{"width" : "100%"}} onClick={() => { calculate() }} >Calculate</Button>
+                                <Button disabled={menge === "" || operation === "" || n === 0 || !(n.split("").every(n => integer.includes(n)))} style={{"width" : "100%"}} onClick={() => { calculate() }} >Berechnen</Button>
                                 
                             </Col>
 

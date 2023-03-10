@@ -98,7 +98,7 @@ function Kombinatorik() {
     <Row justify={"center"} className="mb-3">
 
         <Col xs={24} >
-            <Title style={{"textAlign":"center"}} level={4}>Kombinatorik Calculator</Title>
+            <Title style={{"textAlign":"center"}} level={4}>Kombinatorik-Rechner</Title>
             
             <Row justify={"center"}>
               <Col xs={8}>
@@ -110,7 +110,7 @@ function Kombinatorik() {
                             options={[
                                 { value: 's1', label: 'Stirling Zahlen 1. Art' },
                                 { value: 's2', label: 'Stirling Zahlen 2. Art' },
-                                { value: 'p', label: 'P n,k' },
+                                { value: 'p', label: 'P_(n,k)' },
                             ]}
                             placeholder={"Auswählen..."}
                         />
@@ -126,7 +126,7 @@ function Kombinatorik() {
                             
                           </Col>
                           <Col xs={8}>
-                              <Button  style={{"width" : "100%"}} type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "" ||kind === "")}>Calculate</Button>
+                              <Button  style={{"width" : "100%"}} type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "" ||kind === "")}>Berechnen</Button>
                             
                           </Col>
                         </Row>

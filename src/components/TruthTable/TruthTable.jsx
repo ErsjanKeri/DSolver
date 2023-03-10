@@ -252,7 +252,7 @@ function TruthTable() {
                                   placeholder="(a and b) impl (a xor c)"
                                   suffix={
                                     <a>
-                                    <Popover  placement="bottom" title={"Guide"} content={<>
+                                    <Popover  placement="bottom" title={"Legende"} content={<>
                                           <Table id="legend-table"
                                             pagination={false}
                                             dataSource={example}
@@ -267,7 +267,7 @@ function TruthTable() {
                                     }/>
                       </Col>
                       <Col xs={24}>
-                            <Button  style={{"width" : "100%"}}  onClick={solveTruthTable} disabled={expr === "" || !inputValid}>Solve!</Button>
+                            <Button  style={{"width" : "100%"}}  onClick={solveTruthTable} disabled={expr === "" || !inputValid}>Berechnen</Button>
                       </Col>
                     </Row>
                 </Col>

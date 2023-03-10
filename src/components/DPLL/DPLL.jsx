@@ -142,7 +142,7 @@ function DPLL() {
 
           <Row gutter={[16, 16]}>
               <Col xs={24}>
-                <Title style={{"textAlign":"center"}} level={4}>DPLL</Title>
+                <Title style={{"textAlign":"center"}} level={4}>Davis–Putnam–Logemann–Loveland Algorithmus</Title>
 
               </Col>
               <Col xs={20}>
@@ -156,7 +156,7 @@ function DPLL() {
                          style={{"width" : "100%"}}
                             onClick={() => handleClick()}
                             >
-                              Apply
+                              Berechnen
                     </Button>
               </Col>
           </Row>
