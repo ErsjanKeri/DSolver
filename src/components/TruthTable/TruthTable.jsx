@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Input, Table, Row, Col, Space, Typography, Popover } from 'antd'
+import { Button, Input, Table, Row, Col, Typography, Popover } from 'antd'
 
 import {
   QuestionCircleOutlined
@@ -52,7 +52,7 @@ function TruthTable() {
     },
     {
       symbol: "¬",
-      dsolver: "neg"
+      dsolver: "neg, not"
     },
     {
       symbol: "⊕",
@@ -62,14 +62,6 @@ function TruthTable() {
       symbol: "↔",
       dsolver: "xand"
     },
-    {
-      symbol: "nor",
-      dsolver: "nor"
-    },
-    {
-      symbol: "nand",
-      dsolver: "nand"
-    }
   ]
   
   // function that checkt wheater the input is valid or not
@@ -85,6 +77,7 @@ function TruthTable() {
       "xand",
       "nor",
       "nand",
+      "not"
     ])
     // chekc if there is an equal amount of opening and closing parentheses
     let amount_opening_parentheses = value.split("").filter(t => t === "(").length
@@ -165,16 +158,45 @@ function TruthTable() {
 
 
   // funtction that 
-  function normalize(exec) {
-    return exec
+  function normalize(expr) {
+    expr = replaceImpl(expr) 
+    return expr
       .replaceAll("xor", "!==")
-      .replaceAll("nand", "") // TODO immer 1 wenn 0 und 0 dann auch 0
-      .replaceAll("nor", "") // TODO wenn beide 0 dann true
       .replaceAll("xand", "===")
       .replaceAll("and", "&&")
       .replaceAll("or", "||")
-      .replaceAll("impl", "") // TODO
-      .replaceAll("not ", "-")
+      .replaceAll("not ", "!")
+      .replaceAll("neg", "!")
+  }
+
+  function replaceImpl(expr){
+    let countImpl = expr.split(" ").filter(t => t === "impl").length
+
+    for(let i = 0; i < countImpl; i++){
+      const indexImpl = expr.indexOf("impl")
+
+      // place "not" 
+      let counter = 0
+      for(let j = indexImpl - 1;j >= 0; j--){
+        if(expr[j] === ")"){
+            counter++
+        } else if(expr[j] === "("){
+            counter--
+        }
+        
+        if(counter === 0 && (expr[j] === "(")){
+            expr = expr.slice(0, j) + "!" + expr.slice(j)
+            break
+        }
+        
+        if (expr.charCodeAt(j) >= 97 && expr.charCodeAt(j) <= 122 && counter === 0){
+            expr = expr.slice(0, j) + "!" + expr.slice(j)
+            break
+        }
+      }
+      expr = expr.replace("impl", "||")
+    }
+    return expr
   }
 
 
