@@ -75,8 +75,6 @@ function TruthTable() {
       "neg",
       "xor",
       "xand",
-      "nor",
-      "nand",
       "not"
     ])
     // chekc if there is an equal amount of opening and closing parentheses
@@ -91,14 +89,7 @@ function TruthTable() {
     // split the expression at every space and remove every parantehses
     const all_words = value.split(" ").filter(t => t !== "").map(t => t.replaceAll("(", "").replaceAll(")", ""))
     
-    // console.log(all_words.every(t => !allowed_keywords.includes(t)))
-    if(all_words.every(t => allowed_keywords.includes(t))){
-      setInputValid(true)
-    }
-    else{
-      setInputValid(false)
-    }
-
+    setInputValid(all_words.every(t => allowed_keywords.includes(t)))
   }
 
   // TODO fertig machen
@@ -258,7 +249,7 @@ function TruthTable() {
                                   value={expr} 
                                   type={"text"} 
                                   onChange={(event) => {setExpr(event.target.value); check(event.target.value)}}
-                                  placeholder="(a and b) -> (a xor c)"
+                                  placeholder="(a and b) impl (a xor c)"
                                   suffix={
                                     <a>
                                     <Popover  placement="bottom" title={"Guide"} content={<>
