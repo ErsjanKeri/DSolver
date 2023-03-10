@@ -89,14 +89,7 @@ function TruthTable() {
     // split the expression at every space and remove every parantehses
     const all_words = value.split(" ").filter(t => t !== "").map(t => t.replaceAll("(", "").replaceAll(")", ""))
     
-    // console.log(all_words.every(t => !allowed_keywords.includes(t)))
-    if(all_words.every(t => allowed_keywords.includes(t))){
-      setInputValid(true)
-    }
-    else{
-      setInputValid(false)
-    }
-
+    setInputValid(all_words.every(t => allowed_keywords.includes(t)))
   }
 
   // TODO fertig machen
