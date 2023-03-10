@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
-import { GraphView } from "react-digraph";
-import { Col, Row, Input, Button, Switch, Space, Typography } from "antd"
-
+import { Col, Row, Input, Button, Switch, Space, Typography, Popover } from "antd"
+import { QuestionCircleOutlined } from "@ant-design/icons"
 import './styles.css' 
 import { Graphs }  from "./Graphs";
 
-const { Title }  = Typography
 
-const EMPTY_EDGE_TYPE = "emptyEdge";
+
+
+const { Title, Text }  = Typography
 
 
 const defaultNodes = [
@@ -244,6 +244,23 @@ export default function RelationalesProdukt() {
                       childRefS.current.makeReflexive();
                    }}>Reflexiv machen</Button>
                   <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
+                  <a>
+                    <Popover  placement="bottom" title={"Legende"} content={<>
+
+                          <Row style={{"width" : "350px"}}>
+                            <Col xs={12}><Text strong>Connecting nodes:</Text></Col>
+                            <Col xs={12}>hold shift and draw</Col>
+                            <Col xs={12}><Text strong>Reflexive:</Text></Col>
+                            <Col xs={12}>makes the node reflexive</Col>
+                            <Col xs={12}><Text strong>Symmetrisch:</Text></Col>
+                            <Col xs={12}>while on, reflexive edges</Col>
+                          </Row>
+                    </>} trigger="click">
+                      {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
+                    </Popover>  
+                    </a>
+
+             
               </Space>
             </Col>
             <Col sm={12} className="mb-2">
