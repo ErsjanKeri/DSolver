@@ -5,9 +5,9 @@ DSolver is a websites that solves common Discrete-Structure-Alogrithms for the u
 
 ### Disclaimer
 We have created everything to the best of our knowledge and belief, but of course we can not exclude errors. Therefore we can't give any guarantee for any results. Please let us know via the feedback form or Github Issues when you find any errors or bugs. 
-The information from the lecture notes or from the tutorial instructor is always valid.
+The information from the lecture notes or from the tutorial instructor always takes precedence.
 
-The purpose of this page is to provide sample solutions to make learning easier. It does not replace to deal with the material, e.g. to do the EEA by yourself. The point of DS is not to memorize algorithms, e.g. to execute the EEA perfectly, because it is quite trivial to automate it (we managed to do it), but to understand how these algorithms basically work and WHY they work. )
+The purpose of this page is to provide sample solutions to make learning easier. It does not replace dealing with the material, e.g. doing the EEA by yourself. The point of DS is not to memorize algorithms, e.g. to execute the EEA perfectly, because it is quite trivial to automate it (we managed to do it), but to understand how and WHY these algorithms work.
 
 
 
