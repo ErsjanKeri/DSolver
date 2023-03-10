@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Col, Row, Typography, InputNumber, Input, Button, Select, Space } from "antd" 
+import { Col, Row, Typography, Input, Button, Select, Space } from "antd" 
 import Title from 'antd/es/typography/Title'
 
 
@@ -20,6 +20,8 @@ function Groups() {
 
 
     const [calculated, setCalculated] = useState(false)
+
+    const integer = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 
 
@@ -67,7 +69,7 @@ function Groups() {
                                 </Row>
                             </Col>
                             <Col xs={24}>
-                                <Button disabled={menge === "" || operation === "" || n === 0 || !(Number.isInteger(Number.parseInt(n)) )} style={{"width" : "100%"}} onClick={() => { calculate() }} >Calculate</Button>
+                                <Button disabled={menge === "" || operation === "" || n === 0 || !(n.split("").every(n => integer.includes(n)))} style={{"width" : "100%"}} onClick={() => { calculate() }} >Calculate</Button>
                                 
                             </Col>
 
@@ -117,12 +119,7 @@ function Groups() {
                                 })}
                                 </Row>
                         </Col>
-                    
-
-                </Row>
-
-               
-
+                </Row>          
           )}
     </>
     )
@@ -136,7 +133,7 @@ function Groups() {
 
 
         if (menge === 'Zn' && operation === '+'){ //aditive Gruppe mod n
-            //TODO
+
             for (let i = 1; i < n; i++){
                 const erzeugnis = []
                 let j = 0
@@ -146,8 +143,9 @@ function Groups() {
                     j = (j + i) % n
                 } while (j !== 0)
 
-                elements.set(i, {erzeugnis, isErzeuger : !(erzeugnis.length !== (2*(n)-1))})
+                elements.set(i, {erzeugnis, isErzeuger : (erzeugnis.length === n)})
             }
+
 
         } else if (menge === 'Zn*' && operation === '*'){ //multiplikative Gruppe mod n
 
@@ -164,13 +162,11 @@ function Groups() {
                         j = (j * i) % n
                     } while (j !== 1)
 
-                    elements.set(i, {erzeugnis, isErzeuger : !(erzeugnis.length !== (2*(n-1)-1))})
+                    elements.set(i, {erzeugnis, isErzeuger : erzeugnis.length === (n-1)})
                 }
             }
 
-        } else {
-            //TODO Fehler zeigen
-        }
+        } 
 
         setShowElements(elements)
         setShowMenge(menge)
