@@ -75,8 +75,6 @@ function TruthTable() {
       "neg",
       "xor",
       "xand",
-      "nor",
-      "nand",
       "not"
     ])
     // chekc if there is an equal amount of opening and closing parentheses
