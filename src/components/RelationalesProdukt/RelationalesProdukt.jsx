@@ -239,13 +239,13 @@ export default function RelationalesProdukt() {
         <Row gutter={[16, 16]}>
             <Col xs={24}>
               <Row gutter={[8,8]} className="mb-3">
-                  <Col  md={4} xs={24}>
+                  <Col  lg={4} md={12} xs={24}>
                       <Button style={{"width" : "100%"}}  onClick={() => { 
                           childRefR.current.makeReflexive();
                           childRefS.current.makeReflexive();
                       }}>Reflexiv machen</Button>
                   </Col>
-                  <Col lg={4} md={5} xs={22}>
+                  <Col lg={7} md={12} sm={20} xs={22}>
                     <Space>
                           <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
                           <a>
