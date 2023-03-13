@@ -15,9 +15,10 @@ import {
     GatewayOutlined ,
     PartitionOutlined,
     VideoCameraOutlined,
-    TableOutlined
+    TableOutlined,
+    GithubOutlined
   } from '@ant-design/icons';
-  import { Layout, Menu, theme, Popover, Row, Col} from 'antd';
+  import { Layout, Menu, theme, Popover, Row, Col ,Space} from 'antd';
   import React from 'react';
   import { Helmet } from "react-helmet";
 
@@ -51,7 +52,7 @@ import {
         <Sider
           style={{
             overflow: 'auto',
-            height: '100vh',
+            height: '100%',
             position: 'fixed',
             left: 0,
             top: 0,
@@ -120,7 +121,22 @@ import {
                         Warheitstabelle
                     </Link>
                 </Menu.Item>
+
+                <div style={{
+                  marginBottom: "0.8rem",
+                  textAlign: "center",
+                  position: "absolute",
+                  width: "100%",
+                  bottom: 0,
+                }}>
+                  <Space wrap={true} size={"middle"}>
+                    {/* <Link style={{color: "#acbed4"}} to="https://github.com/ErsjanKeri/DSolver"><GithubOutlined /></Link> */}
+                    <Link style={{color: "#acbed4"}} to="https://github.com/ErsjanKeri/DSolver">GitHub</Link>
+                    |
+                    <Link style={{color: "#acbed4"}} to="https://github.com/ErsjanKeri/DSolver/issues">Feedback</Link>
+                  </Space>
                 
+                </div>
             </Menu>
 
 
