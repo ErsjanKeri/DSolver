@@ -105,7 +105,7 @@ function Groups() {
                                             <Row>
                                                 <Col xs={12}>
                                                     <Title style={{"textAlign" : "left"}} level={5}>
-                                                        {'<'} {key} {'>'}  {value.isErzeuger && ("(erzeuger)")}
+                                                        {'<'} {key} {'>'} {"("}{value.erzeugnis.length}{")"}  {value.isErzeuger && ("(erzeuger)")}
                                                     </Title>
                                                 </Col>
                                                 <Col xs={12}>

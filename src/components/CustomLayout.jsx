@@ -172,7 +172,7 @@ import {
             DSolver ©2023 Created with excellenz by not-so-excellent <a href="https://www.tum.de/">TUM</a>  students. {' '}
                                     <a>
                                       <Popover  placement="top" title={"Disclaimer"} content={<>
-                                        <Row style={{"width" : "400px"}}>
+                                        <Row className='disclaimer'>
                                             <Col xs={24}>
                                               Hinweis: Wir haben alles nach bestem Wissen und Gewissen erstellt, können aber Fehler natürlich nicht ausschließen. Deshalb können wir keine Gewähr für irgendwelche Ergebnisse geben.  
                                               Lasst uns gerne über die Feedback Form wissen, falls ihr einen Fehler/Bug findet. 
