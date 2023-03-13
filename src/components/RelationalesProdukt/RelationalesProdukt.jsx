@@ -248,12 +248,12 @@ export default function RelationalesProdukt() {
                     <Popover  placement="bottom" title={"Legende"} content={<>
 
                           <Row style={{"width" : "350px"}}>
-                            <Col xs={12}><Text strong>Connecting nodes:</Text></Col>
-                            <Col xs={12}>hold shift and draw</Col>
-                            <Col xs={12}><Text strong>Reflexive:</Text></Col>
-                            <Col xs={12}>makes the node reflexive</Col>
+                            <Col xs={12}><Text strong>Knoten verbinden:</Text></Col>
+                            <Col xs={12}>Shift gedrückt halten und malen</Col>
+                            <Col xs={12}><Text strong>Reflexiv:</Text></Col>
+                            <Col xs={12}>macht den Knoten reflexiv</Col>
                             <Col xs={12}><Text strong>Symmetrisch:</Text></Col>
-                            <Col xs={12}>while on, reflexive edges</Col>
+                            <Col xs={12}>wenn aktiviert werden neue Kanten symmetrisch</Col>
                           </Row>
                     </>} trigger="click">
                       {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
