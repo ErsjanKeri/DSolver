@@ -155,9 +155,9 @@ import {
             }}
           >
             <div
+              className='layout-div'
               style={{
                 padding: 24,
-                marginTop: 50,
                 background: colorBgContainer,
               }}
             >
