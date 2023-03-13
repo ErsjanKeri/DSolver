@@ -18,7 +18,7 @@ function Mainpage() {
                   style={{
                     width: "100%",
                   }}
-                  cover={<img alt="example" src={require('../images/eea.png')} />}
+                  cover={<img alt="EEA" src={require('../images/eea.png')} />}
                 >
                   <Meta style={{"textAlign" : "center"}} title="Erweiterter euklidischer Algorithmus"/>
                 </Card>
@@ -31,7 +31,7 @@ function Mainpage() {
                   style={{
                     width: "100%",
                   }}
-                  cover={<img alt="example" src={require('../images/dpll.png')} />}
+                  cover={<img alt="DPLL" src={require('../images/dpll.png')} />}
                 >
                   <Meta style={{"textAlign" : "center"}} title="DPLL"/>
                 </Card>
@@ -45,7 +45,7 @@ function Mainpage() {
                   style={{
                     width: "100%",
                   }}
-                  cover={<img alt="example" src={require('../images/relation.png')} />}
+                  cover={<img alt="Relationen" src={require('../images/relation.png')} />}
                 >
                   <Meta style={{"textAlign" : "center"}} title="Relationales Produkt"/>
                 </Card>
@@ -60,7 +60,7 @@ function Mainpage() {
                   style={{
                     width: "100%",
                   }}
-                  cover={<img alt="example" src={require('../images/hakimi.png')} />}
+                  cover={<img alt="Havel-Hakimi" src={require('../images/hakimi.png')} />}
                 >
                   <Meta style={{"textAlign" : "center"}} title="Havel-Hakimi"/>
                 </Card>
@@ -74,7 +74,7 @@ function Mainpage() {
                   style={{
                     width: "100%",
                   }}
-                  cover={<img alt="example" src={require('../images/truthtable.png')} />}
+                  cover={<img alt="Wahrheitstabelle" src={require('../images/truthtable.png')} />}
                 >
                   <Meta style={{"textAlign" : "center"}} title="Wahrheitstabelle"/>
                 </Card>
@@ -88,7 +88,7 @@ function Mainpage() {
                   style={{
                     width: "100%",
                   }}
-                  cover={<img alt="example" src={require('../images/kombinatorik.png')} />}
+                  cover={<img alt="Kombinatorik" src={require('../images/kombinatorik.png')} />}
                 >
                   <Meta style={{"textAlign" : "center"}} title="Kombinatorik"/>
                 </Card>
@@ -102,7 +102,7 @@ function Mainpage() {
                   style={{
                     width: "100%",
                   }}
-                  cover={<img alt="example" src={require('../images/groups.png')} />}
+                  cover={<img alt="Algebra Gruppen" src={require('../images/groups.png')} />}
                 >
                   <Meta style={{"textAlign" : "center"}} title="Algebra Gruppen"/>
                 </Card>
