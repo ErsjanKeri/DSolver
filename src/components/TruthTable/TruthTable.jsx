@@ -242,7 +242,7 @@ function TruthTable() {
               </Title>
               
               <Row justify={"center"}>
-                <Col xs={8}>
+                <Col md={8} sm={16} xs={24}>
                     <Row gutter={[8,8]}>
                       <Col xs={24}>
                           <Input  style={{"width" : "100%"}} 
@@ -277,7 +277,7 @@ function TruthTable() {
       </Row> 
       {solved && (
       <Row justify={"center"} className="mt-4">
-          <Col xs={Math.min(columns.length*3, 24)}>
+          <Col md={Math.min(columns.length*3, 24)} xs={24}>
               <Table style={{"textAlign" : "center"}} 
                      id="truth-table"
                      size="small"  

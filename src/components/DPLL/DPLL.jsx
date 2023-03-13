@@ -50,10 +50,7 @@ function DPLL() {
       }
     }
     
-    /*function fetchInput(e) {
-      var input = parseClauses(e)
-      setInput(e)
-    }*/
+
 
     function dpll_apply(clauses) {
       let root = new TreeNode(clauses, "mother", 0)
@@ -145,13 +142,13 @@ function DPLL() {
                 <Title style={{"textAlign":"center"}} level={4}>Davis–Putnam–Logemann–Loveland Algorithmus</Title>
 
               </Col>
-              <Col xs={20}>
+              <Col md={20} sm={12} xs={24}>
                   <Input 
                         placeholder={`{a, !b, c}, {a, b}, {d}, {!a, !d}`}
                         onChange = {handleChange}/>
               </Col>
 
-              <Col xs={4}>
+              <Col md={4} sm={12} xs={24}>
                   <Button 
                          style={{"width" : "100%"}}
                             onClick={() => handleClick()}

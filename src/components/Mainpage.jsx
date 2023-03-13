@@ -11,7 +11,7 @@ function Mainpage() {
     <>
     <Row gutter={[24, 24]}>
 
-        <Col className="gutter-row" span={8}>
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/eea">
                 <Card
                   hoverable
@@ -24,7 +24,7 @@ function Mainpage() {
                 </Card>
             </Link>
         </Col>
-        <Col className="gutter-row" span={8}>
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/dpll">
                 <Card
                   hoverable
@@ -38,7 +38,7 @@ function Mainpage() {
               </Link>
         </Col>
 
-        <Col className="gutter-row" span={8}>
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/relation">
                 <Card
                   hoverable
@@ -52,7 +52,7 @@ function Mainpage() {
             </Link>
         </Col>
 
-        <Col className="gutter-row" span={8}>
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/havelhakimi">
 
                 <Card
@@ -67,7 +67,7 @@ function Mainpage() {
             </Link>
         </Col>
 
-        <Col className="gutter-row" span={8}>
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/truthtable">
                 <Card
                   hoverable
@@ -81,7 +81,7 @@ function Mainpage() {
             </Link>
         </Col>
 
-        <Col className="gutter-row" span={8}>
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/kombinatorik">
                 <Card
                   hoverable
@@ -95,7 +95,7 @@ function Mainpage() {
             </Link>
         </Col>
 
-        <Col className="gutter-row" span={8}>
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/groups">
                 <Card
                   hoverable

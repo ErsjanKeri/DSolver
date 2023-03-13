@@ -280,23 +280,20 @@ function HavelHakimi() {
     return (
       <>
           <Row gutter={[16, 16]}>
-              <Col xs={24}>
+              <Col md={24} xs={24}>
                 <Title style={{"textAlign":"center"}} level={4}>Havel-Hakimi Algorithmus</Title>
 
               </Col>
-              <Col xs={20}>
+              <Col md={20} sm={12} xs={24}>
                   <Input 
-                  
                     placeholder='(1,2,3,4,5,6,7,8)'
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
-
-
                   />
                 
               </Col>
 
-              <Col xs={4}>
+              <Col md={4} sm={12} xs={24}>
                   <Button
                     style={{"width" : "100%"}}
                     onClick={() => {

@@ -19,7 +19,7 @@ import {
     GithubOutlined
   } from '@ant-design/icons';
   import { Layout, Menu, theme, Popover, Row, Col ,Space} from 'antd';
-  import React from 'react';
+  import React, {  useState } from 'react';
   import { Helmet } from "react-helmet";
 
   import { Link } from 'react-router-dom';
@@ -27,13 +27,15 @@ import {
   import icon from "../images/favicon.ico"
   import appleIcon from "../images/appleicon.png"
   import cutout from "../images/cutout.png"
-
+  import smallCutout from "../images/smallCutout.png"
   
   
   const { Header, Content, Footer, Sider } = Layout;
 
 
   const CustomLayout = (props) => {
+    const [collapsed, setCollapsed] = useState(false);
+
     const {
       token: { colorBgContainer },
     } = theme.useToken();
@@ -49,15 +51,10 @@ import {
             <link rel="apple-touch-icon" href={appleIcon} />
         </Helmet>
 
-        <Sider
-          style={{
-            overflow: 'auto',
-            height: '100%',
-            position: 'fixed',
-            left: 0,
-            top: 0,
-            bottom: 0,
-          }}
+        <Sider 
+          collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}
+
+        
         >
           <div
             style={{
@@ -66,7 +63,12 @@ import {
               textAlign: "center",
             }}
           >
-            <img src={cutout} alt="" style={{"height" : "40px","maxWidth" : "100%"}} />
+            {collapsed ? (
+              <img src={smallCutout} alt="" style={{"height" : "40px","maxWidth" : "100%"}} />
+            ) : (
+              <img src={cutout} alt="" style={{"height" : "40px","maxWidth" : "100%"}} />
+            )}
+            
           </div>
           
           <Menu theme="dark" 
@@ -79,64 +81,55 @@ import {
                     </Link>
                     
                 </Menu.Item>
-                <Menu.Item key={"homepage2"} icon={<NodeIndexOutlined />}>
+                <Menu.Item key={"havel-hakimi"} icon={<NodeIndexOutlined />}>
                     <Link to="/havelhakimi">
                         Havel-Hakimi
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage3"} icon={<NumberOutlined />}>
+                <Menu.Item key={"kombinatorik"} icon={<NumberOutlined />}>
                     <Link to="/kombinatorik">
                         Kombinatorik
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage5"} icon={<PartitionOutlined />}>
+                <Menu.Item key={"dpll"} icon={<PartitionOutlined />}>
                     <Link to="/dpll">
                         DPLL
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage4"} icon={<InsertRowRightOutlined />}>
+                <Menu.Item key={"eea"} icon={<InsertRowRightOutlined />}>
                     <Link to="/eea">
                         EEA 
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage6"} icon={<GatewayOutlined />}>
+                <Menu.Item key={"relation"} icon={<GatewayOutlined />}>
                     <Link to="/relation">
                         Relationales Produkt
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"homepage7"} icon={<RedoOutlined />}>
+                <Menu.Item key={"groups"} icon={<RedoOutlined />}>
                     <Link to="/groups">
                         Algebra Gruppen
                     </Link>
                 </Menu.Item>
                 
 
-                <Menu.Item key={"homepage8"} icon={<TableOutlined />}>
+                <Menu.Item key={"truthtable"} icon={<TableOutlined />}>
                     <Link to="/truthtable">
                         Warheitstabelle
                     </Link>
                 </Menu.Item>
 
-                <div style={{
-                  marginBottom: "0.8rem",
-                  textAlign: "center",
-                  position: "absolute",
-                  width: "100%",
-                  bottom: 0,
-                }}>
-                  <Space wrap={true} size={"middle"}>
-                    {/* <Link style={{color: "#acbed4"}} to="https://github.com/ErsjanKeri/DSolver"><GithubOutlined /></Link> */}
-                    <Link style={{color: "#acbed4"}} to="https://github.com/ErsjanKeri/DSolver">GitHub</Link>
-                    |
-                    <Link style={{color: "#acbed4"}} to="https://github.com/ErsjanKeri/DSolver/issues">Feedback</Link>
-                  </Space>
-                
-                </div>
+                <Menu.Item key={"feedback"} icon={<GithubOutlined />}>
+                    <Link to="https://github.com/ErsjanKeri/DSolver/issues">
+                        Feedback
+                    </Link>
+                </Menu.Item>
+
             </Menu>
 
 
@@ -145,7 +138,6 @@ import {
         <Layout
           className="site-layout"
           style={{
-            marginLeft: 200,
             minHeight: "100vh"
           }}
         >

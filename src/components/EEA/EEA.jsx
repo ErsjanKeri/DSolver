@@ -134,7 +134,7 @@ function EEA() {
             <Col xs={24} >
                 <Title style={{"textAlign":"center"}} level={4}>Erweiterter euklidischer Algorithmus</Title>
                 <Row justify={"center"}>
-                  <Col xs={8}>
+                  <Col md={8} sm={16} xs={24}>
                       <Row gutter={[8, 8]}>
                           <Col xs={24}>
                               <Row gutter={[8,0]}>
@@ -160,9 +160,9 @@ function EEA() {
         
         {solved && (
           <Row gutter={[0, 8]} justify={"center"} className="mb-4">
-            <Col xs={14}>
-                  <Row justify={"end"}>
-                        <Col xs={16} span={15} style={{display: 'flex', justifyContent: 'flex-end'}}>
+            <Col md={14} sm={24}>
+                  <Row >
+                        <Col xs={24}>
                             <Space wrap>
                                 <Button id="reveal"  onClick={() => {
                                     setDataSource(states[states.length - 1])
@@ -186,7 +186,7 @@ function EEA() {
                       </Col>
                   </Row>
               </Col>
-            <Col xs={14}>
+            <Col lg={14} sm={24}>
             
                 <Table id='eea_table' 
                   dataSource={dataSource} 

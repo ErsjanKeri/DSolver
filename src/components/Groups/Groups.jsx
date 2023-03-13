@@ -33,9 +33,9 @@ function Groups() {
                     <Title style={{"textAlign":"center"}} level={4}>Algebra Gruppen</Title>
                     
                     <Row justify={"center"}>
-                    <Col xs={8}>
+                    <Col md={8} sm={16} xs={24}>
+
                         <Row gutter={[8,8]}>
-                        
                             <Col xs={24}>
                                 <Row gutter={[8,0]}>
                                 <Col xs={12}>
@@ -96,7 +96,7 @@ function Groups() {
                             {showNeutral}{">"} </Title>
                         </Col>
 
-                        <Col xs={Math.min(Math.max(showElements.size, 6), 16)}>
+                        <Col sm={Math.min(Math.max(showElements.size, 6), 16)} xs={24}>
                                 <Row gutter={[8,16]}>
                                     {Array.from(showElements).map(([key, value]) => {
                                   

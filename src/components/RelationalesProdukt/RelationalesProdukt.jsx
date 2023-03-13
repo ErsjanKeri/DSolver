@@ -238,41 +238,51 @@ export default function RelationalesProdukt() {
         <>
         <Row gutter={[16, 16]}>
             <Col xs={24}>
-              <Space wrap>
-                  <Button onClick={() => { 
-                      childRefR.current.makeReflexive();
-                      childRefS.current.makeReflexive();
-                   }}>Reflexiv machen</Button>
-                  <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
-                  <a>
-                    <Popover  placement="bottom" title={"Legende"} content={<>
+              <Row gutter={[8,8]} className="mb-3">
+                  <Col  md={4} xs={24}>
+                      <Button style={{"width" : "100%"}}  onClick={() => { 
+                          childRefR.current.makeReflexive();
+                          childRefS.current.makeReflexive();
+                      }}>Reflexiv machen</Button>
+                  </Col>
+                  <Col lg={4} md={5} xs={22}>
+                    <Space>
+                          <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
+                          <a>
+                              <Popover  style={{"maxWidth" : "100%"}}  placement="bottom" title={"Legende"} content={<>
 
-                          <Row style={{"width" : "350px"}}>
-                            <Col xs={12}><Text strong>Knoten verbinden:</Text></Col>
-                            <Col xs={12}>Shift gedrückt halten und malen</Col>
-                            <Col xs={12}><Text strong>Reflexiv:</Text></Col>
-                            <Col xs={12}>macht den Knoten reflexiv</Col>
-                            <Col xs={12}><Text strong>Symmetrisch:</Text></Col>
-                            <Col xs={12}>wenn aktiviert werden neue Kanten symmetrisch</Col>
-                          </Row>
-                    </>} trigger="click">
-                      {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
-                    </Popover>  
-                    </a>
+                                    <Row style={{"width" : "450px"}}>
+                                      <Col xs={12}><Text strong>Knoten verbinden:</Text></Col>
+                                      <Col xs={12}>Shift gedrückt halten und malen</Col>
+                                      <Col xs={12}><Text strong>Reflexiv:</Text></Col>
+                                      <Col xs={12}>macht den Knoten reflexiv</Col>
+                                      <Col xs={12}><Text strong>Symmetrisch:</Text></Col>
+                                      <Col xs={12}>wenn aktiviert werden neue Kanten symmetrisch</Col>
+                                    </Row>
+                              </>} trigger="click">
+                                {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
+                              </Popover>  
+                        </a>
+                    </Space>
+                  </Col> 
+                  <Col md={1} xs={2}>
+                  
+                  </Col>
 
-             
-              </Space>
+                
+              </Row>
+                
             </Col>
-            <Col sm={12} className="mb-2">
+            <Col md={12} sm={24} xs={24} className="mb-2">
                 <Graphs ref={childRefR} name={"R"} symmetrisch={symmetrisch} result={false} graph={graphR} setGraph={setGraphR}/>
             </Col>
-            <Col sm={12}>
+            <Col md={12} sm={24} xs={24}>
                 <Graphs ref={childRefS} name={"S"} symmetrisch={symmetrisch} result={false} graph={graphS} setGraph={setGraphS}/>
             </Col>
         </Row>
     
-        <Row className="mb-3" gutter={[16, 0]}>
-                    <Col xl={20} lg={20} md={20} sm={20} xs={20}>
+        <Row className="mb-3 mt-4" gutter={[16, 16]}>
+                    <Col xl={20} lg={20} md={20} sm={24} xs={24}>
                         <Input 
                             name='node'
                             placeholder={`RR*(S+)`}
@@ -281,7 +291,7 @@ export default function RelationalesProdukt() {
                             onChange={(e) => { setExpression(e.target.value) }}
                             />
                     </Col>
-                    <Col xl={4} lg={4} md={4} sm={4} xs={4}>
+                    <Col xl={4} lg={4} md={4} sm={24} xs={24}>
                         <Button disabled={expression===""} style={{"width":"100%"}} onClick={() => {
                             
                             evaluate(expression)

@@ -144,10 +144,10 @@ const Graphs = forwardRef((props, ref) => {
                         </>
                     ) : (
                         <>
-                    <Col xl={2} lg={2} md={2} sm={2} xs={2}>
-                        <Title style={{"marginBottom": 0, "paddingBottom" : 0}} level={3}>{props.name}</Title>
+                    <Col xl={2} lg={2} md={2} sm={3} xs={3}>
+                        <Title style={{"textAlign" : "left", "marginBottom": 0, "paddingBottom" : 0}} level={3}>{props.name}</Title>
                     </Col>
-                    <Col xl={14} lg={14} md={14} sm={14} xs={14}>
+                    <Col xl={14} lg={14} md={14} sm={21} xs={21}>
                         <Input 
                             name='node'
                             placeholder={`Knoten ID`}
@@ -156,7 +156,7 @@ const Graphs = forwardRef((props, ref) => {
                             onChange={(e) => { setNodeId(e.target.value) }}
                             />
                     </Col>
-                    <Col xl={8} lg={8} md={8} sm={8} xs={8}>
+                    <Col xl={8} lg={8} md={8} sm={24} xs={24}>
                         <Button type="primary"
                                 ghost
                                 disabled={nodeId === ""}

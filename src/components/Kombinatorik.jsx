@@ -101,7 +101,7 @@ function Kombinatorik() {
             <Title style={{"textAlign":"center"}} level={4}>Kombinatorik-Rechner</Title>
             
             <Row justify={"center"}>
-              <Col xs={8}>
+              <Col md={8} sm={16} xs={24}>
                   <Row gutter={[8,8]}>
                     <Col xs={24}>
                         <Select
@@ -116,16 +116,16 @@ function Kombinatorik() {
                         />
                     </Col>
                     <Col xs={24}>
-                        <Row gutter={[8,0]}>
-                          <Col xs={8}>
+                        <Row gutter={[8,8]}>
+                          <Col sm={8} xs={12}>
                               <InputNumber style={{"width" : "100%"}} value={nInput} onChange={(value) => {setNInput(value)}} placeholder='n'/>
 
                           </Col>
-                          <Col xs={8}>
+                          <Col sm={8} xs={12}>
                               <InputNumber style={{"width" : "100%"}} value={kInput} onChange={(value) => {setKInput(value)}} placeholder='k'/>
                             
                           </Col>
-                          <Col xs={8}>
+                          <Col sm={8} xs={24}>
                               <Button  style={{"width" : "100%"}} type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "" ||kind === "")}>Berechnen</Button>
                             
                           </Col>
