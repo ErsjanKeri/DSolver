@@ -125,7 +125,23 @@ export default function RelationalesProdukt() {
                     case "*":
                       result = star(result);
                       break;
-                      
+                    case "I":
+                  
+                      let exi = tokens.shift(); 
+                      if (exi === "R") {
+                        result = intersect(result, graphR)
+                      } else if (exi === "S") {
+                        result = intersect(result, graphS)
+                      } 
+                      break 
+                    case "U":
+                      let exu = tokens.shift();
+                      if (exu === "R") {
+                        result = union(result, graphR)
+                      } else if (exu === "S") {
+                        result = union(result, graphS)
+                      }
+                      break; 
                     default:
                       throw new Error("Invalid input string");
                   }
@@ -282,16 +298,41 @@ export default function RelationalesProdukt() {
         </Row>
     
         <Row className="mb-3 mt-4" gutter={[16, 16]}>
-                    <Col xl={20} lg={20} md={20} sm={24} xs={24}>
+                    <Col xl={20} lg={20} md={18} sm={24} xs={24}>
                         <Input 
                             name='node'
                             placeholder={`RR*(S+)`}
                             value={expression}
                             
                             onChange={(e) => { setExpression(e.target.value) }}
+                            
+                            suffix={
+                            <a>
+                              <Popover  style={{"maxWidth" : "100%"}}  placement="bottom" title={"Legende"} content={<>
+
+                                    <Row style={{"width" : "250px"}}>
+                                      <Col style={{"textAlign" : "center"}} xs={4}><Text strong>{"*"}</Text></Col>
+                                      <Col xs={18}>Reflexive Transitive Hülle</Col>
+
+                                      <Col style={{"textAlign" : "center"}} xs={4}><Text strong>{"+"}</Text></Col>
+                                      <Col xs={18}>Transitive Hülle</Col>
+
+                                      <Col style={{"textAlign" : "center"}} xs={4}><Text strong>{"-"}</Text></Col>
+                                      <Col xs={18}>^-1</Col>
+                                      <Col style={{"textAlign" : "center"}} xs={4}><Text  strong>U</Text></Col>
+                                      <Col xs={18}>Vereinigung {"(union)"}</Col>
+                                      <Col style={{"textAlign" : "center"}} xs={4}><Text strong>I</Text></Col>
+                                      <Col xs={18}>Schnitt {"intersection"}</Col>
+                                    
+                                    </Row>
+                              </>} trigger="click">
+                                {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
+                              </Popover>  
+                          </a>}
+                            
                             />
                     </Col>
-                    <Col xl={4} lg={4} md={4} sm={24} xs={24}>
+                    <Col xl={4} lg={4} md={6} sm={24} xs={24}>
                         <Button disabled={expression===""} style={{"width":"100%"}} onClick={() => {
                             
                             evaluate(expression)
@@ -430,4 +471,52 @@ function reverse(g1) {
     }
 
     return {nodes : g1.nodes, edges, selected: {}}
+}
+
+
+function union(g1, g2) {
+
+  const nodes = []
+  const uniques = [...new Set(g1.nodes.concat(g2.nodes).map(item => item.title))];
+  let radius = 150 + ((uniques.length/8) * 100);  // either 200 or 400 
+  
+
+  for (let i = 0; i < uniques.length; i++) {
+      let angle = i * (2 * Math.PI / uniques.length);
+      let x = radius * Math.cos(angle);
+      let y = radius * Math.sin(angle);
+    
+      nodes.push({
+          title: uniques[i],
+          type: "circle",
+          x: x,
+          y: y, 
+      })
+  }
+
+  let edges = g1.edges.concat(g2.edges).reduce((acc, obj) => {
+    const exists = acc.some(item => item.source === obj.source && item.target === obj.target);
+    if (!exists) {
+      acc.push(obj);
+    }
+    return acc;
+  }, []);
+
+  return {nodes, edges, selected: {}}
+}
+
+
+function intersect(g1, g2) {
+
+  let edges = g1.edges.filter(obj1 =>
+    g2.edges.some(obj2 => obj2.source === obj1.source && obj1.target === obj2.target)
+  )
+  let nodes = g1.nodes.filter(obj1 =>
+    g2.nodes.some(obj2 => obj2.title === obj1.title)
+  )
+  return {
+    nodes,
+    edges,
+    selected : {}
+  }
 }
