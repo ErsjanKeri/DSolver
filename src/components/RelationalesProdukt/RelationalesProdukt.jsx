@@ -110,7 +110,6 @@ export default function RelationalesProdukt() {
                 // Split the token into individual letters and process each one
                 for (let i = 0; i < token.length; i++) {
                   const letter = token[i];
-                  console.log(letter)
                   // Perform the corresponding operation based on the letter
                   switch (letter) {
                     case "S":
@@ -160,7 +159,6 @@ export default function RelationalesProdukt() {
 
     function calculateMatrix(g) {
         const mat = Array.from({length: g.nodes.length}, () => new Array(g.nodes.length).fill(false));
-        console.log(mat)
 
         const nodeIndex = {};
         g.nodes.forEach((node, i) => nodeIndex[node.title] = i);
@@ -207,7 +205,6 @@ export default function RelationalesProdukt() {
                 if (mat[i][j]) {
                   for (let k = 0; k < mat.length; k++) {
                     if (mat[j][k] && !mat[i][k]) {
-                      console.log("i " + i + " j " + j + " k " + k)
                       transitive = false;
                     }
                   }
