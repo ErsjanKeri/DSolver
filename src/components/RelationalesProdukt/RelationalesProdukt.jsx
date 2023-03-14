@@ -96,13 +96,14 @@ export default function RelationalesProdukt() {
 
         function evaluateSubexpression(tokens) {
             let result = g; // Initialize to the empty graph
-          
+            
             while (tokens.length > 0) {
               const token = tokens.shift(); // Remove the first token from the array
-          
+              
               if (token === "(") {
                 // Evaluate the subexpression recursively
                 const subexpression = evaluateSubexpression(tokens);
+              
                 result = step(result, subexpression);
               } else if (token === ")") {
                 break; // Exit the loop and return the result
@@ -125,20 +126,47 @@ export default function RelationalesProdukt() {
                       result = star(result);
                       break;
                     case "I":
-                  
                       let exi = tokens.shift(); 
-                      if (exi === "R") {
-                        result = intersect(result, graphR)
+                      let targeti = null; 
+
+
+                      if (exi === "(") {
+                          const temp = tokens.shift()
+                          if (temp === "R") {
+                            g = graphR;
+                          } else {
+                            g = graphS
+                          }
+                          targeti = evaluateSubexpression(tokens)
+                      } else if (exi === "R") {
+                        targeti = graphR
                       } else if (exi === "S") {
-                        result = intersect(result, graphS)
+                        targeti = graphS
                       } 
+                      if (targeti !== null) {
+                        result = intersect(result, targeti)
+                      }
+
                       break 
                     case "U":
-                      let exu = tokens.shift();
-                      if (exu === "R") {
-                        result = union(result, graphR)
+                      let exu = tokens.shift(); 
+                      let targetu = null; 
+
+                      if (exu === "(") {
+                          const temp = tokens.shift()
+                          if (temp === "R") {
+                            g = graphR;
+                          } else {
+                            g = graphS
+                          }
+                          targetu = evaluateSubexpression(tokens)
+                      } else if (exu === "R") {
+                        targetu = graphR
                       } else if (exu === "S") {
-                        result = union(result, graphS)
+                        targetu = graphS
+                      } 
+                      if (targetu !== null) {
+                        result = union(result, targetu)
                       }
                       break; 
                     default:
@@ -150,6 +178,7 @@ export default function RelationalesProdukt() {
                 result = star(result);
               } else if (token === "-") {
                 result = reverse(result);  
+
               }
             }
           
@@ -265,6 +294,8 @@ export default function RelationalesProdukt() {
                               <Popover  style={{"maxWidth" : "100%"}}  placement="bottom" title={"Legende"} content={<>
 
                                     <Row style={{"width" : "450px"}}>
+                                      <Col xs={12}><Text strong>Knoten/Kanten entfernen:</Text></Col>
+                                      <Col xs={12}>Knote/Kante anklicken und delete auf die Tastatur drücken</Col>
                                       <Col xs={12}><Text strong>Knoten verbinden:</Text></Col>
                                       <Col xs={12}>Shift gedrückt halten und malen</Col>
                                       <Col xs={12}><Text strong>Reflexiv:</Text></Col>
