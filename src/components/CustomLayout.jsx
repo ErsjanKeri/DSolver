@@ -16,7 +16,9 @@ import {
     PartitionOutlined,
     VideoCameraOutlined,
     TableOutlined,
-    GithubOutlined
+    GithubOutlined,
+    ApartmentOutlined,
+    SwapOutlined
   } from '@ant-design/icons';
   import { Layout, Menu, theme, Popover, Row, Col ,Space} from 'antd';
   import React, {  useState } from 'react';
@@ -93,7 +95,7 @@ import {
                     </Link>
                 </Menu.Item>
 
-                <Menu.Item key={"dpll"} icon={<PartitionOutlined />}>
+                <Menu.Item key={"dpll"} icon={<ApartmentOutlined />}>
                     <Link to="/dpll">
                         DPLL
                     </Link>
@@ -107,7 +109,7 @@ import {
 
                 <Menu.Item key={"relation"} icon={<GatewayOutlined />}>
                     <Link to="/relation">
-                        Relationales Produkt
+                        Relationen
                     </Link>
                 </Menu.Item>
 
@@ -116,6 +118,13 @@ import {
                         Algebra Gruppen
                     </Link>
                 </Menu.Item>
+
+                <Menu.Item key={"matching"} icon={<SwapOutlined />}>
+                    <Link to="/matching">
+                        Matching
+                    </Link>
+                </Menu.Item>
+
                 
 
                 <Menu.Item key={"truthtable"} icon={<TableOutlined />}>

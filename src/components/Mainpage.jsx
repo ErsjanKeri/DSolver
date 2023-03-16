@@ -53,6 +53,20 @@ function Mainpage() {
         </Col>
 
         <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
+            <Link to="/matching">
+                <Card
+                  hoverable
+                  style={{
+                    width: "100%",
+                  }}
+                  cover={<img alt="Matching" src={require('../images/matching.png')} />}
+                >
+                  <Meta style={{"textAlign" : "center"}} title="Stabiles Matching"/>
+                </Card>
+            </Link>
+        </Col>
+
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/havelhakimi">
 
                 <Card
@@ -81,19 +95,6 @@ function Mainpage() {
             </Link>
         </Col>
 
-        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
-            <Link to="/kombinatorik">
-                <Card
-                  hoverable
-                  style={{
-                    width: "100%",
-                  }}
-                  cover={<img alt="Kombinatorik" src={require('../images/kombinatorik.png')} />}
-                >
-                  <Meta style={{"textAlign" : "center"}} title="Kombinatorik"/>
-                </Card>
-            </Link>
-        </Col>
 
         <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
             <Link to="/groups">
@@ -108,6 +109,22 @@ function Mainpage() {
                 </Card>
             </Link>
         </Col>
+        
+        <Col className="gutter-row" xl={8} lg={8} md={12} sm={24} xs={24}>
+            <Link to="/kombinatorik">
+                <Card
+                  hoverable
+                  style={{
+                    width: "100%",
+                  }}
+                  cover={<img alt="Kombinatorik" src={require('../images/kombinatorik.png')} />}
+                >
+                  <Meta style={{"textAlign" : "center"}} title="Kombinatorik"/>
+                </Card>
+            </Link>
+        </Col>
+
+       
       
     </Row>
     

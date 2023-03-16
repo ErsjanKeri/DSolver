@@ -7,3 +7,4 @@ export { default as RelationalesProdukt } from "./RelationalesProdukt/Relational
 export { default as Groups } from "./Groups/Groups"
 export { default as DPLL} from "./DPLL/DPLL"
 export { default as TruthTable } from "./TruthTable/TruthTable"
+export { default as Matching } from "./Matching/Matching"
