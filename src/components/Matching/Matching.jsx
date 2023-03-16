@@ -197,49 +197,68 @@ export default function Matching() {
                 <Title style={{textAlign:"center"}} level={4}>Gale-Shapley-Algorithmus</Title>
 
                 <Row justify={"center"} >
-                    <Col lg={14}>
-                        <Row gutter={[64, 32]}>
-                            <Col lg={12} xs={12}>
+                    <Col lg={14} >
+                        <Row gutter={[64, 16]}>
+                            <Col lg={12} xs={24}>
                                 <Preferenzen calculated={calculated} letter={"A"} matrix={matrixA} setMatrix={setMatrixA}/>
                             </Col>
 
-                            <Col lg={12} xs={12}>
+                            <Col lg={12} xs={24}>
                                 <Preferenzen calculated={calculated} letter={"B"} matrix={matrixB} setMatrix={setMatrixB} />
                             </Col>
                         
                         </Row>
                     </Col>
 
-                    <Col lg={14} className="mt-3">
-                        <Space>
-                        <Button danger disabled={!calculated} onClick={() => { reset() }}>Zurücksetzen</Button>
-                        <Button disabled={calculated} onClick={() => { calculate() }}>Berechnen</Button>
-                        <Button disabled={!calculated || currentState === states.length-1} onClick={() => {
-                                setMatrixA(states[states.length-1].matrixA)
-                                setMatrixB(states[states.length-1].matrixB)
-                                setErklarung(states[states.length-1].desc)
-                                setCurrentState(states.length-1)
-                                }}>Lösen</Button>  
+                    <Col lg={16} md={24} sm={24} xs={24} className="mt-4">
 
-                        <Button disabled={!calculated || currentState<1}  
-                            onClick={() => { 
+                        <Row gutter={[32, 8]}>
+                            <Col xl={10} lg={24} md={24} sm={24} xs={24}>
+                                <Row gutter={[8,8]}>
+                                    <Col lg={12} md={12} sm={12} xs={24}>
+                                        <Button style={{"width" : "100%"}} danger disabled={!calculated} onClick={() => { reset() }}>Zurücksetzen</Button>
+                                    </Col>
+                                    <Col lg={12} md={12} sm={12} xs={24}>
+                                        <Button style={{"width" : "100%"}} disabled={calculated} onClick={() => { calculate() }}>Berechnen</Button>
+                                    </Col>
+                                </Row>
+                            </Col>
 
-                            setMatrixA(states[currentState-1].matrixA)
-                            setMatrixB(states[currentState-1].matrixB)
-                            setErklarung(states[currentState-1].desc)
-                            setCurrentState(currentState-1)
+                            <Col xl={14} lg={24} md={24} sm={24} xs={24}>
+                                <Row gutter={[8,0]}>
+                                    <Col lg={8} sm={8} xs={8}>
+                                            <Button style={{"width" : "100%"}} disabled={!calculated || currentState === states.length-1} onClick={() => {
+                                                setMatrixA(states[states.length-1].matrixA)
+                                                setMatrixB(states[states.length-1].matrixB)
+                                                setErklarung(states[states.length-1].desc)
+                                                setCurrentState(states.length-1)
+                                                }}>Lösen</Button>  
+                                        </Col>
+                                        <Col lg={8} sm={8} xs={8}>
+                                            <Button style={{"width" : "100%"}} disabled={!calculated || currentState<1}  
+                                                onClick={() => { 
 
-                            
-                        }}>Zurück</Button>
+                                                setMatrixA(states[currentState-1].matrixA)
+                                                setMatrixB(states[currentState-1].matrixB)
+                                                setErklarung(states[currentState-1].desc)
+                                                setCurrentState(currentState-1)
 
-                        <Button  disabled={!calculated || currentState === states.length-1} onClick={() => { 
-                            setMatrixA(states[currentState+1].matrixA)
-                            setMatrixB(states[currentState+1].matrixB)
-                            setErklarung(states[currentState+1].desc)
-                            setCurrentState(currentState+1)
-                            
-                        }}>Weiter</Button>
-                        </Space>
+                                                
+                                            }}>Zurück</Button>
+                                        </Col>
+                                        <Col lg={8} sm={8} xs={8}>
+                                                <Button style={{"width" : "100%"}} disabled={!calculated || currentState === states.length-1} onClick={() => { 
+                                                setMatrixA(states[currentState+1].matrixA)
+                                                setMatrixB(states[currentState+1].matrixB)
+                                                setErklarung(states[currentState+1].desc)
+                                                setCurrentState(currentState+1)
+                                                
+                                            }}>Weiter</Button>
+                                        </Col>
+
+                                </Row>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
 
