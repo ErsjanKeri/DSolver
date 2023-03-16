@@ -12,6 +12,7 @@
     "antd": "^5.2.3",
     "craco-less": "^2.0.0",
     "react": "17.0.2",
+    "react-beautiful-dnd": "^13.1.1",
     "react-digraph": "^8.1.0",
     "react-dom": "17.0.2",
     "react-helmet": "^6.1.0",
