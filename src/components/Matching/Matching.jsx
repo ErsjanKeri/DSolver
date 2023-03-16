@@ -168,11 +168,14 @@ export default function Matching() {
                     men[manIndex][requestIndex].matched = true; 
                     women[womanId][women[womanId].findIndex(obj => obj.id === manIndex.toString())].matched = true
 
-                    return `Unmatching A${manIndex} mit B${toBeHeartBroken}, and matching B${womanId} mit A${manIndex}`
+                    // return `Unmatching A${manIndex} mit B${toBeHeartBroken}, and matching B${womanId} mit A${manIndex}`
+                    return `Entmatchen von A${manIndex} und B${toBeHeartBroken} und B${womanId} und A${manIndex} matchen.`
                 }
                 
                 women[womanId][manIndex].done = true; 
-                return `Cannot match B${womanId} mit A${manIndex}, weil A${manIndex} prefers B${men[manIndex][alreadyIndex].id} more als B${womanId}`
+                // return `Cannot match B${womanId} mit A${manIndex}, weil A${manIndex} prefers B${men[manIndex][alreadyIndex].id} more als B${womanId}`
+                return `A${manIndex} kann nicht mit B${womanId} gematched werden, da A${manIndex} B${men[manIndex][alreadyIndex].id} gegenüber B${womanId} bervorzugt.`
+
 
             } else {
                 // match for the first time 
@@ -180,7 +183,8 @@ export default function Matching() {
                 women[womanId][women[womanId].findIndex(obj => obj.id === manIndex.toString())].matched = true
             
                 matches++;
-                return `Matching A${manIndex} mit B${womanId}, weil A${manIndex} noch nicht gematched ist`; 
+                // return `Matching A${manIndex} mit B${womanId}, weil A${manIndex} noch nicht gematched ist`; 
+                return `A${manIndex} und B${womanId} matchen, da A${manIndex} noch nicht gematched wurde.`; 
             }
         }
     }
