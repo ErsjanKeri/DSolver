@@ -194,7 +194,7 @@ export default function Matching() {
         <Row justify={"center"} className="mb-3">
 
             <Col xs={24}>
-                <Title style={{"textAlign":"center"}} level={4}>Gale-Shapley-Algorithmus</Title>
+                <Title style={{textAlign:"center"}} level={4}>Gale-Shapley-Algorithmus</Title>
 
                 <Row justify={"center"} >
                     <Col lg={14}>
@@ -212,7 +212,7 @@ export default function Matching() {
 
                     <Col lg={14} className="mt-3">
                         <Space>
-                        <Button danger disabled={!calculated} onClick={() => { reset() }}>Reset</Button>
+                        <Button danger disabled={!calculated} onClick={() => { reset() }}>Zurücksetzen</Button>
                         <Button disabled={calculated} onClick={() => { calculate() }}>Berechnen</Button>
                         <Button disabled={!calculated || currentState === states.length-1} onClick={() => {
                                 setMatrixA(states[states.length-1].matrixA)
