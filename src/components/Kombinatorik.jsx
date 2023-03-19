@@ -54,15 +54,29 @@ function Kombinatorik() {
           
         }
     }
+  
+    // map of maps for each calc method
+    const memo1 = new Map();
+    const memo2 = new Map();
+    const memoP = new Map();
+  
     function calcs1(n, k){
-      if(n===k){
-          return 1;
+      if(n===k){  
+        return 1;
       }
       if(n===0|k===0){
-          return 0;
+        return 0;
       }
-      return calcs1(n-1, k-1) + calcs1(n-1,k)*(n-1)
-
+      if(memo1.has(n)) {
+         if(memo1.get(n).has(k)) {
+          return memo1.get(n).get(k);
+         }
+      } else {
+        memo1.set(n, new Map());
+      }
+  
+      memo1.get(n).set(k, calcs1(n-1, k-1) + calcs1(n-1,k)*(n-1));
+      return memo1.get(n).get(k);
     }
 
     function calcs2(n, k){
@@ -71,8 +85,18 @@ function Kombinatorik() {
       }
       if(n===0|k===0){
         return 0;
-    }
-  return calcs2(n-1, k-1)+ calcs2(n-1, k)*k;
+      }
+      
+      if(memo2.has(n)) {
+         if(memo2.get(n).has(k)) {
+          return memo2.get(n).get(k);
+         }
+      } else {
+        memo2.set(n, new Map());
+      }
+  
+      memo2.get(n).set(k, calcs2(n-1, k-1)+ calcs2(n-1, k)*k);
+      return memo2.get(n).get(k);
     }
 
     function calcp(n, k){
@@ -85,7 +109,17 @@ function Kombinatorik() {
       if(k===0){
         return 0;
       }
-      return calcp(n-1,k-1)+calcp(n-k, k);
+      
+      if(memoP.has(n)) {
+         if(memoP.get(n).has(k)) {
+          return memoP.get(n).get(k);
+         }
+      } else {
+        memoP.set(n, new Map());
+      }
+  
+      memoP.get(n).set(k, calcp(n-1,k-1)+calcp(n-k, k));
+      return memoP.get(n).get(k);
     }
 
 
