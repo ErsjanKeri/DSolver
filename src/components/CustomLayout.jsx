@@ -29,8 +29,10 @@ import {
   import icon from "../images/favicon.ico"
   import appleIcon from "../images/appleicon.png"
   import cutout from "../images/cutout.png"
+  
   import smallCutout from "../images/smallCutout.png"
   
+  import { routes } from '../routes';
   
   const { Header, Content, Footer, Sider } = Layout;
 
@@ -75,7 +77,7 @@ import {
           
           <Menu theme="dark" 
                 mode="inline" 
-                defaultSelectedKeys={['4']} 
+                
                 > 
                 <Menu.Item key={"homepage"} icon={<FireOutlined />}>
                     <Link to="/">
@@ -83,56 +85,17 @@ import {
                     </Link>
                     
                 </Menu.Item>
-                <Menu.Item key={"havel-hakimi"} icon={<NodeIndexOutlined />}>
-                    <Link to="/havelhakimi">
-                        Havel-Hakimi
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key={"kombinatorik"} icon={<NumberOutlined />}>
-                    <Link to="/kombinatorik">
-                        Kombinatorik
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key={"dpll"} icon={<ApartmentOutlined />}>
-                    <Link to="/dpll">
-                        DPLL
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key={"eea"} icon={<InsertRowRightOutlined />}>
-                    <Link to="/eea">
-                        EEA 
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key={"relation"} icon={<GatewayOutlined />}>
-                    <Link to="/relation">
-                        Relationen
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key={"groups"} icon={<RedoOutlined />}>
-                    <Link to="/groups">
-                        Algebra Gruppen
-                    </Link>
-                </Menu.Item>
-
-                <Menu.Item key={"matching"} icon={<SwapOutlined />}>
-                    <Link to="/matching">
-                        Matching
-                    </Link>
-                </Menu.Item>
-
-                
-
-                <Menu.Item key={"truthtable"} icon={<TableOutlined />}>
-                    <Link to="/truthtable">
-                        Warheitstabelle
-                    </Link>
-                </Menu.Item>
-
+               
+                {routes.map((item, i) => {
+                  return (
+                    <Menu.Item key={i} icon={item.sidebar_icon}>
+                        <Link to={item.link}>
+                            {item.sidebar_title}
+                        </Link>
+                        
+                    </Menu.Item>
+                  )
+                })}
                 <Menu.Item key={"feedback"} icon={<GithubOutlined />}>
                     <Link to="https://github.com/ErsjanKeri/DSolver/issues">
                         Feedback
@@ -170,7 +133,7 @@ import {
                 background: colorBgContainer,
               }}
             >
-                {props.children}
+                {props.items}
             </div>
           </Content>
           <Footer

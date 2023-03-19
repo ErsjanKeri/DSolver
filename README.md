@@ -24,9 +24,10 @@ The purpose of this page is to provide sample solutions to make learning easier.
     src/index.js
         -> heart of app, DO NOT CHANGE 
 
-    src/App.js
+    src/routes.js
         -> router of the application 
         -> connecting urls to the components
+        -> responsible for sidebar, routes and homepage
 
     components
         -> folder containing all components
@@ -42,10 +43,10 @@ The purpose of this page is to provide sample solutions to make learning easier.
 
 
 ### How to add page?
-    1) create component inside the components folder
-    2) export component in components/index.js 
-    3) add page into the router, App.js, hold into current design 
-    4) add menu item in the custom layout (let the main branch do this preferrably)
+    1) create new component 
+    2) make a screenshot of this component, and same the image in src/images
+    3) at routes.js create a new object for the array, fill in the keys and done
+    New component has been added
 
 
 

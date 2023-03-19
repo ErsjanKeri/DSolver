@@ -289,7 +289,7 @@ export default function RelationalesProdukt() {
                   </Col>
                   <Col lg={7} md={12} sm={20} xs={22}>
                     <Space>
-                          <Switch checkedChildren="Symmetrisch" value={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
+                          <Switch checkedChildren="Symmetrisch" checked={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
                           <a>
                               <Popover  style={{"maxWidth" : "100%"}}  placement="bottom" title={"Legende"} content={<>
 

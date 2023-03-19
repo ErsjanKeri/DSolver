@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { Modal, Layout, Breadcrumb } from 'antd';
 import { Routes, Navigate, Route } from "react-router-dom";
 
-import {  CustomLayout, Mainpage, HavelHakimi, EEA, Matching, RelationalesProdukt, Groups, Kombinatorik, DPLL , TruthTable} from "./components"
+import CustomLayout from './components/CustomLayout';
+import Mainpage from './components/Mainpage';
+
 import { HashRouter as Router } from "react-router-dom"
 
 
+import { routes } from './routes';
+
 
 import './main.less';
-
 
 
 const App = () => {
@@ -21,59 +24,17 @@ const App = () => {
             <Router>
                 <Routes>
                     <Route path="" element={
-                       <CustomLayout>
-                          <Mainpage/>
-                        </CustomLayout>
-                       
-                    }/>
-                    <Route path="havelhakimi" element={
-                        <CustomLayout>
-                          <HavelHakimi/>
-                        </CustomLayout>
-                    }/>
-                    <Route path="kombinatorik" element={
-                      <CustomLayout>
-                          <Kombinatorik/>
-                      </CustomLayout>
-                    }/>
-                    <Route path="EEA" element={
-                        <CustomLayout>
-                          <EEA/>
-                        </CustomLayout>
+                       <CustomLayout items={<Mainpage />}/>
                     }/>
 
-                    <Route path="relation" element={
-                        <CustomLayout>
-                          <RelationalesProdukt/>
-                        </CustomLayout>
-                    }/>
-
-                    <Route path="dpll" element={
-                        <CustomLayout>
-                          <DPLL/>
-                        </CustomLayout>
-                    }/>
-
-                    <Route path="groups" element={
-                        <CustomLayout>
-                          <Groups/>
-                        </CustomLayout>
-                    }/>
-                  
-
-                    <Route path="truthtable" element={
-                        <CustomLayout>
-                          <TruthTable/>
-                        </CustomLayout>
-                    }/>
-                    
-                    <Route path="matching" element={
-                        <CustomLayout>
-                          <Matching/>
-                        </CustomLayout>
-                    }/>
-                  
-
+                    {routes.map((obj, i) => {
+                        return (
+                          <Route key={i} path={obj.link} element={
+                            <CustomLayout items={obj.component} />
+                          }/>
+                        )
+                        
+                    })}
                 </Routes>
             </Router>
       </>

@@ -57,14 +57,14 @@ function Preferenzen(props) {
 
     
     return (
-        <div style={{overflow: "scroll"}}>
+        <div style={{overflow: "scroll"}} key={props.key}>
             {props.matrix.map((row, i) => (
                 <>
-                    <div style={{ display: "flex", alignItems: "center", }}>
+                    <div style={{ display: "flex", alignItems: "center", }} key={i}>
 
                         <h3 style={{ "minWidth": "50px" }}>{props.letter}<sub>{i}</sub>:</h3>
 
-                        <DragDropContext onDragEnd={(obj) => onDragEnd(i, obj)}>
+                        <DragDropContext key={i} onDragEnd={(obj) => onDragEnd(i, obj)}>
                             <Droppable
                                 isDropDisabled={props.calculated} 
                                 droppableId="droppable"
