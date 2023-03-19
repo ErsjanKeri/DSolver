@@ -44,7 +44,7 @@ The purpose of this page is to provide sample solutions to make learning easier.
 
 ### How to add page?
     1) create new component 
-    2) make a screenshot of this component, and same the image in src/images
+    2) make a screenshot of this component, and save the image in src/images
     3) at routes.js create a new object for the array, fill in the keys and done
     New component has been added
 
