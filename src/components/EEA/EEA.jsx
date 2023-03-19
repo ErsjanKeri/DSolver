@@ -41,6 +41,7 @@ function EEA() {
   // initate hooks
   const [aInput, setAInput] = useState("")
   const [bInput , setBInput] = useState("")
+  const [ggt, setGgt] = useState(1)
   const [dataSource, setDataSource] = useState([])
 
   const [solved, setSolved] = useState(false)
@@ -120,6 +121,9 @@ function EEA() {
       states.push(newState)
     }
     // update dataSource
+    let alpha = states[states.length - 1][0].alpha
+    let beta = states[states.length - 1][0].beta
+    setGgt(alpha * aInput + beta * bInput)
     setStates(states)
     setDataSource(states[counter])
     setSolved(true)
@@ -182,6 +186,11 @@ function EEA() {
                                               setCounter(counter + 1)
                                             }
                                           }}>Weiter</Button>
+
+                                {/* <Col>
+                                  ggt = α * a + β * b = {ggt}
+                                </Col> */}
+                                
                           </Space>
                       </Col>
                   </Row>
@@ -194,11 +203,13 @@ function EEA() {
                   pagination={false} 
                   tableLayout={"fixed"} 
                   size={"small"}/>
-              </Col>
+
+                  <h3 id="ggt">
+                    ggt = α * a + β * b = {ggt}
+                  </h3>
+              </Col> 
           </Row>
-     
-            
-     
+          
         )}
        
     </>
