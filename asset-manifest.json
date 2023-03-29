@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "./static/css/main.9ca7108e.css",
+    "main.js": "./static/js/main.cb441b50.js",
+    "static/media/relation.png": "./static/media/relation.96c9c73eaa99f5789f13.png",
+    "static/media/dpll.png": "./static/media/dpll.7600be9fb6c77247844f.png",
+    "static/media/hakimi.png": "./static/media/hakimi.7264db90b85f230b899b.png",
+    "static/media/groups.png": "./static/media/groups.766f789036a51dfb774a.png",
+    "static/media/matching.png": "./static/media/matching.15e61a2f625ba3ab2e58.png",
+    "static/media/eea.png": "./static/media/eea.227cafae9b021a061546.png",
+    "static/media/kombinatorik.png": "./static/media/kombinatorik.e8e3206dc9fd96a4b9fd.png",
+    "static/media/truthtable.png": "./static/media/truthtable.d81a0d09c5912eaa5c19.png",
+    "static/media/cutout.png": "./static/media/cutout.29575fdcfbdb28a543c2.png",
+    "static/media/smallCutout.png": "./static/media/smallCutout.fb835c78c0a777462b67.png",
+    "static/media/appleicon.png": "./static/media/appleicon.2d8db41e2fec5f8b45cf.png",
+    "static/media/favicon.ico": "./static/media/favicon.b188f5ae5b9d94bbc643.ico",
+    "index.html": "./index.html",
+    "main.9ca7108e.css.map": "./static/css/main.9ca7108e.css.map",
+    "main.cb441b50.js.map": "./static/js/main.cb441b50.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ca7108e.css",
+    "static/js/main.cb441b50.js"
+  ]
+}
