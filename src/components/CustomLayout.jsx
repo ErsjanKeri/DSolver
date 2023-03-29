@@ -141,20 +141,22 @@ import {
               textAlign: 'center',
             }}
           >
+               
             DSolver ©2023 Created with excellenz by not-so-excellent <a href="/#/credits">TUM students</a>.  {' '}
-                                    <a>
-                                      <Popover  placement="top" title={"Disclaimer"} content={<>
-                                        <Row className='disclaimer'>
-                                            <Col xs={24}>
-                                            Hinweis Wir haben alles nach bestem Wissen und Gewissen erstellt, können aber Fehler natürlich nicht ausschließen. Deshalb können wir keine Gewähr für irgendwelche Ergebnisse geben. Lasst uns gerne über die Feedback-Form wissen, falls ihr einen Fehler/Bug findet. Es gelten immer die Informationen aus den Vorlesungsunterlagen bzw. von der Übungsleitung.
-                                            <br/>
-                                            Der Zweck dieser Seite ist es, sich Musterlösungen zu erstellen, um das Lernen zu erleichtern. Es ersetzt nicht sich mit dem Stoff auseinanderzusetzen, z.B. den EEA selbst durchzuführen. Es geht bei DS nicht darum, sich Algorithmen zu merken, z.B. den EEA perfekt auszuführen, da es ziemlich trivial ist, ihn zu automatisieren (wir haben es ja auch hinbekommen), sondern darum, zu verstehen, wie diese Algorithmen grundsätzlich funktionieren und WARUM sie funktionieren.
-                                            </Col>
-                                        </Row>
-                                      </>} trigger="click">
-                                          DISCLAIMER
-                                      </Popover>  
-                                    </a>
+            <br />
+            <a>
+              <Popover  placement="top" title={"Disclaimer"} content={<>
+                <Row className='disclaimer'>
+                    <Col xs={24}>
+                    Hinweis Wir haben alles nach bestem Wissen und Gewissen erstellt, können aber Fehler natürlich nicht ausschließen. Deshalb können wir keine Gewähr für irgendwelche Ergebnisse geben. Lasst uns gerne über die Feedback-Form wissen, falls ihr einen Fehler/Bug findet. Es gelten immer die Informationen aus den Vorlesungsunterlagen bzw. von der Übungsleitung.
+                    <br/>
+                    Der Zweck dieser Seite ist es, sich Musterlösungen zu erstellen, um das Lernen zu erleichtern. Es ersetzt nicht sich mit dem Stoff auseinanderzusetzen, z.B. den EEA selbst durchzuführen. Es geht bei DS nicht darum, sich Algorithmen zu merken, z.B. den EEA perfekt auszuführen, da es ziemlich trivial ist, ihn zu automatisieren (wir haben es ja auch hinbekommen), sondern darum, zu verstehen, wie diese Algorithmen grundsätzlich funktionieren und WARUM sie funktionieren.
+                    </Col>
+                </Row>
+              </>} trigger="click">
+                  DISCLAIMER
+              </Popover>  
+            </a>             
           </Footer>
         </Layout>
       </Layout>

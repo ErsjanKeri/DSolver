@@ -111,16 +111,12 @@ function Credits() {
                     </Col>
                     <Col>
                         <Space direction="vertical">
-                            <Row>
-                                <h2>
+                                <Title style={{"marginBottom" : "0", "paddingBottom" : "0", "whiteSpace" : "noWrap"}} level={5}>
                                     {name}
-                                </h2>
-                            </Row>
-                            <Row>
+                                </Title>
                                 <Space>
                                     {linksHtml}
                                 </Space>
-                            </Row>
                         </Space>
                     
                     </Col>
@@ -130,29 +126,29 @@ function Credits() {
         )
     }
     
-
-    let profilesHtml = []
-    for(let i = 0; i < contributer.length; i++){
-        profilesHtml.push(
-            <Profile name={contributer[i].name} links={contributer[i].links} />
-        )
-    }
     
    
     return (
         <>
-            <Row justify={"center"}>
-                <Title>Das Team</Title>
-            </Row>
-            <Row>
-                <Space direction="vertical" size="middle" style={{
-                    display: "flex",
-                    flexDirection: "column",
-                }}>
+            <Row justify={"center"} className="mb-3">
+                <Col lg={18}>
+                    <Title style={{textAlign:"center"}} level={3}>Das Team</Title>
 
-                    {profilesHtml}
 
-                </Space>
+                    <Row gutter={[32,32]} className="mt-4">
+                        {contributer.map((item, i) => {
+                            return (
+                                <Col className="gutter-row" key={i} xl={8} lg={8} md={12} sm={24} xs={24}>
+                                    <Profile 
+                                        name={item.name} 
+                                        links={item.links} />
+                                </Col>
+                            )
+                        })}
+                    </Row>
+
+
+                </Col>
             </Row>
         </>
 
