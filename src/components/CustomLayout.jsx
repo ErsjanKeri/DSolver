@@ -141,7 +141,7 @@ import {
               textAlign: 'center',
             }}
           >
-            DSolver ©2023 Created with excellenz by not-so-excellent <a href="https://www.tum.de/">TUM</a>  students. {' '}
+            DSolver ©2023 Created with excellenz by not-so-excellent <a href="/#/credits">TUM students</a>.  {' '}
                                     <a>
                                       <Popover  placement="top" title={"Disclaimer"} content={<>
                                         <Row className='disclaimer'>

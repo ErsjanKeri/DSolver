@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { Modal, Layout, Breadcrumb } from 'antd';
-import { Routes, Navigate, Route } from "react-router-dom";
+import React from 'react'
+import { Routes, Route } from "react-router-dom";
 
 import CustomLayout from './components/CustomLayout';
 import Mainpage from './components/Mainpage';
+import Credits from './components/Credits';
 
 import { HashRouter as Router } from "react-router-dom"
 
@@ -25,6 +25,10 @@ const App = () => {
                 <Routes>
                     <Route path="" element={
                        <CustomLayout items={<Mainpage />}/>
+                    }/>
+
+                    <Route path="/credits" element={
+                      <CustomLayout items={<Credits />}/>
                     }/>
 
                     {routes.map((obj, i) => {
