@@ -1,6 +1,6 @@
-import React, { useCallback, Fragment, useState, useEffect, useRef } from 'react'
-import {Button, message, Row, Col, Input, Select, Upload, Typography } from "antd"
-import { FunctionOutlined } from '@ant-design/icons'
+import React, { useCallback, useState } from 'react'
+import {Button, message, Row, Col, Input, Typography } from "antd"
+import { useTranslation,  initReactI18next } from 'react-i18next';
 
 import ReactFlow, {
   useNodesState,
@@ -9,13 +9,13 @@ import ReactFlow, {
   MiniMap,
   Controls,
   Background,
-  MarkerType,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
 import CustomEdge from './CustomEdge';
 
 
+// i18n
 
 const edgeTypes = {
   custom: CustomEdge,
@@ -26,6 +26,9 @@ const { Title } = Typography;
 
 
 function DPLL() {
+    // i18next
+    const {t} = useTranslation()
+
   //Push the user input inside of the list as the root of the tree
 
     const [userInput, setInput] = useState('')
@@ -139,7 +142,7 @@ function DPLL() {
 
           <Row gutter={[16, 16]}>
               <Col xs={24}>
-                <Title style={{"textAlign":"center"}} level={4}>Davis–Putnam–Logemann–Loveland Algorithmus</Title>
+                <Title style={{"textAlign":"center"}} level={4}>{t("dpll")}</Title>
 
               </Col>
               <Col md={20} sm={12} xs={24}>
@@ -153,7 +156,7 @@ function DPLL() {
                          style={{"width" : "100%"}}
                             onClick={() => handleClick()}
                             >
-                              Berechnen
+                              {t("solve")}
                     </Button>
               </Col>
           </Row>

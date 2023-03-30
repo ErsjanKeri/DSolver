@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import  { Button,  Row, Col, Input, Select, Upload, InputNumber, Typography, Dropdown, Space, Menu, message } from "antd"
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -9,6 +10,8 @@ const { Title, Text } = Typography;
 
 
 function Kombinatorik() {
+
+    const { t } = useTranslation()
   
     const [kind, setKind] = useState("")
     const [calculated, setCalculated] =useState(false);
@@ -132,7 +135,7 @@ function Kombinatorik() {
     <Row justify={"center"} className="mb-3">
 
         <Col xs={24} >
-            <Title style={{"textAlign":"center"}} level={4}>Kombinatorik-Rechner</Title>
+            <Title style={{"textAlign":"center"}} level={4}>{t("combinatorics")}</Title>
             
             <Row justify={"center"}>
               <Col md={8} sm={16} xs={24}>
@@ -142,11 +145,11 @@ function Kombinatorik() {
                             style={{"width" : "100%"}}
                             onChange={(e) => { setKind(e) }}
                             options={[
-                                { value: 's1', label: 'Stirling Zahlen 1. Art' },
-                                { value: 's2', label: 'Stirling Zahlen 2. Art' },
+                                { value: 's1', label: t("stirling-numbers-1") },
+                                { value: 's2', label: t("stirling-numbers-2") },
                                 { value: 'p', label: 'P_(n,k)' },
                             ]}
-                            placeholder={"Auswählen..."}
+                            placeholder={`${t("select")}...`}
                         />
                     </Col>
                     <Col xs={24}>
@@ -160,7 +163,7 @@ function Kombinatorik() {
                             
                           </Col>
                           <Col sm={8} xs={24}>
-                              <Button  style={{"width" : "100%"}} type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "" ||kind === "")}>Berechnen</Button>
+                              <Button  style={{"width" : "100%"}} type="primary" onClick={calculate} disabled={(nInput === "" || kInput === "" ||kind === "")}>{t("solve")}</Button>
                             
                           </Col>
                         </Row>
