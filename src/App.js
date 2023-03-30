@@ -7,6 +7,9 @@ import Credits from './components/Credits';
 
 import { HashRouter as Router } from "react-router-dom"
 
+import i18next from "i18next"
+import { initReactI18next } from 'react-i18next';
+import translation from  "./translation.json"
 
 import { routes } from './routes';
 
@@ -14,13 +17,23 @@ import { routes } from './routes';
 import './main.less';
 
 
+i18next.use(initReactI18next).init(translation)
+
+let language = "de"
+if(localStorage.getItem("lang") !== null){
+  language = localStorage.getItem("lang")
+}
+
+i18next.changeLanguage(language)
+
+
+
+
 const App = () => {
   
 
   return (
     <>
-        
-
             <Router>
                 <Routes>
                     <Route path="" element={
