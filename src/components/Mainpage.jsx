@@ -7,7 +7,9 @@ import { routes } from '../routes';
 
 const { Meta } = Card;
 
+
 function Mainpage() {
+
 
   return (
     <>
@@ -32,12 +34,7 @@ function Mainpage() {
           )
         })}
 
-       
-
-      
-
-       
-      
+    
     </Row>
     
     </>

@@ -99,8 +99,5 @@ export const routes = [
       sidebar_icon : <NumberOutlined />, 
       component : <Kombinatorik />, 
    },
-   
-   
-   
 
 ]
