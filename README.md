@@ -32,7 +32,6 @@ The purpose of this page is to provide sample solutions to make learning easier.
     components
         -> folder containing all components
         -> for new components create new file/folder 
-        -> export the new component in the index.js file 
 
     main.less
         -> theme variables of the application
