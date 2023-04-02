@@ -156,6 +156,7 @@ import i18next from 'i18next';
               <Col></Col>
               <Col flex={"auto"}>
                 DSolver ©2023 Created with excellenz by not-so-excellent <a href="/#/credits">TUM students</a>.  {' '}
+                <br />
                 <a>
                   <Popover  placement="top" title={t("disclaimer")} content={<>
                     <Row className='disclaimer'>
