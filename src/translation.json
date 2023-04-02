@@ -181,7 +181,89 @@
             "translation": {}
         },
         "sq": {
-            "translation": {}
+            "translation":{
+                "overview": "Përmbledhja",
+                "dpll": "Algoritmi Davis–Putnam–Logemann–Loveland",
+                "eea": "Algoritmi i zhviluar Euklidian",
+                "havel-hakimi": "Algoritmi Havel-Hakimit",
+                "havel-hakimi-short": "Havel-Hakimi",
+                "truth-table": "Tabela e së vërtetës",
+                "relational-product": "Produkti relacional",
+                "relational-product-short": "Relacionet",
+                "matching": "Algoritmi Gale-Shapley",
+                "matching-short": "Fejesa",
+                "group-theory": "Teori e grupeve",
+                "combinatorics": "Kombinatorik",
+                "select": "Përzgjidh",
+                "solve": "Zgjidh",
+                "reveal": "Shfaq",
+                "back": "Para",
+                "next": "Tjetra",
+                "reset": "Rifillo",
+                "characteristics": "Karakteristikat",
+                "gcd": "PMP",
+                "groups": "Grupet",
+                "your-group": "Grupet e tua",
+                "generator": "Prodhues",
+                "four-color-theorem": "Çdo graf i thjeshtë dhe planar ka numër kromatik 4",
+                "chromatic-number": "Grafi ka numër kromatik {{amount}}",
+                "always-connected": "Grafi është gjithmone i bashkuar",
+                "not-always-connected": "Ky graf nuk është gjithmonë i bashkuar",
+                "graph-has-circle": "Ky graf ka një rreth",
+                "graph-has-eulertour": "Ky graf ka një rruge Euleri",
+                "graph-has-hamiltonian-path": "Ky graf ka një rruge Hamiltoni",
+                "graph-not-tree": "Nuk ekziston një pemë me këtë sekuencë",
+                "graph-not-always-plane-k5": "Grafi nuk është gjithmone planar, pasi K5 mund te ekzistojë si nën-graf",
+                "graph-not-always-plane-k33": "Grafi nuk është gjithmone planar, pasi K3,3 mund te ekzistojë si nën-graf",
+                "graph-is-plane": "Grafi është gjithmonë planar, pasi as K3,3 as K5 nuk mund te ekzistojnë si nën-grafe",
+                "realizable": "I mundur",
+                "not-realizable": "I pamundur",
+                "step": "Hapi",
+                "legend": "Legjenda",
+                "the-team": "Ekipi",
+                "disclaimer": "Kujtesë",
+                "disclaimer-body": "Shënim: We have created everything to the best of our knowledge and belief, but of course we can not exclude errors. Therefore, we can not guarantee any results. Please let us know via the feedback form if you find any errors/bugs. The information from the lecture notes or from the „Übungsleitung“ is always valid.\nThe purpose of this website is to get sample solutions to make learning easier. It is not a substitute for dealing with the material, e.g. doing the EEA yourself. The point of DS is not to memorize algorithms, e.g. to perform the EEA perfectly, since it is quite trivial to automate it (we managed to do it), but to understand how these algorithms basically work and WHY they work.",
+                "stirling-numbers-1": "Numrat Stirling lloji i parë",
+                "stirling-numbers-2": "Numrat Stirling lloji i dytë",
+
+                "unmatch-rematch": "Ndajmë A{{manIndex}} me B{{toBeHeartBroken}} dhe lidhim B{{womanId}} me A{{manIndex}}.",
+                "cannot-be-matched": "A{{manIndex}} dhe B{{womanId}} nuk mund te lidhen, sepse A{{manIndex}} preferon B{{prefIndex}} më shumë se B{{womanId}}.",
+                "unmatched-get-matched": "Lidhim A{{manIndex}} me B{{womanId}}, sepse A{{manIndex}} është akoma beqar",
+                
+                "is-reflexive": "Relacioni është refleksiv",
+                "is-not-reflexive": "Relacioni nuk është refleksiv",
+                "symmetric": "Relacioni është simetrik",
+                "antisymmetric": "Relacioni është anti-simetrik",
+                "asymmetric": "Relacioni është asyimetrik",
+                "transitive": "Relacioni është transitiv",
+                "equivalence-relation": "Relacion equivalent",
+                "partial-order": "Radhitje e pjesshme",
+
+                "how-to-remove-vertex-edge": "Largo kulmet / skajet",
+                "how-to-remove-vertex-edge-explanation": "Kliko mbi kulmin / skajin dhe kliko mbi delete në tastierë",
+                "how-to-connect-vertecies": "Bashko kulmet",
+                "how-to-connect-vertecies-explanation": "Mbaj shtypur shiftin dhe formo një vijë midis kulmeve",
+                "how-to-reflexive-button": "Refleksive",
+                "how-to-reflexive-button-explanation": "E kthen kulmin në reflexive",
+                "how-to-symmetric-button": "Simetrik",
+                "how-to-symmetric-button-explanation": "Kur e aktivizuar, çdo skaj i ri do jetë simetrik",
+
+                "make-reflexive-button": "Bëje reflexive",
+                "symmetric-switch-on": "Simetrike",
+                "symmetric-switch-off": "Jo simetrike",
+
+                "reflexive-transitive-closure": "Refleksive-transitive-closure",
+                "transitive-closure": "Transitive-closure",
+                "union": "Bashkimi",
+                "intersection": "Prerja",
+
+                "characteristics-of-relation": "Karakteristikat e {{resName}}",
+
+
+                "placeholder-vertex-id": "Id e kulmit",
+                "add-vertex": "Shto kulm"
+
+            }
         },
         "tr":{
             "translation": {}
