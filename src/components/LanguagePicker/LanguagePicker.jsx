@@ -2,13 +2,10 @@ import React, { useEffect, useState }from "react";
 
 import { Select, Space } from "antd";
 import i18next from "i18next";
-import { useTranslation } from "react-i18next";
 
 function LanguagePicker() {
     // i18n
 
-    const {t, i18n} = useTranslation()
- 
     const items = [
         {
             label: "🇩🇪 Deutsch",
@@ -41,7 +38,7 @@ function LanguagePicker() {
             <Select
                 defaultValue={lang}
                 options={items}
-                style={{width: "7.2rem"}}
+                style={{width: "8rem"}}
                 onChange={(e) => {
                     localStorage.setItem("lang", e)
                     setLang(e)
