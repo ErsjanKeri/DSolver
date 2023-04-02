@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Col, Divider, Row, Typography, Button, Space } from "antd";
 
 import Preferenzen from "./Preferenzen";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography
 
@@ -31,6 +32,9 @@ function generateMatrix(length, letter) {
 
 
 export default function Matching() {
+    // i18n
+    const {t} = useTranslation()
+
     const [initialLength, setInitialLength] = useState(4)
 
     // female matrix
@@ -169,12 +173,14 @@ export default function Matching() {
                     women[womanId][women[womanId].findIndex(obj => obj.id === manIndex.toString())].matched = true
 
                     // return `Unmatching A${manIndex} mit B${toBeHeartBroken}, and matching B${womanId} mit A${manIndex}`
-                    return `Entmatchen von A${manIndex} und B${toBeHeartBroken} und B${womanId} und A${manIndex} matchen.`
+                    return t("unmatch-rematch", {manIndex: manIndex, toBeHeartBroken: toBeHeartBroken, womanId: womanId})
+                    // return `Entmatchen von A${manIndex} und B${toBeHeartBroken} und B${womanId} und A${manIndex} matchen.`
                 }
                 
                 women[womanId][manIndex].done = true; 
                 // return `Cannot match B${womanId} mit A${manIndex}, weil A${manIndex} prefers B${men[manIndex][alreadyIndex].id} more als B${womanId}`
-                return `A${manIndex} kann nicht mit B${womanId} gematched werden, da A${manIndex} B${men[manIndex][alreadyIndex].id} gegenüber B${womanId} bervorzugt.`
+                // return `A${manIndex} kann nicht mit B${womanId} gematched werden, da A${manIndex} B${men[manIndex][alreadyIndex].id} gegenüber B${womanId} bervorzugt.`
+                return t("cannot-be-matched", {manIndex: manIndex, womanId: womanId, prefIndex: men[manIndex][alreadyIndex].id })
 
 
             } else {
@@ -184,7 +190,8 @@ export default function Matching() {
             
                 matches++;
                 // return `Matching A${manIndex} mit B${womanId}, weil A${manIndex} noch nicht gematched ist`; 
-                return `A${manIndex} und B${womanId} matchen, da A${manIndex} noch nicht gematched wurde.`; 
+                // return `A${manIndex} und B${womanId} matchen, da A${manIndex} noch nicht gematched wurde.`; 
+                return t("unmatched-get-matched", {manIndex: manIndex, womanId: womanId})
             }
         }
     }
@@ -216,10 +223,10 @@ export default function Matching() {
                             <Col xl={10} lg={24} md={24} sm={24} xs={24}>
                                 <Row gutter={[8,8]}>
                                     <Col lg={12} md={12} sm={12} xs={24}>
-                                        <Button style={{"width" : "100%"}} danger disabled={!calculated} onClick={() => { reset() }}>Zurücksetzen</Button>
+                                        <Button style={{"width" : "100%"}} danger disabled={!calculated} onClick={() => { reset() }}>{t("reset")}</Button>
                                     </Col>
                                     <Col lg={12} md={12} sm={12} xs={24}>
-                                        <Button style={{"width" : "100%"}} disabled={calculated} onClick={() => { calculate() }}>Berechnen</Button>
+                                        <Button style={{"width" : "100%"}} disabled={calculated} onClick={() => { calculate() }}>{t("solve")}</Button>
                                     </Col>
                                 </Row>
                             </Col>
@@ -232,7 +239,7 @@ export default function Matching() {
                                                 setMatrixB(states[states.length-1].matrixB)
                                                 setErklarung(states[states.length-1].desc)
                                                 setCurrentState(states.length-1)
-                                                }}>Lösen</Button>  
+                                                }}>{t("reveal")}</Button>  
                                         </Col>
                                         <Col lg={8} sm={8} xs={8}>
                                             <Button style={{"width" : "100%"}} disabled={!calculated || currentState<1}  
@@ -244,7 +251,7 @@ export default function Matching() {
                                                 setCurrentState(currentState-1)
 
                                                 
-                                            }}>Zurück</Button>
+                                            }}>{t("back")}</Button>
                                         </Col>
                                         <Col lg={8} sm={8} xs={8}>
                                                 <Button style={{"width" : "100%"}} disabled={!calculated || currentState === states.length-1} onClick={() => { 
@@ -253,7 +260,7 @@ export default function Matching() {
                                                 setErklarung(states[currentState+1].desc)
                                                 setCurrentState(currentState+1)
                                                 
-                                            }}>Weiter</Button>
+                                            }}>{t("next")}</Button>
                                         </Col>
 
                                 </Row>

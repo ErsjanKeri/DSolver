@@ -20,6 +20,7 @@
                 "reveal": "Reveal",
                 "back": "Back",
                 "next": "Next",
+                "reset": "Reset",
                 "characteristics": "Characteristics",
                 "gcd": "gcd",
                 "groups": "Groups",
@@ -44,8 +45,44 @@
                 "disclaimer": "Disclaimer",
                 "disclaimer-body": "Note: We have created everything to the best of our knowledge and belief, but of course we can not exclude errors.Therefore, we can not guarantee any results. Please let us know via the feedback form if you find any errors/bugs. The information from the lecture notes or from the „Übungsleitung“ is always valid.\nThe purpose of this website is to get sample solutions to make learning easier. It is not a substitute for dealing with the material, e.g. doing the EEA yourself. The point of DS is not to memorize algorithms, e.g. to perform the EEA perfectly, since it is quite trivial to automate it (we managed to do it), but to understand how these algorithms basically work and WHY they work.",
                 "stirling-numbers-1": "Stirling numbers first kind",
-                "stirling-numbers-2": "Stirling numbers second kind"
+                "stirling-numbers-2": "Stirling numbers second kind",
 
+                "unmatch-rematch": "Unmatching A{{manIndex}} and B{{toBeHeartBroken}} and matching B{{womanId}} and A{{manIndex}}.",
+                "cannot-be-matched": "A{{manIndex}} and B{{womanId}} cannot be matched, since A{{manIndex}} prefers B{{prefIndex}} over B{{womanId}}.",
+                "unmatched-get-matched": "Match A{{manIndex}} and B{{womanId}}, since A{{manIndex}} is still unmatched.",
+                
+                "is-reflexive": "Relation is reflexive",
+                "is-not-reflexive": "Relation is not reflexive",
+                "symmetric": "Relation is symmetric",
+                "antisymmetric": "Relation is anti-symmetric",
+                "asymmetric": "Relation is asymmetric",
+                "transitive": "Relation is transitive",
+                "equivalence-relation": "Equivalence-relation",
+                "partial-order": "Partial order",
+
+                "how-to-remove-vertex-edge": "Remove vertecies / edges",
+                "how-to-remove-vertex-edge-explanation": "Click on the vertex / edge and press delete on your keyboard",
+                "how-to-connect-vertecies": "Connect vertecies",
+                "how-to-connect-vertecies-explanation": "Hold shift and drag-and-drop while holding left-click",
+                "how-to-reflexive-button": "Reflexive",
+                "how-to-reflexive-button-explanation": "Makes all vertecies reflexive",
+                "how-to-symmetric-button": "Symmetric",
+                "how-to-symmetric-button-explanation": "If activated, all newly added edges will be symmetric",
+
+                "make-reflexive-button": "Make reflexive",
+                "symmetric-switch-on": "Symmetric",
+                "symmetric-switch-off": "Not symmetric",
+
+                "reflexive-transitive-closure": "Reflexive-transitive-closure",
+                "transitive-closure": "Transitive-closure",
+                "union": "Union",
+                "intersection": "Intersection",
+
+                "characteristics-of-relation": "Characteristics of {{resName}}",
+
+
+                "placeholder-vertex-id": "Vertex id",
+                "add-vertex": "Add vertex"
 
             }
         },
@@ -68,6 +105,7 @@
                 "reveal": "Lösen",
                 "back": "Zurück",
                 "next": "Weiter",
+                "reset": "Zurücksetzen",
                 "characteristics": "Eigenschaften",
                 "gcd": "ggt",
                 "groups": "Gruppen",
@@ -92,8 +130,51 @@
                 "disclaimer": "Disclaimer",
                 "disclaimer-body": "Hinweis Wir haben alles nach bestem Wissen und Gewissen erstellt, können aber Fehler natürlich nicht ausschließen. Deshalb können wir keine Gewähr für irgendwelche Ergebnisse geben. Lasst uns gerne über die Feedback-Form wissen, falls ihr einen Fehler/Bug findet. Es gelten immer die Informationen aus den Vorlesungsunterlagen bzw. von der Übungsleitung.\nDer Zweck dieser Seite ist es, sich Musterlösungen zu erstellen, um das Lernen zu erleichtern. Es ersetzt nicht sich mit dem Stoff auseinanderzusetzen, z.B. den EEA selbst durchzuführen. Es geht bei DS nicht darum, sich Algorithmen zu merken, z.B. den EEA perfekt auszuführen, da es ziemlich trivial ist, ihn zu automatisieren (wir haben es ja auch hinbekommen), sondern darum, zu verstehen, wie diese Algorithmen grundsätzlich funktionieren und WARUM sie funktionieren.",
                 "stirling-numbers-1": "Stirling Zahlen 1. Art",
-                "stirling-numbers-2": "Stirling Zahlen 2. Art"
+                "stirling-numbers-2": "Stirling Zahlen 2. Art",
+
+
+
+                "unmatch-rematch": "Entmatchen von A{{manIndex}} und B{{toBeHeartBroken}} und B{{womanId}} und A{{manIndex}} matchen.",
+                "cannot-be-matched": "A{{manIndex}} kann nicht mit B{{womanId}} gematched werden , da A{{manIndex}} B{{prefIndex}} gegenüber B{{womanId}} bevorzugt.",
+                "unmatched-get-matched": "A{{manIndex}} und B{{womanId}} matchen, da A{{manIndex}} noch nicht gematched wurde.",
+
+
+                "is-reflexive": "Relation ist reflexiv",
+                "is-not-reflexive": "Relation ist irreflexiv",
+                "symmetric": "Relation ist symmetrisch",
+                "antisymmetric": "Relation ist anti-symmetrisch",
+                "asymmetric": "Relation ist asymmetrisch",
+                "transitive": "Relation ist transivi",
+                "equivalence-relation": "Äquivalenzrelation",
+                "partial-order": "Partielle Ordnung",
+
+                "how-to-remove-vertex-edge": "Knoten / Kante entfernen",
+                "how-to-remove-vertex-edge-explanation": "Knoten/Kante anklicken und delte auf der Tastatur drücken",
+                "how-to-connect-vertecies": "Konten verbinden",
+                "how-to-connect-vertecies-explanation": "Shift gedrückt halten und mit Links-Klick gedrückt halten die Knoten verbinden.",
+                "how-to-reflexive-button": "Reflexiv",
+                "how-to-reflexive-button-explanation": "Macht die Knoten reflexiv",
+                "how-to-symmetric-button": "Symmetrisch",
+                "how-to-symmetric-button-explanation": "Wenn aktiviert: Neu hinzugefügte Kanten werden symmetrisch",
+
+                "make-reflexive-button": "Reflexiv machen",
+                "symmetric-switch-on": "Symmetrisch",
+                "symmetric-switch-off": "Nicht symmetrisch",
+
+                "reflexive-transitive-closure": "Reflexiv-Transiv Hülle",
+                "transitive-closure": "Transitive Hülle",
+                "union": "Vereinigung",
+                "intersection": "Schnitt",
+
+                "characteristics-of-relation": "Eigenschaften von: {{resName}}",
                 
+                "placeholder-vertex-id": "Knoten ID",
+                "add-vertex": "Knoten hinzufügen"
+
+
+            
+
+
             }
         },
         "zh": {
