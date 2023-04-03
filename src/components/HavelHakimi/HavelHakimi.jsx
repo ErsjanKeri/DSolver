@@ -6,6 +6,7 @@ import { Row, Col, Typography, Button, Input } from "antd"
 import HavelGraph from './HavelGraph';
 
 import './styles.css'
+import { useTranslation } from 'react-i18next';
 
 
 const { Title, Text } = Typography;
@@ -13,7 +14,12 @@ const { Title, Text } = Typography;
 
 
 
+
 function HavelHakimi() {
+    // i18n
+    const {t} = useTranslation();
+
+    // state hooks
     const [userInput, setUserInput] = useState("")
     const [rawFolge, setRawFolge] = useState([])
     const [represantable, setRepresentable] = useState(false)
@@ -178,10 +184,10 @@ function HavelHakimi() {
         let farbbar;
 
         if (kuratowski.planar) {
-            farbbar = "Jeder planare und einfache Graph ist 4-Färbbar";  // vier farbe satz 
+            farbbar = t("four-color-thorem");  // vier farbe satz 
         } else {
             const anzahl = Math.floor(0.5 + Math.sqrt(2*E + 0.25)); // die formel 
-            farbbar = "Graph ist " + anzahl + " Färbbar"
+            farbbar = t("chromatic-number", {"amount": anzahl})
         }
 
         let nichtBaum = hatKreis || (!hasLeafs(gradArr)) || !(E === V -1); // useful if true 
@@ -189,28 +195,28 @@ function HavelHakimi() {
         const eig = []
 
         if (zusammenhangend) {
-            eig.push("Diese Graph ist immer zusammenhängend")
+            eig.push(t("always-connected"))
         } else {
-          eig.push("Graph kann auch nicht zusammenhängend sein")
+          eig.push(t("not-always-connected"))
         }
 
         if (hatKreis) {
-          eig.push("Graph enthält einen Kreis")
+          eig.push(t("graph-has-circle"))
         }
 
         if (hatEulertour) {
-          eig.push( "Graph enthält eine Eulertour")
+          eig.push(t("graph-has-eulertour"))
         }
 
         if (hatHamiltonkreis) {
-          eig.push("Graph enthält einen Hamiltonkreis")
+          eig.push(t("graph-has-hamiltonian-path"))
          
         }
 
         eig.push(kuratowski.reason)
 
         if (nichtBaum) {
-            eig.push("Es gibt keinen Baum mit dieser Gradfolge")
+            eig.push(t("graph-not-tree"))
         } 
 
         eig.push(farbbar)
@@ -259,7 +265,7 @@ function HavelHakimi() {
             console.log(greaterThanFour)
             
             if (greaterThanFour.length >= 5) {
-                return {planar: false, reason : "Nicht immer planar, K5 kann ein Minor sein"}; 
+                return {planar: false, reason : t("graph-not-always-plane-k5")}; 
             } 
 
 
@@ -269,11 +275,11 @@ function HavelHakimi() {
                   return num >= 3;
                 });
                 if (greaterThanThree.length >= 6) {
-                    return {planar: false, reason : "Nicht immer planar, K3,3 kann ein Minor sein"}; 
+                    return {planar: false, reason : t("graph-not-always-plane-k33")}; 
                 } 
             }
         }
-        return {planar: true, reason : "Planar, weder K3,3 noch K5 sind Minor"}; 
+        return {planar: true, reason : t("graph-is-plane")}; 
 
     }
 
@@ -281,7 +287,7 @@ function HavelHakimi() {
       <>
           <Row gutter={[16, 16]}>
               <Col md={24} xs={24}>
-                <Title style={{"textAlign":"center"}} level={4}>Havel-Hakimi Algorithmus</Title>
+                <Title style={{"textAlign":"center"}} level={4}>{t("havel-hakimi")}</Title>
 
               </Col>
               <Col md={20} sm={12} xs={24}>
@@ -300,7 +306,7 @@ function HavelHakimi() {
                       calculateHakimi()
                     }}
                   >
-                    Berechnen</Button>
+                    {t("solve")}</Button>
               </Col>
           </Row>
 
@@ -309,12 +315,12 @@ function HavelHakimi() {
             
           <Row gutter={[16,16]} className="mt-4">
                 <Col xs={24}>
-                    <Title style={{"textAlign" : "center"}} level={4}>{represantable ? ("Realisierbar") : ("Nicht Realisierbar")}</Title>
+                    <Title style={{"textAlign" : "center"}} level={4}>{represantable ? t("realizable") : t("not-realizable")}</Title>
                 </Col>
 
                 {represantable && (<>
                   <Col xs={24} className="mb-3">
-                      <Title level={5}>Eigenschaften: </Title>
+                      <Title level={5}>{t("characteristics")}: </Title>
                       <ul className='eigenschaften'>
                           {eigenschaften.map(e => {
                             return (
@@ -336,7 +342,7 @@ function HavelHakimi() {
                                 <Row className='mb-1'>
                                   
                                   <Col xs={24}>
-                                      <Title style={{"marginBottom" : "5px", "paddingBottom" : "0"}} level={5}>Schritt-{i+1}: ({r.join(", ")})</Title>
+                                      <Title style={{"marginBottom" : "5px", "paddingBottom" : "0"}} level={5}>{t("step")}-{i+1}: ({r.join(", ")})</Title>
                                   </Col>
                                   
                                     {represantable && (<>

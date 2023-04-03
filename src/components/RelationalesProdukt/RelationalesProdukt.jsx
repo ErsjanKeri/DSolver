@@ -3,6 +3,7 @@ import { Col, Row, Input, Button, Switch, Space, Typography, Popover } from "ant
 import { QuestionCircleOutlined } from "@ant-design/icons"
 import './styles.css' 
 import { Graphs }  from "./Graphs";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -48,6 +49,9 @@ const defaultEdges = [
 
 
 export default function RelationalesProdukt() {
+    // i18n
+    const { t } = useTranslation()
+
     const childRefR = useRef(null);
     const childRefS = useRef(null);
 
@@ -245,30 +249,30 @@ export default function RelationalesProdukt() {
         const eig = []
 
         if (reflexive) {
-          eig.push("Relation ist reflexiv")
+          eig.push(t("is-reflexive"))
         }
         if (irreflexive) {
-          eig.push("Relation ist irreflexiv")
+          eig.push(t("is-not-reflexive"))
         }
         if (symmetrisch) {
-          eig.push("Relation ist symmetrisch")
+          eig.push(t("symmetric"))
         }
         if (antisymmetrisch) {
-          eig.push("Relation ist antisymmetrisch")
+          eig.push(t("antisymmetric"))
         }
         if (antisymmetrisch && irreflexive) {
-          eig.push("Relation ist asymmetrisch")
+          eig.push(t("asymmetric"))
         }
         if (transitive) {
-          eig.push("Relation ist transitiv")
+          eig.push(t("transitive"))
         }
 
 
         if (reflexive && symmetrisch && transitive) {
-          eig.push("Aquivalenzrelation")
+          eig.push(t("equivalence-realtion"))
         }
         if (reflexive && antisymmetrisch && transitive) {
-          eig.push("Partielle Ordnung")
+          eig.push(t("partial-order"))
         }
 
         setEigenschaften(eig)
@@ -285,23 +289,23 @@ export default function RelationalesProdukt() {
                       <Button style={{"width" : "100%"}}  onClick={() => { 
                           childRefR.current.makeReflexive();
                           childRefS.current.makeReflexive();
-                      }}>Reflexiv machen</Button>
+                      }}>{t("make-reflexive-button")}</Button>
                   </Col>
                   <Col lg={7} md={12} sm={20} xs={22}>
                     <Space>
-                          <Switch checkedChildren="Symmetrisch" checked={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren="Nicht Symmetrisch" defaultChecked={symmetrisch} />
+                          <Switch checkedChildren={t("symmetric-switch-on")} checked={symmetrisch} onChange={() => { setSymmetrisch(!symmetrisch) }} unCheckedChildren={t("symmetric-switch-off")} defaultChecked={symmetrisch} />
                           <a>
-                              <Popover  style={{"maxWidth" : "100%"}}  placement="bottom" title={"Legende"} content={<>
+                              <Popover  style={{"maxWidth" : "100%"}}  placement="bottom" title={t("legend")} content={<>
 
                                     <Row style={{"width" : "450px"}}>
-                                      <Col xs={12}><Text strong>Knoten/Kanten entfernen:</Text></Col>
-                                      <Col xs={12}>Knote/Kante anklicken und delete auf die Tastatur drücken</Col>
-                                      <Col xs={12}><Text strong>Knoten verbinden:</Text></Col>
-                                      <Col xs={12}>Shift gedrückt halten und malen</Col>
-                                      <Col xs={12}><Text strong>Reflexiv:</Text></Col>
-                                      <Col xs={12}>macht den Knoten reflexiv</Col>
-                                      <Col xs={12}><Text strong>Symmetrisch:</Text></Col>
-                                      <Col xs={12}>wenn aktiviert werden neue Kanten symmetrisch</Col>
+                                      <Col xs={12}><Text strong>{t("how-to-remove-vertex-edge")}:</Text></Col>
+                                      <Col xs={12}>{t("how-to-remove-vertex-edge-explanation")}</Col>
+                                      <Col xs={12}><Text strong>{t("how-to-connect-vertecies")}:</Text></Col>
+                                      <Col xs={12}>{t("how-to-connect-vertecies-explanation")}</Col>
+                                      <Col xs={12}><Text strong>{t("how-to-reflexive-button")}:</Text></Col>
+                                      <Col xs={12}>{t("how-to-reflexive-button-explanation")}</Col>
+                                      <Col xs={12}><Text strong>{t("how-to-symmetric-button")}:</Text></Col>
+                                      <Col xs={12}>{t("how-to-symmetric-button-explanation")}</Col>
                                     </Row>
                               </>} trigger="click">
                                 {"  "}<QuestionCircleOutlined  style={{"fontSize" : "14px"}}  />
@@ -340,17 +344,17 @@ export default function RelationalesProdukt() {
 
                                     <Row style={{"width" : "250px"}}>
                                       <Col style={{"textAlign" : "center"}} xs={4}><Text strong>{"*"}</Text></Col>
-                                      <Col xs={18}>Reflexive Transitive Hülle</Col>
+                                      <Col xs={18}>{t("reflexive-transitive-closure")}</Col>
 
                                       <Col style={{"textAlign" : "center"}} xs={4}><Text strong>{"+"}</Text></Col>
-                                      <Col xs={18}>Transitive Hülle</Col>
+                                      <Col xs={18}>{t("transitive-closure")}</Col>
 
                                       <Col style={{"textAlign" : "center"}} xs={4}><Text strong>{"-"}</Text></Col>
                                       <Col xs={18}>^-1</Col>
                                       <Col style={{"textAlign" : "center"}} xs={4}><Text  strong>U</Text></Col>
-                                      <Col xs={18}>Vereinigung {"(union)"}</Col>
+                                      <Col xs={18}>{t("union")} {"(union)"}</Col>
                                       <Col style={{"textAlign" : "center"}} xs={4}><Text strong>I</Text></Col>
-                                      <Col xs={18}>Schnitt {"intersection"}</Col>
+                                      <Col xs={18}>{t("intersection")} {"intersection"}</Col>
                                     
                                     </Row>
                               </>} trigger="click">
@@ -367,7 +371,7 @@ export default function RelationalesProdukt() {
                             setCalculated(true)
                       
 
-                            }}>Berechnen</Button>
+                            }}>{t("solve")}</Button>
                     </Col>
 
            
@@ -381,7 +385,7 @@ export default function RelationalesProdukt() {
                 </Col>
                 {eigenschaften.length > 0 && (<>
                   <Col xs={24} className="mt-3">
-                      <Title level={5}>Eigenschaften von {resName}: </Title>
+                      <Title level={5}>{t("characteristics-of-relation", {resName: resName})}: </Title>
                       <ul className='eigenschaften'>
                           {eigenschaften.map(e => {
                             return (

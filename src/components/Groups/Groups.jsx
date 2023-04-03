@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 
 import { Col, Row, Typography, Input, Button, Select, Space } from "antd" 
 import Title from 'antd/es/typography/Title'
+import { useTranslation } from 'react-i18next'
 
 
 function Groups() {
+    // i18n
+    const {t} = useTranslation()
+
     const [menge, setMenge] = useState("")
     const [operation, setOperation] = useState("")
 
@@ -30,7 +34,7 @@ function Groups() {
             <Row justify={"center"} className="mb-3">
 
                 <Col xs={24} >
-                    <Title style={{"textAlign":"center"}} level={4}>Algebra Gruppen</Title>
+                    <Title style={{"textAlign":"center"}} level={4}>{t("group-theory")}</Title>
                     
                     <Row justify={"center"}>
                     <Col md={8} sm={16} xs={24}>
@@ -54,7 +58,7 @@ function Groups() {
                                                 { value: 'Zn', label: '<ℤₙ, +ₙ, 0>' },
                                                 { value: 'Zn*', label: '<ℤₙ*, ∙ₙ, 1>' },
                                             ]}
-                                            placeholder={"Gruppe"}
+                                            placeholder={t("groups")}
 
                                         />
                                 </Col>
@@ -69,7 +73,7 @@ function Groups() {
                                 </Row>
                             </Col>
                             <Col xs={24}>
-                                <Button disabled={menge === "" || operation === "" || n === 0 || !(n.split("").every(n => integer.includes(n)))} style={{"width" : "100%"}} onClick={() => { calculate() }} >Berechnen</Button>
+                                <Button disabled={menge === "" || operation === "" || n === 0 || !(n.split("").every(n => integer.includes(n)))} style={{"width" : "100%"}} onClick={() => { calculate() }} >{t("solve")}</Button>
                                 
                             </Col>
 
@@ -85,7 +89,7 @@ function Groups() {
                 <Row gutter={[24,16]} className="mt-4 mb-2" justify={"center"}>
                         
                         <Col xs={24}>
-                            <Title style={{"textAlign" : "center"}} level={3}> Deine Gruppe: {"<"}ℤ
+                            <Title style={{"textAlign" : "center"}} level={3}> {t("your-group")}: {"<"}ℤ
                             {/*n und * hinter dem Z*/}
                             {showMenge !== "Z" && (<sub style={{fontSize: 12}}>{showN}</sub>)}
                             {showMenge === "Zn*" && (<sup>*</sup>)}, 
@@ -105,7 +109,7 @@ function Groups() {
                                             <Row>
                                                 <Col xs={12}>
                                                     <Title style={{"textAlign" : "left"}} level={5}>
-                                                        {'<'} {key} {'>'} {"("}{value.erzeugnis.length}{")"}  {value.isErzeuger && ("(erzeuger)")}
+                                                        {'<'} {key} {'>'} {"("}{value.erzeugnis.length}{")"}  {value.isErzeuger && (`(${t("generator")})`)}
                                                     </Title>
                                                 </Col>
                                                 <Col xs={12}>

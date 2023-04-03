@@ -1,0 +1,276 @@
+
+{
+    "resources": {
+        "en":{
+            "translation":{
+                "overview": "Overview",
+                "dpll": "Davis–Putnam–Logemann–Loveland algorithm",
+                "eea": "Extended Euclidean algorithm",
+                "havel-hakimi": "Havel-Hakimi algorithm",
+                "havel-hakimi-short": "Havel-Hakimi",
+                "truth-table": "Truth-table",
+                "relational-product": "Relational product",
+                "relational-product-short": "Relations",
+                "matching": "Gale-Shapley algorithm",
+                "matching-short": "Matching",
+                "group-theory": "Group Theory",
+                "combinatorics": "Combinatorics",
+                "select": "Select",
+                "solve": "Solve",
+                "reveal": "Reveal",
+                "back": "Back",
+                "next": "Next",
+                "reset": "Reset",
+                "characteristics": "Characteristics",
+                "gcd": "gcd",
+                "groups": "Groups",
+                "your-group": "Your groups",
+                "generator": "Generator",
+                "four-color-theorem": "Every plane and simple graph has a chromatic number of 4",
+                "chromatic-number": "The graph has a chromatic numnber of {{amount}}",
+                "always-connected": "This graph ist always connected",
+                "not-always-connected": "This graph isn't always connected",
+                "graph-has-circle": "This graph has a circle",
+                "graph-has-eulertour": "This graph has an eulertour",
+                "graph-has-hamiltonian-path": "This graph has a hamiltonian path",
+                "graph-not-tree": "There is no tree with this degree sequence",
+                "graph-not-always-plane-k5": "The graph isn't always plane since K5 can be a subgraph",
+                "graph-not-always-plane-k33": "The graph isn't always plane since K3,3 can be a subgraph",
+                "graph-is-plane": "The graph is plane since neither K3,3 nor K5 can be subgraphs",
+                "realizable": "Realizable",
+                "not-realizable": "Not Realizable",
+                "step": "Step",
+                "legend": "Legend",
+                "the-team": "The Team",
+                "disclaimer": "Disclaimer",
+                "disclaimer-body": "Note: We have created everything to the best of our knowledge and belief, but of course we can not exclude errors.Therefore, we can not guarantee any results. Please let us know via the feedback form if you find any errors/bugs. The information from the lecture notes or from the „Übungsleitung“ is always valid.\nThe purpose of this website is to get sample solutions to make learning easier. It is not a substitute for dealing with the material, e.g. doing the EEA yourself. The point of DS is not to memorize algorithms, e.g. to perform the EEA perfectly, since it is quite trivial to automate it (we managed to do it), but to understand how these algorithms basically work and WHY they work.",
+                "stirling-numbers-1": "Stirling numbers first kind",
+                "stirling-numbers-2": "Stirling numbers second kind",
+
+                "unmatch-rematch": "Unmatching A{{manIndex}} and B{{toBeHeartBroken}} and matching B{{womanId}} and A{{manIndex}}.",
+                "cannot-be-matched": "A{{manIndex}} and B{{womanId}} cannot be matched, since A{{manIndex}} prefers B{{prefIndex}} over B{{womanId}}.",
+                "unmatched-get-matched": "Match A{{manIndex}} and B{{womanId}}, since A{{manIndex}} is still unmatched.",
+                
+                "is-reflexive": "Relation is reflexive",
+                "is-not-reflexive": "Relation is not reflexive",
+                "symmetric": "Relation is symmetric",
+                "antisymmetric": "Relation is anti-symmetric",
+                "asymmetric": "Relation is asymmetric",
+                "transitive": "Relation is transitive",
+                "equivalence-relation": "Equivalence-relation",
+                "partial-order": "Partial order",
+
+                "how-to-remove-vertex-edge": "Remove vertecies / edges",
+                "how-to-remove-vertex-edge-explanation": "Click on the vertex / edge and press delete on your keyboard",
+                "how-to-connect-vertecies": "Connect vertecies",
+                "how-to-connect-vertecies-explanation": "Hold shift and drag-and-drop while holding left-click",
+                "how-to-reflexive-button": "Reflexive",
+                "how-to-reflexive-button-explanation": "Makes all vertecies reflexive",
+                "how-to-symmetric-button": "Symmetric",
+                "how-to-symmetric-button-explanation": "If activated, all newly added edges will be symmetric",
+
+                "make-reflexive-button": "Make reflexive",
+                "symmetric-switch-on": "Symmetric",
+                "symmetric-switch-off": "Not symmetric",
+
+                "reflexive-transitive-closure": "Reflexive-transitive-closure",
+                "transitive-closure": "Transitive-closure",
+                "union": "Union",
+                "intersection": "Intersection",
+
+                "characteristics-of-relation": "Characteristics of {{resName}}",
+
+
+                "placeholder-vertex-id": "Vertex id",
+                "add-vertex": "Add vertex"
+
+            }
+        },
+        "de":{
+            "translation": {
+                "overview": "Übersicht",
+                "dpll": "Davis–Putnam–Logemann–Loveland Algorithmus",
+                "eea": "Erweiterter euklidischer Algorithmus",
+                "havel-hakimi": "Havel-Hakimi Algorithmus",
+                "havel-hakimi-short": "Havel-Hakimi",
+                "truth-table": "Warheitstablle",
+                "relational-product": "Relationales Produkt",
+                "relational-product-short": "Relationen",
+                "matching": "Gale-Shapley Algorithmus",
+                "matching-short": "Matching",
+                "group-theory": "Algebra Gruppen",
+                "combinatorics": "Kombinatorik",
+                "select": "Auswählen",
+                "solve": "Berechnen",
+                "reveal": "Lösen",
+                "back": "Zurück",
+                "next": "Weiter",
+                "reset": "Zurücksetzen",
+                "characteristics": "Eigenschaften",
+                "gcd": "ggt",
+                "groups": "Gruppen",
+                "your-group": "Deine Gruppen",
+                "generator": "Erzeuger",
+                "four-color-theorem": "Jeder planare und einfache Graph ist 4-Färbbar",
+                "chromatic-number": "Der Graph ist {{amount}}-Färbbar",
+                "always-connected": "Dieser Graph ist immer zusammenhängend",
+                "not-always-connected": "Dieser Graph ist nicht immer zusammenhängend",
+                "graph-has-circle": "Dieser Graph enthält einen Kreis",
+                "graph-has-eulertour": "Dieser Graph hat eine Eulertour",
+                "graph-has-hamiltonian-path": "Dieser Graph hat einen Hamiltonkreis",
+                "graph-not-tree": "Es gibt keinen Baum mit dieser Gradfolge",
+                "graph-not-always-plane-k5": "Der Graph ist nicht immer planar, da K5 ein Minor sein kann",
+                "graph-not-always-plane-k33": "Der Graph ist nicht immer Planar, da K3,3 ein Minor sein kann",
+                "graph-is-plane": "Der Graph ist planar da weder K3,3 noch K5 Minoren sind",
+                "realizable": "Realisierbar",
+                "not-realizable": "Nicht Realisierbar",
+                "step": "Schritt",
+                "legend": "Legende",
+                "the-team": "Das Team",
+                "disclaimer": "Disclaimer",
+                "disclaimer-body": "Hinweis Wir haben alles nach bestem Wissen und Gewissen erstellt, können aber Fehler natürlich nicht ausschließen. Deshalb können wir keine Gewähr für irgendwelche Ergebnisse geben. Lasst uns gerne über die Feedback-Form wissen, falls ihr einen Fehler/Bug findet. Es gelten immer die Informationen aus den Vorlesungsunterlagen bzw. von der Übungsleitung.\nDer Zweck dieser Seite ist es, sich Musterlösungen zu erstellen, um das Lernen zu erleichtern. Es ersetzt nicht sich mit dem Stoff auseinanderzusetzen, z.B. den EEA selbst durchzuführen. Es geht bei DS nicht darum, sich Algorithmen zu merken, z.B. den EEA perfekt auszuführen, da es ziemlich trivial ist, ihn zu automatisieren (wir haben es ja auch hinbekommen), sondern darum, zu verstehen, wie diese Algorithmen grundsätzlich funktionieren und WARUM sie funktionieren.",
+                "stirling-numbers-1": "Stirling Zahlen 1. Art",
+                "stirling-numbers-2": "Stirling Zahlen 2. Art",
+
+
+
+                "unmatch-rematch": "Entmatchen von A{{manIndex}} und B{{toBeHeartBroken}} und B{{womanId}} und A{{manIndex}} matchen.",
+                "cannot-be-matched": "A{{manIndex}} kann nicht mit B{{womanId}} gematched werden , da A{{manIndex}} B{{prefIndex}} gegenüber B{{womanId}} bevorzugt.",
+                "unmatched-get-matched": "A{{manIndex}} und B{{womanId}} matchen, da A{{manIndex}} noch nicht gematched wurde.",
+
+
+                "is-reflexive": "Relation ist reflexiv",
+                "is-not-reflexive": "Relation ist irreflexiv",
+                "symmetric": "Relation ist symmetrisch",
+                "antisymmetric": "Relation ist anti-symmetrisch",
+                "asymmetric": "Relation ist asymmetrisch",
+                "transitive": "Relation ist transivi",
+                "equivalence-relation": "Äquivalenzrelation",
+                "partial-order": "Partielle Ordnung",
+
+                "how-to-remove-vertex-edge": "Knoten / Kante entfernen",
+                "how-to-remove-vertex-edge-explanation": "Knoten/Kante anklicken und delte auf der Tastatur drücken",
+                "how-to-connect-vertecies": "Konten verbinden",
+                "how-to-connect-vertecies-explanation": "Shift gedrückt halten und mit Links-Klick gedrückt halten die Knoten verbinden.",
+                "how-to-reflexive-button": "Reflexiv",
+                "how-to-reflexive-button-explanation": "Macht die Knoten reflexiv",
+                "how-to-symmetric-button": "Symmetrisch",
+                "how-to-symmetric-button-explanation": "Wenn aktiviert: Neu hinzugefügte Kanten werden symmetrisch",
+
+                "make-reflexive-button": "Reflexiv machen",
+                "symmetric-switch-on": "Symmetrisch",
+                "symmetric-switch-off": "Nicht symmetrisch",
+
+                "reflexive-transitive-closure": "Reflexiv-Transiv Hülle",
+                "transitive-closure": "Transitive Hülle",
+                "union": "Vereinigung",
+                "intersection": "Schnitt",
+
+                "characteristics-of-relation": "Eigenschaften von: {{resName}}",
+                
+                "placeholder-vertex-id": "Knoten ID",
+                "add-vertex": "Knoten hinzufügen"
+
+
+            
+
+
+            }
+        },
+        "zh": {
+            "translation": {}
+        },
+        "sq": {
+            "translation":{
+                "overview": "Përmbledhja",
+                "dpll": "Algoritmi Davis–Putnam–Logemann–Loveland",
+                "eea": "Algoritmi i zhviluar Euklidian",
+                "havel-hakimi": "Algoritmi Havel-Hakimit",
+                "havel-hakimi-short": "Havel-Hakimi",
+                "truth-table": "Tabela e së vërtetës",
+                "relational-product": "Produkti relacional",
+                "relational-product-short": "Relacionet",
+                "matching": "Algoritmi Gale-Shapley",
+                "matching-short": "Fejesa",
+                "group-theory": "Teori e grupeve",
+                "combinatorics": "Kombinatorik",
+                "select": "Përzgjidh",
+                "solve": "Zgjidh",
+                "reveal": "Shfaq",
+                "back": "Para",
+                "next": "Tjetra",
+                "reset": "Rifillo",
+                "characteristics": "Karakteristikat",
+                "gcd": "PMP",
+                "groups": "Grupet",
+                "your-group": "Grupet e tua",
+                "generator": "Prodhues",
+                "four-color-theorem": "Çdo graf i thjeshtë dhe planar ka numër kromatik 4",
+                "chromatic-number": "Grafi ka numër kromatik {{amount}}",
+                "always-connected": "Grafi është gjithmone i bashkuar",
+                "not-always-connected": "Ky graf nuk është gjithmonë i bashkuar",
+                "graph-has-circle": "Ky graf ka një rreth",
+                "graph-has-eulertour": "Ky graf ka një rruge Euleri",
+                "graph-has-hamiltonian-path": "Ky graf ka një rruge Hamiltoni",
+                "graph-not-tree": "Nuk ekziston një pemë me këtë sekuencë",
+                "graph-not-always-plane-k5": "Grafi nuk është gjithmone planar, pasi K5 mund te ekzistojë si nën-graf",
+                "graph-not-always-plane-k33": "Grafi nuk është gjithmone planar, pasi K3,3 mund te ekzistojë si nën-graf",
+                "graph-is-plane": "Grafi është gjithmonë planar, pasi as K3,3 as K5 nuk mund te ekzistojnë si nën-grafe",
+                "realizable": "I mundur",
+                "not-realizable": "I pamundur",
+                "step": "Hapi",
+                "legend": "Legjenda",
+                "the-team": "Ekipi",
+                "disclaimer": "Kujtesë",
+                "disclaimer-body": "Shënim: We have created everything to the best of our knowledge and belief, but of course we can not exclude errors. Therefore, we can not guarantee any results. Please let us know via the feedback form if you find any errors/bugs. The information from the lecture notes or from the „Übungsleitung“ is always valid.\nThe purpose of this website is to get sample solutions to make learning easier. It is not a substitute for dealing with the material, e.g. doing the EEA yourself. The point of DS is not to memorize algorithms, e.g. to perform the EEA perfectly, since it is quite trivial to automate it (we managed to do it), but to understand how these algorithms basically work and WHY they work.",
+                "stirling-numbers-1": "Numrat Stirling lloji i parë",
+                "stirling-numbers-2": "Numrat Stirling lloji i dytë",
+
+                "unmatch-rematch": "Ndajmë A{{manIndex}} me B{{toBeHeartBroken}} dhe lidhim B{{womanId}} me A{{manIndex}}.",
+                "cannot-be-matched": "A{{manIndex}} dhe B{{womanId}} nuk mund te lidhen, sepse A{{manIndex}} preferon B{{prefIndex}} më shumë se B{{womanId}}.",
+                "unmatched-get-matched": "Lidhim A{{manIndex}} me B{{womanId}}, sepse A{{manIndex}} është akoma beqar",
+                
+                "is-reflexive": "Relacioni është refleksiv",
+                "is-not-reflexive": "Relacioni nuk është refleksiv",
+                "symmetric": "Relacioni është simetrik",
+                "antisymmetric": "Relacioni është anti-simetrik",
+                "asymmetric": "Relacioni është asyimetrik",
+                "transitive": "Relacioni është transitiv",
+                "equivalence-relation": "Relacion equivalent",
+                "partial-order": "Radhitje e pjesshme",
+
+                "how-to-remove-vertex-edge": "Largo kulmet / skajet",
+                "how-to-remove-vertex-edge-explanation": "Kliko mbi kulmin / skajin dhe kliko mbi delete në tastierë",
+                "how-to-connect-vertecies": "Bashko kulmet",
+                "how-to-connect-vertecies-explanation": "Mbaj shtypur shiftin dhe formo një vijë midis kulmeve",
+                "how-to-reflexive-button": "Refleksive",
+                "how-to-reflexive-button-explanation": "E kthen kulmin në reflexive",
+                "how-to-symmetric-button": "Simetrik",
+                "how-to-symmetric-button-explanation": "Kur e aktivizuar, çdo skaj i ri do jetë simetrik",
+
+                "make-reflexive-button": "Bëje reflexive",
+                "symmetric-switch-on": "Simetrike",
+                "symmetric-switch-off": "Jo simetrike",
+
+                "reflexive-transitive-closure": "Refleksive-transitive-closure",
+                "transitive-closure": "Transitive-closure",
+                "union": "Bashkimi",
+                "intersection": "Prerja",
+
+                "characteristics-of-relation": "Karakteristikat e {{resName}}",
+
+
+                "placeholder-vertex-id": "Id e kulmit",
+                "add-vertex": "Shto kulm"
+
+            }
+        },
+        "tr":{
+            "translation": {}
+        }
+
+    },
+    "lng": "de",
+    "fallbackLng": "en"
+}
+

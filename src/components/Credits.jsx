@@ -8,10 +8,12 @@ import { GithubOutlined,
     YoutubeOutlined,
     UserOutlined
 } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography
 
 function Credits() {
+    const {t} = useTranslation()
 
     const contributer = [
         {
@@ -132,7 +134,7 @@ function Credits() {
         <>
             <Row justify={"center"} className="mb-3">
                 <Col lg={18}>
-                    <Title style={{textAlign:"center"}} level={3}>Das Team</Title>
+                    <Title style={{textAlign:"center"}} level={3}>{t("the-team")}</Title>
 
 
                     <Row gutter={[32,32]} className="mt-4">

@@ -3,6 +3,7 @@ import { GraphView } from "react-digraph";
 import { Col, Row, Input, Button, Typography } from "antd"
 
 import './styles.css' 
+import { useTranslation } from "react-i18next";
 
 
 const EMPTY_EDGE_TYPE = "emptyEdge";
@@ -37,6 +38,8 @@ const GraphConfig = {
 const { Title, Text } = Typography
 
 const Graphs = forwardRef((props, ref) => {
+    // i18n
+    const { t } = useTranslation()
 
     useImperativeHandle(ref, () => ({
         makeReflexive,
@@ -150,7 +153,7 @@ const Graphs = forwardRef((props, ref) => {
                     <Col xl={14} lg={14} md={14} sm={21} xs={21}>
                         <Input 
                             name='node'
-                            placeholder={`Knoten ID`}
+                            placeholder={t("placeholder-vertex-id")}
                             value={nodeId}
                             
                             onChange={(e) => { setNodeId(e.target.value) }}
@@ -163,7 +166,7 @@ const Graphs = forwardRef((props, ref) => {
                                 style={{width: "100%"}}
                                 onClick={() => onCreateNode(100, 100) }
                                 >
-                                Knoten hinzufügen
+                                {t("add-vertex")}
                         </Button>
                     </Col>
 

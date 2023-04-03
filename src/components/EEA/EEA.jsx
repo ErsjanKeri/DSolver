@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import {Button, InputNumber, Table, Row, Col, Typography, Space } from "antd"
 import "./index.less"
+import { useTranslation } from 'react-i18next'
 
 
 const { Title, Text } = Typography
 
 
 function EEA() {
+  // i18n
+  const { t } = useTranslation()
+
   // initate table contents
   const collums = [
     {
@@ -136,7 +140,7 @@ function EEA() {
         <Row justify={"center"} className="mb-3">
 
             <Col xs={24} >
-                <Title style={{"textAlign":"center"}} level={4}>Erweiterter euklidischer Algorithmus</Title>
+                <Title style={{"textAlign":"center"}} level={4}>{t("eea")}</Title>
                 <Row justify={"center"}>
                   <Col md={8} sm={16} xs={24}>
                       <Row gutter={[8, 8]}>
@@ -151,7 +155,7 @@ function EEA() {
                               </Row>
                           </Col>
                           <Col xs={24}>
-                                <Button style={{"width" : "100%"}} type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>Berechnen</Button>
+                                <Button style={{"width" : "100%"}} type="primary" onClick={solve} disabled={(aInput === "" || bInput === "")}>{t("Berechnen")}</Button>
                           </Col>
                       </Row>
                       
@@ -171,7 +175,7 @@ function EEA() {
                                 <Button id="reveal"  onClick={() => {
                                     setDataSource(states[states.length - 1])
                                     setCounter(states.length - 1)
-                                  }}>Lösen</Button>  
+                                  }}>{t("reveal")}</Button>  
 
                                 
                                   <Button id="back" onClick={() => {
@@ -179,17 +183,13 @@ function EEA() {
                                               setDataSource(states[counter - 1])
                                               setCounter(counter - 1)
                                             }
-                                          }}>Zurück</Button>
+                                          }}>{t("back")}</Button>
                                 <Button id="next" type="primary" onClick={() => {
                                             if(counter < states.length - 1){
                                               setDataSource(states[counter + 1])
                                               setCounter(counter + 1)
                                             }
-                                          }}>Weiter</Button>
-
-                                {/* <Col>
-                                  ggt = α * a + β * b = {ggt}
-                                </Col> */}
+                                          }}>{t("next")}</Button> 
                                 
                           </Space>
                       </Col>
@@ -205,7 +205,7 @@ function EEA() {
                   size={"small"}/>
 
                   <h3 id="ggt">
-                    ggt = α * a + β * b = {ggt}
+                    {t("gcd")} = α * a + β * b = {ggt}
                   </h3>
               </Col> 
           </Row>

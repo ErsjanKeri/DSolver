@@ -10,11 +10,13 @@ import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
 
 
 import "./style.less"
+import { useTranslation } from 'react-i18next';
 
 const {Title } = Typography
 
 
 function TruthTable() {
+  const {t} = useTranslation()
   // hooks
   const [solved, setSolved] = useState(false)
   const [expr, setExpr] = useState("")
@@ -242,7 +244,7 @@ function TruthTable() {
 
           <Col xs={24} >
               <Title style={{"textAlign":"center"}} level={4}>
-                  Wahrheitstabelle 
+                  {t("truth-table")}
               </Title>
               
               <Row justify={"center"}>
@@ -256,7 +258,7 @@ function TruthTable() {
                                   placeholder="(a and b) impl (a xor c)"
                                   suffix={
                                     <a>
-                                    <Popover  placement="bottom" title={"Legende"} content={<>
+                                    <Popover  placement="bottom" title={t("legend")} content={<>
                                           <Table id="legend-table"
                                             pagination={false}
                                             dataSource={example}
@@ -271,7 +273,7 @@ function TruthTable() {
                                     }/>
                       </Col>
                       <Col xs={24}>
-                            <Button  style={{"width" : "100%"}}  onClick={solveTruthTable} disabled={expr === "" || !inputValid}>Berechnen</Button>
+                            <Button  style={{"width" : "100%"}}  onClick={solveTruthTable} disabled={expr === "" || !inputValid}>{t("solve")}</Button>
                       </Col>
                     </Row>
                 </Col>

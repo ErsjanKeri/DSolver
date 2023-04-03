@@ -20,11 +20,13 @@ import {
     ApartmentOutlined,
     SwapOutlined
   } from '@ant-design/icons';
-  import { Layout, Menu, theme, Popover, Row, Col ,Space} from 'antd';
+  import { Layout, Menu, theme, Popover, Row, Col ,Space, Dropdown} from 'antd';
   import React, {  useState } from 'react';
   import { Helmet } from "react-helmet";
 
   import { Link } from 'react-router-dom';
+
+  import LanguagePicker from './LanguagePicker/LanguagePicker';
 
   import icon from "../images/favicon.ico"
   import appleIcon from "../images/appleicon.png"
@@ -33,11 +35,18 @@ import {
   import smallCutout from "../images/smallCutout.png"
   
   import { routes } from '../routes';
+  import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
   
   const { Header, Content, Footer, Sider } = Layout;
 
 
   const CustomLayout = (props) => {
+    // i18n
+    const { t } = useTranslation()
+
+
+
     const [collapsed, setCollapsed] = useState(false);
 
     const {
@@ -49,7 +58,7 @@ import {
       <Layout hasSider>
         <Helmet>
             <meta charSet="utf-8" />
-            <title>Solver</title>
+            <title>DSolver</title>
             <meta name="description" content={"Application for solving DS exercises"}></meta>
             <link rel="icon" id="favicon" href={icon} />
             <link rel="apple-touch-icon" href={appleIcon} />
@@ -81,7 +90,7 @@ import {
                 > 
                 <Menu.Item key={"homepage"} icon={<FireOutlined />}>
                     <Link to="/">
-                        Übersicht
+                        {t("overview")}
                     </Link>
                     
                 </Menu.Item>
@@ -116,9 +125,11 @@ import {
           <Header
             style={{
               padding: 0,
-              background: colorBgContainer,
+              margin: 0,
+              paddingRight: "1rem",
+              backgroundColor: "transparent"
             }}
-          />
+          /> 
           <Content
             style={{
               //margin: '100px 24px 24px 24px',
@@ -140,23 +151,29 @@ import {
             style={{
               textAlign: 'center',
             }}
-          >
-               
-            DSolver ©2023 Created with excellenz by not-so-excellent <a href="/#/credits">TUM students</a>.  {' '}
-            <br />
-            <a>
-              <Popover  placement="top" title={"Disclaimer"} content={<>
-                <Row className='disclaimer'>
-                    <Col xs={24}>
-                    Hinweis Wir haben alles nach bestem Wissen und Gewissen erstellt, können aber Fehler natürlich nicht ausschließen. Deshalb können wir keine Gewähr für irgendwelche Ergebnisse geben. Lasst uns gerne über die Feedback-Form wissen, falls ihr einen Fehler/Bug findet. Es gelten immer die Informationen aus den Vorlesungsunterlagen bzw. von der Übungsleitung.
-                    <br/>
-                    Der Zweck dieser Seite ist es, sich Musterlösungen zu erstellen, um das Lernen zu erleichtern. Es ersetzt nicht sich mit dem Stoff auseinanderzusetzen, z.B. den EEA selbst durchzuführen. Es geht bei DS nicht darum, sich Algorithmen zu merken, z.B. den EEA perfekt auszuführen, da es ziemlich trivial ist, ihn zu automatisieren (wir haben es ja auch hinbekommen), sondern darum, zu verstehen, wie diese Algorithmen grundsätzlich funktionieren und WARUM sie funktionieren.
-                    </Col>
-                </Row>
-              </>} trigger="click">
-                  DISCLAIMER
-              </Popover>  
-            </a>             
+          > 
+            <Row wrap={true} justify="center" xl={20}>
+              <Col></Col>
+              <Col flex={"auto"}>
+                DSolver ©2023 Created with excellenz by not-so-excellent <a href="/#/credits">TUM students</a>.  {' '}
+                <br />
+                <a>
+                  <Popover  placement="top" title={t("disclaimer")} content={<>
+                    <Row className='disclaimer'>
+                        <Col xs={24}>
+                          {t("disclaimer-body")}
+                        </Col>
+                    </Row>
+                  </>} trigger="click">
+                      {t("disclaimer").toLocaleUpperCase()}
+                  </Popover>  
+                </a> 
+              </Col>
+              <Col>
+                <LanguagePicker/>
+              </Col>
+  
+            </Row>
           </Footer>
         </Layout>
       </Layout>
