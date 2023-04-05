@@ -12,20 +12,21 @@
     "antd": "^5.2.3",
     "craco-less": "^2.0.0",
     "i18next": "^22.4.13",
+    "konva": "8.4.3",
     "react": "18.0.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-digraph": "^8.1.0",
     "react-dom": "18.0.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^12.2.0",
+    "react-konva": "18.0.0-0",
+    
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "reactflow": "^11.5.6",
-    "konva": "8.4.3",
-    "react-konva": "18.0.0-0",
-
     "web-vitals": "^2.1.4"
   },
+
   "scripts": {
     "start": "craco start",
     "predeploy": "npm run build",

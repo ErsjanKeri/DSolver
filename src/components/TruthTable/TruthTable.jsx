@@ -6,8 +6,7 @@ import {
 } from '@ant-design/icons';
 
 
-import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
-
+import KVDiagram from '../KVDiagram/KVDiagram';
 
 import "./style.less"
 import { useTranslation } from 'react-i18next';
@@ -283,22 +282,7 @@ function TruthTable() {
       </Row> 
 
 
-      <Row>
-        <Col xs={24}>
-          <Stage width={window.innerWidth} height={window.innerHeight}>
-              <Layer>
-                  <Rect
-                    x={20}
-                    y={50}
-                    width={100}
-                    height={100}
-                    fill="red"
-                    shadowBlur={10}
-                  />
-              </Layer>
-            </Stage>                   
-        </Col>
-      </Row>
+      
 
       {solved && (
       <Row justify={"center"} className="mt-4">
@@ -312,7 +296,17 @@ function TruthTable() {
             
           </Col>
       </Row>
+     
       )}
+      {solved && (
+        <Row >
+        <Col>
+        <KVDiagram/>
+        </Col>
+      </Row>
+
+      )}
+     
    </>
   )
 }
