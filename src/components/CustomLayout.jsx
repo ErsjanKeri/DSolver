@@ -36,7 +36,7 @@ import {
   
   import { routes } from '../routes';
   import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
+  import i18next from 'i18next';
   
   const { Header, Content, Footer, Sider } = Layout;
 
