@@ -22,11 +22,11 @@ function LanguagePicker() {
         {
             label: "🇹🇷 Türkçe",
             value: "tr"
-        },
-        {
-            label: "🇨🇳 中文",
-            value: "zh"
         }
+        // {
+        //     label: "🇨🇳 中文",
+        //     value: "zh"
+        // }
     ]
 
 
