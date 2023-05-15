@@ -129,7 +129,8 @@ function EEA() {
     let beta = states[states.length - 1][0].beta
     setGgt(alpha * aInput + beta * bInput)
     setStates(states)
-    setDataSource(states[counter])
+    setCounter(0)
+    setDataSource(states[0])
     setSolved(true)
   }
 

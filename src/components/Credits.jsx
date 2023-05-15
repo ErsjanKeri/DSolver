@@ -36,7 +36,7 @@ function Credits() {
                 github: "https://github.com/Juli436", 
             }
         },
-    {
+        {
             name: "Adil Köken",
             links: {
                 github: "https://github.com/AdilKoken",
